@@ -1,87 +1,147 @@
-﻿# V2Ray Tester Pro
+# VlessParser
 
-![Version](https://img.shields.io/badge/version-5.1.2-blue.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
+[Project X](https://github.com/XTLS) originates from XTLS protocol, providing a set of network tools such as [Xray-core](https://github.com/XTLS/Xray-core) and [REALITY](https://github.com/XTLS/REALITY).
 
-**V2Ray Tester Pro** is an advanced, enterprise-grade tool for testing, filtering, and managing V2Ray/Xray configurations. It allows you to scan thousands of subscription links, verify their connectivity, measure speed (ping/download/upload), and export the working configurations.
+[README](https://github.com/XTLS/Xray-core#readme) is open, so feel free to submit your project [here](https://github.com/XTLS/Xray-core/pulls).
 
-## 🚀 New in v5.1.2
+## Donation & NFTs
 
-- **Modern GUI**: A completely redesigned interface with a dark theme, sidebar navigation, and dashboard.
-- **Dashboard**: Real-time statistics on total configs, working servers, and average ping.
-- **QR Code & Sharing**: Right-click on any result to generate a QR code or copy the configuration link.
-- **Performance**: Optimized testing engine with lower resource usage.
+- **ETH/USDT/USDC: `0xDc3Fe44F0f25D13CACb1C4896CD0D321df3146Ee`**
+- **Project X NFT: [Announcement of NFTs by Project X](https://github.com/XTLS/Xray-core/discussions/3633)**
+- **REALITY NFT: [XHTTP: Beyond REALITY](https://github.com/XTLS/Xray-core/discussions/4113)**
 
-## ✨ Features
+## License
 
-- **Protocol Support**: VMess, VLESS, Trojan, Shadowsocks.
-- **High Performance**: Asynchronous testing engine capable of handling thousands of configs.
-- **Smart Filtering**: Automatically removes duplicates and invalid configurations.
-- **Security**: Built-in security validator to block malicious payloads.
-- **GeoIP**: Detects server location (Country).
-- **Export**: Save results to JSON or copy directly to clipboard.
+[Mozilla Public License Version 2.0](https://github.com/XTLS/Xray-core/blob/main/LICENSE)
 
-## 🛠️ Installation
+## Documentation
 
-### Prerequisites
-- Windows 10/11 (64-bit)
-- [Python 3.11+](https://www.python.org/downloads/) (if running from source)
+[Project X Official Website](https://xtls.github.io)
 
-### Running the Executable
-1. Download the latest `V2Ray-Tester-Pro.exe` from the [Releases](https://github.com/yourusername/V2ray-Tester-Pro/releases) page.
-2. Ensure `xray.exe` and `geoip.dat` are in the same folder (or let the app download them).
-3. Run the application.
-   > **Note:** If you see a "Windows protected your PC" warning, click **More info** and then **Run anyway**. This happens because the app does not have a paid digital signature yet.
+## Telegram
 
-### Running from Source
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/V2ray-Tester-Pro.git
-   cd V2ray-Tester-Pro
-   ```
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-3. Run the application:
-   ```bash
-   python main.py
-   ```
+[Project X](https://t.me/projectXray)
 
-## 📖 Usage Guide
+[Project X Channel](https://t.me/projectXtls)
 
-### Dashboard
-The **Dashboard** gives you a quick overview of the current session. It shows the total number of configurations loaded and how many are currently working.
+[Project VLESS](https://t.me/projectVless) (non-Chinese)
 
-### Scan & Test
-1. Go to the **Scan & Test** tab.
-2. Click **Start New Scan**. The application will automatically fetch configurations from the defined sources (subscriptions).
-3. Watch the progress bar and status log.
+## Installation
 
-### Results
-1. Go to the **Results Table** tab to see the working configurations.
-2. **Right-click** on any row to:
-   - **Copy Link**: Copy the `vless://` or `vmess://` link to your clipboard.
-   - **Show QR Code**: Display a QR code to scan with your mobile V2Ray client (e.g., v2rayNG, Streisand).
+- Linux Script
+  - [XTLS/Xray-install](https://github.com/XTLS/Xray-install) (**Official**)
+  - [tempest](https://github.com/team-cloudchaser/tempest) (supports [`systemd`](https://systemd.io) and [OpenRC](https://github.com/OpenRC/openrc); Linux-only)
+- Docker
+  - [ghcr.io/xtls/xray-core](https://ghcr.io/xtls/xray-core) (**Official**)
+  - [teddysun/xray](https://hub.docker.com/r/teddysun/xray)
+  - [wulabing/xray_docker](https://github.com/wulabing/xray_docker)
+- Web Panel - **WARNING: Please DO NOT USE plain HTTP panels like 3X-UI**, as they are believed to be bribed by Iran GFW for supporting plain HTTP by default and refused to change (https://github.com/XTLS/Xray-core/pull/3884#issuecomment-2439595331), which has already put many users' data security in danger in the past few years. **If you are already using 3X-UI, please switch to the following panels, which are verified to support HTTPS and SSH port forwarding only:**
+  - [Marzban](https://github.com/Gozargah/Marzban)
+  - [Xray-UI](https://github.com/qist/xray-ui)
+  - [Hiddify](https://github.com/hiddify/Hiddify-Manager)
+- One Click
+  - [Xray-REALITY](https://github.com/zxcvos/Xray-script), [xray-reality](https://github.com/sajjaddg/xray-reality), [reality-ezpz](https://github.com/aleskxyz/reality-ezpz)
+  - [Xray_bash_onekey](https://github.com/hello-yunshu/Xray_bash_onekey), [XTool](https://github.com/LordPenguin666/XTool)
+  - [v2ray-agent](https://github.com/mack-a/v2ray-agent), [Xray_onekey](https://github.com/wulabing/Xray_onekey), [ProxySU](https://github.com/proxysu/ProxySU)
+- Magisk
+  - [Xray4Magisk](https://github.com/Asterisk4Magisk/Xray4Magisk)
+  - [Xray_For_Magisk](https://github.com/E7KMbb/Xray_For_Magisk)
+- Homebrew
+  - `brew install xray`
 
-## 🏗️ Building from Source
+## Usage
 
-To create a standalone `.exe` file:
+- Example
+  - [VLESS-XTLS-uTLS-REALITY](https://github.com/XTLS/REALITY#readme)
+  - [VLESS-TCP-XTLS-Vision](https://github.com/XTLS/Xray-examples/tree/main/VLESS-TCP-XTLS-Vision)
+  - [All-in-One-fallbacks-Nginx](https://github.com/XTLS/Xray-examples/tree/main/All-in-One-fallbacks-Nginx)
+- Xray-examples
+  - [XTLS/Xray-examples](https://github.com/XTLS/Xray-examples)
+  - [chika0801/Xray-examples](https://github.com/chika0801/Xray-examples)
+  - [lxhao61/integrated-examples](https://github.com/lxhao61/integrated-examples)
+- Tutorial
+  - [XTLS Vision](https://github.com/chika0801/Xray-install)
+  - [REALITY (English)](https://cscot.pages.dev/2023/03/02/Xray-REALITY-tutorial/)
+  - [XTLS-Iran-Reality (English)](https://github.com/SasukeFreestyle/XTLS-Iran-Reality)
+  - [Xray REALITY with 'steal oneself' (English)](https://computerscot.github.io/vless-xtls-utls-reality-steal-oneself.html)
+  - [Xray with WireGuard inbound (English)](https://g800.pages.dev/wireguard)
 
-1. Install PyInstaller:
-   ```bash
-   pip install pyinstaller
-   ```
-2. Run the build command:
-   ```bash
-   pyinstaller build.spec --clean --noconfirm
-   ```
-3. The executable will be generated in the `dist/` folder.
+## GUI Clients
 
-## 🤝 Contributing
+- OpenWrt
+  - [PassWall](https://github.com/xiaorouji/openwrt-passwall), [PassWall 2](https://github.com/xiaorouji/openwrt-passwall2)
+  - [ShadowSocksR Plus+](https://github.com/fw876/helloworld)
+  - [luci-app-xray](https://github.com/yichya/luci-app-xray) ([openwrt-xray](https://github.com/yichya/openwrt-xray))
+- Windows
+  - [v2rayN](https://github.com/2dust/v2rayN)
+  - [Furious](https://github.com/LorenEteval/Furious)
+  - [Invisible Man - Xray](https://github.com/InvisibleManVPN/InvisibleMan-XRayClient)
+- Android
+  - [v2rayNG](https://github.com/2dust/v2rayNG)
+  - [X-flutter](https://github.com/XTLS/X-flutter)
+  - [SaeedDev94/Xray](https://github.com/SaeedDev94/Xray)
+- iOS & macOS arm64
+  - [FoXray](https://apps.apple.com/app/foxray/id6448898396)
+  - [Streisand](https://apps.apple.com/app/streisand/id6450534064)
+- macOS arm64 & x64
+  - [V2rayU](https://github.com/yanue/V2rayU)
+  - [V2RayXS](https://github.com/tzmax/V2RayXS)
+  - [Furious](https://github.com/LorenEteval/Furious)
+  - [FoXray](https://apps.apple.com/app/foxray/id6448898396)
+- Linux
+  - [v2rayA](https://github.com/v2rayA/v2rayA)
+  - [Furious](https://github.com/LorenEteval/Furious)
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+## Others that support VLESS, XTLS, REALITY, XUDP, PLUX...
 
-## 📄 License
+- iOS & macOS arm64
+  - [Shadowrocket](https://apps.apple.com/app/shadowrocket/id932747118)
+- Xray Tools
+  - [xray-knife](https://github.com/lilendian0x00/xray-knife)
+- Xray Wrapper
+  - [XTLS/libXray](https://github.com/XTLS/libXray)
+  - [xtlsapi](https://github.com/hiddify/xtlsapi)
+  - [AndroidLibXrayLite](https://github.com/2dust/AndroidLibXrayLite)
+  - [Xray-core-python](https://github.com/LorenEteval/Xray-core-python)
+  - [xray-api](https://github.com/XVGuardian/xray-api)
+- [XrayR](https://github.com/XrayR-project/XrayR)
+  - [XrayR-release](https://github.com/XrayR-project/XrayR-release)
+  - [XrayR-V2Board](https://github.com/missuo/XrayR-V2Board)
+- [Clash.Meta](https://github.com/MetaCubeX/Clash.Meta)
+  - [clashN](https://github.com/2dust/clashN)
+  - [Clash Meta for Android](https://github.com/MetaCubeX/ClashMetaForAndroid)
+- [sing-box](https://github.com/SagerNet/sing-box)
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## Contributing
+
+[Code of Conduct](https://github.com/XTLS/Xray-core/blob/main/CODE_OF_CONDUCT.md)
+
+## Credits
+
+- [Xray-core v1.0.0](https://github.com/XTLS/Xray-core/releases/tag/v1.0.0) was forked from [v2fly-core 9a03cc5](https://github.com/v2fly/v2ray-core/commit/9a03cc5c98d04cc28320fcee26dbc236b3291256), and we have made & accumulated a huge number of enhancements over time, check [the release notes for each version](https://github.com/XTLS/Xray-core/releases).
+- For third-party projects used in [Xray-core](https://github.com/XTLS/Xray-core), check your local or [the latest go.mod](https://github.com/XTLS/Xray-core/blob/main/go.mod).
+
+## Compilation
+
+### Windows (PowerShell)
+
+```powershell
+$env:CGO_ENABLED=0
+go build -o xray.exe -trimpath -ldflags "-s -w -buildid=" ./main
+```
+
+### Linux / macOS
+
+```bash
+CGO_ENABLED=0 go build -o xray -trimpath -ldflags "-s -w -buildid=" ./main
+```
+
+### Reproducible Releases
+
+```bash
+make
+```
+
+## Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/XTLS/Xray-core.svg)](https://starchart.cc/XTLS/Xray-core)

@@ -1,24 +1,30 @@
 # -*- mode: python ; coding: utf-8 -*-
 
+import os
+
 block_cipher = None
+
+datas = [
+    ('config', 'config'),
+    ('core', 'core'),
+    ('gui', 'gui'),
+    ('utils', 'utils'),
+    ('geoip.dat', '.'),
+    ('geosite.dat', '.'),
+    ('xray.exe', '.'),
+    ('wxray.exe', '.'),
+    ('README.md', '.'),
+    ('LICENSE', '.')
+]
+
+if os.path.exists('.env'):
+    datas.append(('.env', '.'))
 
 a = Analysis(
     ['main.py'],
     pathex=[],
     binaries=[],
-    datas=[
-        ('config', 'config'),
-        ('core', 'core'),
-        ('gui', 'gui'),
-        ('utils', 'utils'),
-        ('geoip.dat', '.'),
-        ('geosite.dat', '.'),
-        ('xray.exe', '.'),
-        ('wxray.exe', '.'),
-        ('.env', '.'),
-        ('README.md', '.'),
-        ('LICENSE', '.')
-    ],
+    datas=datas,
     hiddenimports=[
         'PyQt6',
         'aiohttp',
@@ -48,7 +54,7 @@ exe = EXE(
     a.zipfiles,
     a.datas,
     [],
-    name='V2Ray-Tester-Pro',
+    name='VlessParser',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

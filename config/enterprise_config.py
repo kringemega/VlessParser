@@ -11,7 +11,7 @@ class EnterpriseConfig:
     """
     def __init__(self):
         # Application Metadata
-        self.APP_NAME = "V2Ray/Xray Enterprise"
+        self.APP_NAME = "VlessParser"
         self.APP_VERSION = "5.1.2"
         self.AUTHOR_NAME = "Shayan Taherkhani"
         self.AUTHOR_WEBSITE = "https://shayantaherkhani.ir"

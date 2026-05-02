@@ -22,7 +22,7 @@ def main():
     
     # 2. Setup Logging
     logger = setup_logger(
-        name="EnterpriseApp",
+        name="VlessParser",
         log_file=config.LOG_FILE,
         level=logging.INFO
     )
@@ -136,6 +136,12 @@ def main():
 
         # 5. Define Worker Factory (for GUI to create workers on demand)
         def create_worker():
+            current_aggregator, current_direct = config.get_rotating_sources(batch_size=10)
+            logger.info(
+                "Using GUI scan sources - Aggregators: %s, Direct: %s",
+                len(current_aggregator),
+                len(current_direct)
+            )
             return Worker(
                 app_state=app_state,
                 test_runner=test_runner,
@@ -143,8 +149,8 @@ def main():
                 network_manager=network_manager,
                 config_discoverer=config_discoverer,
                 subscription_manager=subscription_manager,
-                aggregator_links=batch_aggregator,
-                direct_config_sources=batch_direct,
+                aggregator_links=current_aggregator,
+                direct_config_sources=current_direct,
                 max_concurrent_tests=config.MAX_CONCURRENT_TESTS,
                 adaptive_testing=config.ADAPTIVE_TESTING,
                 adaptive_batch_max=config.ADAPTIVE_BATCH_MAX,
