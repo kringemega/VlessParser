@@ -5,46 +5,94 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: TROJAN-1 | 311ms
+- name: TROJAN-1 | 343ms
   type: trojan
   server: 195.123.209.189
   port: 8443
   password: '162534'
   sni: cchh2.pages.dev
-- name: VLESS-2 | 640ms
+- name: VLESS-2 | 756ms
   type: vless
-  server: partner.zoom.us
-  port: 80
-  uuid: 0a21537c-314a-44d0-ba19-b445a78275aa
-  network: ws
-- name: VLESS-3 | 275ms
+  server: 109.73.202.235
+  port: 2087
+  uuid: 5a98ca8a-52ae-11f1-bc2f-b65d770049c8
+  network: tcp
+- name: VLESS-3 | 474ms
   type: vless
-  server: gbr.nodsvpnspace.com
+  server: 5.42.115.10
+  port: 2087
+  uuid: 5a98ca8a-52ae-11f1-bc2f-b65d770049c8
+  network: tcp
+- name: VLESS-4 | 1047ms
+  type: vless
+  server: 195.133.84.136
+  port: 64003
+  uuid: e502ee54-8e2a-41c6-a3ca-3d192e8710fb
+  network: grpc
+- name: VLESS-5 | 448ms
+  type: vless
+  server: 176.124.211.23
+  port: 8446
+  uuid: 9ae07a59-f216-40b8-8250-9ffc26d95b55
+  network: tcp
+- name: VLESS-6 | 731ms
+  type: vless
+  server: 176.109.111.98
   port: 443
   uuid: 66036ae7-f4b4-4dd9-b72f-88b571c6ba26
   network: tcp
-- name: VLESS-4 | 387ms
+- name: VLESS-7 | 913ms
   type: vless
-  server: 5.188.224.248
+  server: 176.124.211.23
+  port: 8454
+  uuid: 9ae07a59-f216-40b8-8250-9ffc26d95b55
+  network: tcp
+- name: VLESS-8 | 790ms
+  type: vless
+  server: de4-node.vpnspacev.com
   port: 443
-  uuid: c8d1c6d3-388f-48fc-a8f0-ed90d955d096
+  uuid: 66036ae7-f4b4-4dd9-b72f-88b571c6ba26
+  network: tcp
+- name: VLESS-9 | 789ms
+  type: vless
+  server: 176.124.211.23
+  port: 8446
+  uuid: 3b521e44-e948-47a8-b1ef-31c5c847e0cc
+  network: tcp
+- name: VLESS-10 | 613ms
+  type: vless
+  server: 176.124.211.23
+  port: 8454
+  uuid: 3b521e44-e948-47a8-b1ef-31c5c847e0cc
   network: tcp
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - TROJAN-1 | 311ms
-  - VLESS-2 | 640ms
-  - VLESS-3 | 275ms
-  - VLESS-4 | 387ms
+  - TROJAN-1 | 343ms
+  - VLESS-2 | 756ms
+  - VLESS-3 | 474ms
+  - VLESS-4 | 1047ms
+  - VLESS-5 | 448ms
+  - VLESS-6 | 731ms
+  - VLESS-7 | 913ms
+  - VLESS-8 | 790ms
+  - VLESS-9 | 789ms
+  - VLESS-10 | 613ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - TROJAN-1 | 311ms
-  - VLESS-2 | 640ms
-  - VLESS-3 | 275ms
-  - VLESS-4 | 387ms
+  - TROJAN-1 | 343ms
+  - VLESS-2 | 756ms
+  - VLESS-3 | 474ms
+  - VLESS-4 | 1047ms
+  - VLESS-5 | 448ms
+  - VLESS-6 | 731ms
+  - VLESS-7 | 913ms
+  - VLESS-8 | 790ms
+  - VLESS-9 | 789ms
+  - VLESS-10 | 613ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
