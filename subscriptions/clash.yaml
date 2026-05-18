@@ -5,22 +5,46 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 198ms
+- name: TROJAN-1 | 311ms
+  type: trojan
+  server: 195.123.209.189
+  port: 8443
+  password: '162534'
+  sni: cchh2.pages.dev
+- name: VLESS-2 | 640ms
+  type: vless
+  server: partner.zoom.us
+  port: 80
+  uuid: 0a21537c-314a-44d0-ba19-b445a78275aa
+  network: ws
+- name: VLESS-3 | 275ms
   type: vless
   server: gbr.nodsvpnspace.com
   port: 443
   uuid: 66036ae7-f4b4-4dd9-b72f-88b571c6ba26
+  network: tcp
+- name: VLESS-4 | 387ms
+  type: vless
+  server: 5.188.224.248
+  port: 443
+  uuid: c8d1c6d3-388f-48fc-a8f0-ed90d955d096
   network: tcp
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 198ms
+  - TROJAN-1 | 311ms
+  - VLESS-2 | 640ms
+  - VLESS-3 | 275ms
+  - VLESS-4 | 387ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 198ms
+  - TROJAN-1 | 311ms
+  - VLESS-2 | 640ms
+  - VLESS-3 | 275ms
+  - VLESS-4 | 387ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
