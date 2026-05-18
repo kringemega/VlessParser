@@ -5,62 +5,22 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 241ms
+- name: VLESS-1 | 198ms
   type: vless
-  server: p3.hdlowstream.com
-  port: 443
-  uuid: 1a17fbd6-a54f-456c-8e71-5282893e2b69
-  network: tcp
-- name: VLESS-2 | 560ms
-  type: vless
-  server: 212.233.94.51
-  port: 443
-  uuid: dcbea8cb-2af9-4ceb-ac62-3fc7d3152b34
-  network: tcp
-- name: VLESS-3 | 345ms
-  type: vless
-  server: 5.188.143.235
+  server: gbr.nodsvpnspace.com
   port: 443
   uuid: 66036ae7-f4b4-4dd9-b72f-88b571c6ba26
-  network: tcp
-- name: VLESS-4 | 655ms
-  type: vless
-  server: 37.9.4.128
-  port: 443
-  uuid: fd365b7e-26eb-479a-a009-e182d827de04
-  network: tcp
-- name: VLESS-5 | 1422ms
-  type: vless
-  server: 89.208.228.75
-  port: 443
-  uuid: a2b2a4fb-7b34-472b-b4c0-e206fef1edfc
-  network: tcp
-- name: VLESS-6 | 557ms
-  type: vless
-  server: 212.233.94.51
-  port: 443
-  uuid: dcbea8cb-2af9-4ceb-ac62-3fc7d3152b34
   network: tcp
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 241ms
-  - VLESS-2 | 560ms
-  - VLESS-3 | 345ms
-  - VLESS-4 | 655ms
-  - VLESS-5 | 1422ms
-  - VLESS-6 | 557ms
+  - VLESS-1 | 198ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 241ms
-  - VLESS-2 | 560ms
-  - VLESS-3 | 345ms
-  - VLESS-4 | 655ms
-  - VLESS-5 | 1422ms
-  - VLESS-6 | 557ms
+  - VLESS-1 | 198ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
