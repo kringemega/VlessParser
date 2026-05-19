@@ -5,70 +5,22 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 464ms
+- name: VLESS-1 | 645ms
   type: vless
-  server: support.zoom.us
-  port: 8080
-  uuid: 759700eb-59a9-4523-9b65-1fe196e00b99
-  network: ws
-- name: VLESS-2 | 225ms
-  type: vless
-  server: gbr.nodsvpnspace.com
+  server: france.spectrum.vu
   port: 443
-  uuid: 66036ae7-f4b4-4dd9-b72f-88b571c6ba26
-  network: tcp
-- name: VLESS-3 | 221ms
-  type: vless
-  server: 176.109.107.24
-  port: 443
-  uuid: 66036ae7-f4b4-4dd9-b72f-88b571c6ba26
-  network: tcp
-- name: VLESS-4 | 914ms
-  type: vless
-  server: it.nodsvpnspace.com
-  port: 443
-  uuid: 66036ae7-f4b4-4dd9-b72f-88b571c6ba26
-  network: tcp
-- name: VLESS-5 | 785ms
-  type: vless
-  server: de4-node.vpnspacev.com
-  port: 443
-  uuid: 66036ae7-f4b4-4dd9-b72f-88b571c6ba26
-  network: tcp
-- name: VLESS-6 | 772ms
-  type: vless
-  server: 82.202.138.47
-  port: 443
-  uuid: 66036ae7-f4b4-4dd9-b72f-88b571c6ba26
-  network: tcp
-- name: VLESS-7 | 1768ms
-  type: vless
-  server: pl1-node.vpnspacev.com
-  port: 443
-  uuid: 66036ae7-f4b4-4dd9-b72f-88b571c6ba26
-  network: tcp
+  uuid: 76713d07-5a6b-49c2-abd8-bc450a2fa7fc
+  network: grpc
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 464ms
-  - VLESS-2 | 225ms
-  - VLESS-3 | 221ms
-  - VLESS-4 | 914ms
-  - VLESS-5 | 785ms
-  - VLESS-6 | 772ms
-  - VLESS-7 | 1768ms
+  - VLESS-1 | 645ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 464ms
-  - VLESS-2 | 225ms
-  - VLESS-3 | 221ms
-  - VLESS-4 | 914ms
-  - VLESS-5 | 785ms
-  - VLESS-6 | 772ms
-  - VLESS-7 | 1768ms
+  - VLESS-1 | 645ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
