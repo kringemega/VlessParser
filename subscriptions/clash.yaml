@@ -5,102 +5,110 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 804ms
+- name: VLESS-1 | 409ms
   type: vless
-  server: 212.233.74.244
-  port: 443
-  uuid: 9fa77e0f-c9b3-48a2-aea8-884e298ecd44
-  network: tcp
-- name: TROJAN-2 | 429ms
+  server: nl.clgate.network
+  port: 2041
+  uuid: f4bad870-4b45-4a46-bec6-d05fa31df1cb
+  network: grpc
+- name: TROJAN-2 | 248ms
   type: trojan
   server: 84.32.49.95
   port: 8443
   password: '162534'
   sni: cchh2.pages.dev
-- name: VLESS-3 | 413ms
+- name: VLESS-3 | 390ms
   type: vless
-  server: 84.201.174.102
+  server: 84.201.139.67
   port: 443
-  uuid: 9fa77e0f-c9b3-48a2-aea8-884e298ecd44
+  uuid: 5085b3dd-d1fd-49a1-9fad-192fd276ad5c
   network: tcp
-- name: VLESS-4 | 859ms
+- name: VLESS-4 | 362ms
   type: vless
-  server: 84.201.158.253
+  server: 84.201.129.56
   port: 443
-  uuid: 9fa77e0f-c9b3-48a2-aea8-884e298ecd44
+  uuid: 5085b3dd-d1fd-49a1-9fad-192fd276ad5c
   network: tcp
-- name: VLESS-5 | 520ms
+- name: VLESS-5 | 355ms
   type: vless
-  server: support.zoom.us
-  port: 8080
-  uuid: 759700eb-59a9-4523-9b65-1fe196e00b99
-  network: ws
-- name: VLESS-6 | 499ms
-  type: vless
-  server: support.zoom.us
-  port: 8080
-  uuid: 759700eb-59a9-4523-9b65-1fe196e00b99
-  network: ws
-- name: VLESS-7 | 307ms
-  type: vless
-  server: 178.154.222.60
+  server: 185.247.16.187
   port: 443
-  uuid: 27b1163e-2dea-4777-923d-87844982bff3
-  network: ws
-- name: VLESS-8 | 347ms
+  uuid: 88eef5c3-fb5e-4e88-a0ad-fc0f998d9e98
+  network: tcp
+- name: VLESS-6 | 485ms
   type: vless
-  server: 84.201.152.96
+  server: 81.163.22.114
   port: 443
-  uuid: 27b1163e-2dea-4777-923d-87844982bff3
-  network: ws
-- name: VLESS-9 | 456ms
-  type: vless
-  server: 84.201.152.96
-  port: 443
-  uuid: 7d5cff44-68fc-4cd8-996a-55ccae9fbc81
-  network: ws
-- name: VLESS-10 | 665ms
-  type: vless
-  server: 194.156.101.115
-  port: 443
-  uuid: 76713d07-5a6b-49c2-abd8-bc450a2fa7fc
+  uuid: c56bb902-c4df-Fade-8e05-01d325ef4851
   network: grpc
-- name: VLESS-11 | 362ms
+- name: VLESS-7 | 355ms
   type: vless
-  server: 84.201.158.253
-  port: 5443
-  uuid: 9fa77e0f-c9b3-48a2-aea8-884e298ecd44
+  server: 84.201.130.199
+  port: 443
+  uuid: 5085b3dd-d1fd-49a1-9fad-192fd276ad5c
   network: tcp
+- name: VLESS-8 | 1107ms
+  type: vless
+  server: 84.201.180.231
+  port: 443
+  uuid: cbc27e56-38a1-4b0d-bce3-f9e7dcb807a4
+  network: tcp
+- name: VLESS-9 | 467ms
+  type: vless
+  server: 85.239.43.123
+  port: 443
+  uuid: 25b99ea9-0ec7-4d0b-9547-1c1e33f3651b
+  network: tcp
+- name: VLESS-10 | 886ms
+  type: vless
+  server: 195.133.198.237
+  port: 443
+  uuid: ac24e6ea-155e-4eb3-8a2e-7a756f42e65e
+  network: tcp
+- name: VLESS-11 | 897ms
+  type: vless
+  server: 195.133.198.237
+  port: 443
+  uuid: b6f549d8-c795-4838-9277-1d2dc9215565
+  network: tcp
+- name: VLESS-12 | 690ms
+  type: vless
+  server: 46.8.209.209
+  port: 443
+  uuid: dac8b391-b11f-1811-9ef8-ca52316c6e8e
+  network: grpc
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 804ms
-  - TROJAN-2 | 429ms
-  - VLESS-3 | 413ms
-  - VLESS-4 | 859ms
-  - VLESS-5 | 520ms
-  - VLESS-6 | 499ms
-  - VLESS-7 | 307ms
-  - VLESS-8 | 347ms
-  - VLESS-9 | 456ms
-  - VLESS-10 | 665ms
-  - VLESS-11 | 362ms
+  - VLESS-1 | 409ms
+  - TROJAN-2 | 248ms
+  - VLESS-3 | 390ms
+  - VLESS-4 | 362ms
+  - VLESS-5 | 355ms
+  - VLESS-6 | 485ms
+  - VLESS-7 | 355ms
+  - VLESS-8 | 1107ms
+  - VLESS-9 | 467ms
+  - VLESS-10 | 886ms
+  - VLESS-11 | 897ms
+  - VLESS-12 | 690ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 804ms
-  - TROJAN-2 | 429ms
-  - VLESS-3 | 413ms
-  - VLESS-4 | 859ms
-  - VLESS-5 | 520ms
-  - VLESS-6 | 499ms
-  - VLESS-7 | 307ms
-  - VLESS-8 | 347ms
-  - VLESS-9 | 456ms
-  - VLESS-10 | 665ms
-  - VLESS-11 | 362ms
+  - VLESS-1 | 409ms
+  - TROJAN-2 | 248ms
+  - VLESS-3 | 390ms
+  - VLESS-4 | 362ms
+  - VLESS-5 | 355ms
+  - VLESS-6 | 485ms
+  - VLESS-7 | 355ms
+  - VLESS-8 | 1107ms
+  - VLESS-9 | 467ms
+  - VLESS-10 | 886ms
+  - VLESS-11 | 897ms
+  - VLESS-12 | 690ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
