@@ -5,30 +5,38 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 232ms
+- name: VLESS-1 | 501ms
   type: vless
-  server: yt5.safepass.click
+  server: 81.163.22.114
   port: 443
-  uuid: 6784aee2-0dfe-474f-8446-480259ff9918
-  network: xhttp
-- name: VLESS-2 | 732ms
+  uuid: fef1faa8-e204-Fade-98ae-e30f15dd3a37
+  network: grpc
+- name: VLESS-2 | 595ms
   type: vless
-  server: 45.151.182.34
+  server: 138.124.32.29
   port: 443
   uuid: 69a2af58-d74a-44ca-864a-e09b493f4274
+  network: tcp
+- name: VLESS-3 | 965ms
+  type: vless
+  server: 51.250.4.2
+  port: 443
+  uuid: f93c67a3-3464-49aa-b0fe-f32d2250a652
   network: tcp
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 232ms
-  - VLESS-2 | 732ms
+  - VLESS-1 | 501ms
+  - VLESS-2 | 595ms
+  - VLESS-3 | 965ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 232ms
-  - VLESS-2 | 732ms
+  - VLESS-1 | 501ms
+  - VLESS-2 | 595ms
+  - VLESS-3 | 965ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
