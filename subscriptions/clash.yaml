@@ -5,62 +5,94 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 416ms
+- name: VLESS-1 | 86ms
   type: vless
-  server: 84.201.164.26
-  port: 446
-  uuid: e2f1ee57-7965-493a-8041-080aec7d4ebf
+  server: us.clickvpn.work
+  port: 443
+  uuid: 3060ef83-54e0-4a28-9608-1fe03b187ee1
+  network: tcp
+- name: VLESS-2 | 274ms
+  type: vless
+  server: 95.85.236.118
+  port: 443
+  uuid: eebb76ac-f68c-434e-8c11-ab853bb5a7c0
+  network: tcp
+- name: VLESS-3 | 219ms
+  type: vless
+  server: fr.oneok.name
+  port: 7443
+  uuid: 030f6019-b8ce-4de8-911f-35b0ee11c33c
+  network: tcp
+- name: VLESS-4 | 320ms
+  type: vless
+  server: 84.201.130.199
+  port: 443
+  uuid: d7852388-6c65-45ab-966d-a37f726ce1ca
+  network: tcp
+- name: VLESS-5 | 327ms
+  type: vless
+  server: 84.201.139.67
+  port: 443
+  uuid: d7852388-6c65-45ab-966d-a37f726ce1ca
+  network: tcp
+- name: VLESS-6 | 1373ms
+  type: vless
+  server: 84.201.129.56
+  port: 443
+  uuid: d7852388-6c65-45ab-966d-a37f726ce1ca
+  network: tcp
+- name: VLESS-7 | 559ms
+  type: vless
+  server: 94.131.121.68
+  port: 443
+  uuid: 143074fa-3734-1811-b931-2fe011f7e428
   network: grpc
-- name: VLESS-2 | 276ms
+- name: VLESS-8 | 503ms
   type: vless
-  server: 217.60.61.59
+  server: 95.85.236.120
   port: 443
-  uuid: e2f1ee57-7965-493a-8041-080aec7d4ebf
+  uuid: eebb76ac-f68c-434e-8c11-ab853bb5a7c0
   network: tcp
-- name: VLESS-3 | 413ms
+- name: VLESS-9 | 903ms
   type: vless
-  server: 51.250.4.2
+  server: 95.85.236.146
   port: 443
-  uuid: 43efb4a3-fa11-4f77-8931-4a300b12d432
+  uuid: eebb76ac-f68c-434e-8c11-ab853bb5a7c0
   network: tcp
-- name: VLESS-4 | 1100ms
+- name: VLESS-10 | 338ms
   type: vless
-  server: 158.160.255.35
+  server: 193.168.46.180
   port: 443
-  uuid: 43efb4a3-fa11-4f77-8931-4a300b12d432
-  network: tcp
-- name: VLESS-5 | 1056ms
-  type: vless
-  server: 95.169.191.106
-  port: 443
-  uuid: e2f1ee57-7965-493a-8041-080aec7d4ebf
-  network: tcp
-- name: VLESS-6 | 273ms
-  type: vless
-  server: 158.160.249.158
-  port: 8443
-  uuid: 9a30c1dc-9525-421c-9faa-08c7d94747b4
+  uuid: 36753b40-b99c-4c1d-b994-bef118b05d24
   network: tcp
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 416ms
-  - VLESS-2 | 276ms
-  - VLESS-3 | 413ms
-  - VLESS-4 | 1100ms
-  - VLESS-5 | 1056ms
-  - VLESS-6 | 273ms
+  - VLESS-1 | 86ms
+  - VLESS-2 | 274ms
+  - VLESS-3 | 219ms
+  - VLESS-4 | 320ms
+  - VLESS-5 | 327ms
+  - VLESS-6 | 1373ms
+  - VLESS-7 | 559ms
+  - VLESS-8 | 503ms
+  - VLESS-9 | 903ms
+  - VLESS-10 | 338ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 416ms
-  - VLESS-2 | 276ms
-  - VLESS-3 | 413ms
-  - VLESS-4 | 1100ms
-  - VLESS-5 | 1056ms
-  - VLESS-6 | 273ms
+  - VLESS-1 | 86ms
+  - VLESS-2 | 274ms
+  - VLESS-3 | 219ms
+  - VLESS-4 | 320ms
+  - VLESS-5 | 327ms
+  - VLESS-6 | 1373ms
+  - VLESS-7 | 559ms
+  - VLESS-8 | 503ms
+  - VLESS-9 | 903ms
+  - VLESS-10 | 338ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
