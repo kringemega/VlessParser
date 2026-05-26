@@ -5,38 +5,62 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 789ms
+- name: VLESS-1 | 397ms
+  type: vless
+  server: ru3.alexanderoff.ru
+  port: 4443
+  uuid: de87620b-6bff-4077-99cc-ce65e06b64ed
+  network: tcp
+- name: VLESS-2 | 307ms
   type: vless
   server: 87.228.124.196
   port: 4443
   uuid: de87620b-6bff-4077-99cc-ce65e06b64ed
   network: tcp
-- name: VLESS-2 | 131ms
+- name: VLESS-3 | 400ms
+  type: vless
+  server: ru3.alexanderoff.ru
+  port: 4443
+  uuid: de87620b-6bff-4077-99cc-ce65e06b64ed
+  network: tcp
+- name: VLESS-4 | 374ms
+  type: vless
+  server: ru7.alexanderoff.ru
+  port: 4443
+  uuid: de87620b-6bff-4077-99cc-ce65e06b64ed
+  network: tcp
+- name: VLESS-5 | 314ms
   type: vless
   server: 5.188.156.138
   port: 4443
   uuid: de87620b-6bff-4077-99cc-ce65e06b64ed
   network: tcp
-- name: VLESS-3 | 1254ms
+- name: VLESS-6 | 1640ms
   type: vless
-  server: 178.154.243.251
+  server: 95.85.229.247
   port: 443
-  uuid: bd6acaa8-4579-3d31-9bcb-0dae59f756e9
+  uuid: 6343ce34-3357-45cc-9c94-64501f232d06
   network: tcp
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 789ms
-  - VLESS-2 | 131ms
-  - VLESS-3 | 1254ms
+  - VLESS-1 | 397ms
+  - VLESS-2 | 307ms
+  - VLESS-3 | 400ms
+  - VLESS-4 | 374ms
+  - VLESS-5 | 314ms
+  - VLESS-6 | 1640ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 789ms
-  - VLESS-2 | 131ms
-  - VLESS-3 | 1254ms
+  - VLESS-1 | 397ms
+  - VLESS-2 | 307ms
+  - VLESS-3 | 400ms
+  - VLESS-4 | 374ms
+  - VLESS-5 | 314ms
+  - VLESS-6 | 1640ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
