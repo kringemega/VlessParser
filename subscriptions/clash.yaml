@@ -5,23 +5,7 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 1348ms
-  type: vless
-  server: 78.41.110.238
-  port: 443
-  uuid: 9ebab373-19fe-4535-aa95-4e348ea300f1
-  network: ws
-  tls: true
-  servername: s28315.cdn.ngenix.net
-- name: VLESS-2 | 1915ms
-  type: vless
-  server: 46.235.186.50
-  port: 443
-  uuid: 9ebab373-19fe-4535-aa95-4e348ea300f1
-  network: ws
-  tls: true
-  servername: s28315.cdn.ngenix.net
-- name: VLESS-3 | 1316ms
+- name: VLESS-1 | 507ms
   type: vless
   server: 46.235.185.25
   port: 443
@@ -29,30 +13,36 @@ proxies:
   network: ws
   tls: true
   servername: s28315.cdn.ngenix.net
-- name: VLESS-4 | 1041ms
+- name: VLESS-2 | 619ms
   type: vless
-  server: 185.215.184.109.blanesik.space
+  server: 212.193.155.32
   port: 443
-  uuid: 4aaac4d7-a9c3-4f5e-8112-64cca5e6a14c
-  network: grpc
+  uuid: 9ebab373-19fe-4535-aa95-4e348ea300f1
+  network: ws
   tls: true
-  servername: 185.215.184.109.blanesik.space
+  servername: s28315.cdn.ngenix.net
+- name: VLESS-3 | 477ms
+  type: vless
+  server: est-def.sbrf-cdn342.ru
+  port: 443
+  uuid: 91e120bc-159a-4390-b4e1-197b19602ea0
+  network: tcp
+  tls: true
+  servername: sub.sbrf-cdn342.ru
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 1348ms
-  - VLESS-2 | 1915ms
-  - VLESS-3 | 1316ms
-  - VLESS-4 | 1041ms
+  - VLESS-1 | 507ms
+  - VLESS-2 | 619ms
+  - VLESS-3 | 477ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 1348ms
-  - VLESS-2 | 1915ms
-  - VLESS-3 | 1316ms
-  - VLESS-4 | 1041ms
+  - VLESS-1 | 507ms
+  - VLESS-2 | 619ms
+  - VLESS-3 | 477ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
