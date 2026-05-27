@@ -5,64 +5,54 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 242ms
+- name: VLESS-1 | 1348ms
   type: vless
-  server: 144.31.24.49
-  port: 8443
-  uuid: 58b56c44-2d46-4488-9ce5-a337e7217e21
-  network: grpc
-- name: VLESS-2 | 296ms
-  type: vless
-  server: 45.139.78.77
+  server: 78.41.110.238
   port: 443
-  uuid: bbf07169-8c80-485b-83d5-93b87a882219
-  network: tcp
-- name: VLESS-3 | 321ms
-  type: vless
-  server: 51.250.21.29
-  port: 443
-  uuid: 487b3997-0880-4ccb-9618-5a58b166d65d
-  network: tcp
-- name: VLESS-4 | 690ms
-  type: vless
-  server: 84.201.163.193
-  port: 7443
-  uuid: 3359b9eb-34bd-41e8-9ae8-a7b78b23e710
-  network: tcp
-- name: VLESS-5 | 938ms
-  type: vless
-  server: 87.242.110.116
-  port: 443
-  uuid: bbf07169-8c80-485b-83d5-93b87a882219
-  network: tcp
-- name: VLESS-6 | 644ms
-  type: vless
-  server: est-def.sbrf-cdn342.ru
-  port: 443
-  uuid: 91e120bc-159a-4390-b4e1-197b19602ea0
-  network: tcp
+  uuid: 9ebab373-19fe-4535-aa95-4e348ea300f1
+  network: ws
   tls: true
-  servername: sub.sbrf-cdn342.ru
+  servername: s28315.cdn.ngenix.net
+- name: VLESS-2 | 1915ms
+  type: vless
+  server: 46.235.186.50
+  port: 443
+  uuid: 9ebab373-19fe-4535-aa95-4e348ea300f1
+  network: ws
+  tls: true
+  servername: s28315.cdn.ngenix.net
+- name: VLESS-3 | 1316ms
+  type: vless
+  server: 46.235.185.25
+  port: 443
+  uuid: 9ebab373-19fe-4535-aa95-4e348ea300f1
+  network: ws
+  tls: true
+  servername: s28315.cdn.ngenix.net
+- name: VLESS-4 | 1041ms
+  type: vless
+  server: 185.215.184.109.blanesik.space
+  port: 443
+  uuid: 4aaac4d7-a9c3-4f5e-8112-64cca5e6a14c
+  network: grpc
+  tls: true
+  servername: 185.215.184.109.blanesik.space
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 242ms
-  - VLESS-2 | 296ms
-  - VLESS-3 | 321ms
-  - VLESS-4 | 690ms
-  - VLESS-5 | 938ms
-  - VLESS-6 | 644ms
+  - VLESS-1 | 1348ms
+  - VLESS-2 | 1915ms
+  - VLESS-3 | 1316ms
+  - VLESS-4 | 1041ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 242ms
-  - VLESS-2 | 296ms
-  - VLESS-3 | 321ms
-  - VLESS-4 | 690ms
-  - VLESS-5 | 938ms
-  - VLESS-6 | 644ms
+  - VLESS-1 | 1348ms
+  - VLESS-2 | 1915ms
+  - VLESS-3 | 1316ms
+  - VLESS-4 | 1041ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
