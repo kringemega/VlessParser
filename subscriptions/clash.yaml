@@ -5,54 +5,54 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 1705ms
+- name: VLESS-1 | 272ms
   type: vless
-  server: 46.235.186.50
+  server: 144.31.190.253
   port: 443
-  uuid: 9ebab373-19fe-4535-aa95-4e348ea300f1
-  network: ws
-  tls: true
-  servername: s28315.cdn.ngenix.net
-- name: VLESS-2 | 1246ms
+  uuid: 1d29d287-0e02-4e8e-81a4-14708d96e7ba
+  network: tcp
+- name: VLESS-2 | 1616ms
   type: vless
-  server: 78.41.110.238
-  port: 443
-  uuid: 9ebab373-19fe-4535-aa95-4e348ea300f1
-  network: ws
-  tls: true
-  servername: s28315.cdn.ngenix.net
-- name: VLESS-3 | 1237ms
+  server: 144.31.24.49
+  port: 8443
+  uuid: 408e86f5-beb7-4649-85c8-d01ad3eceab5
+  network: grpc
+- name: VLESS-3 | 1522ms
   type: vless
-  server: 78.41.110.238
+  server: 158.160.238.201
   port: 443
-  uuid: 9ebab373-19fe-4535-aa95-4e348ea300f1
-  network: ws
-  tls: true
-  servername: s28315.cdn.ngenix.net
-- name: VLESS-4 | 1257ms
+  uuid: 0c6003a2-369d-4eca-95e6-85eb58dd95f5
+  network: tcp
+- name: VLESS-4 | 462ms
   type: vless
-  server: 46.235.185.25
-  port: 443
-  uuid: 9ebab373-19fe-4535-aa95-4e348ea300f1
-  network: ws
-  tls: true
-  servername: s28315.cdn.ngenix.net
+  server: ss.ll0ll.vip
+  port: 2096
+  uuid: 5610a52c-48e0-4e8c-9230-fb302b04d02e
+  network: grpc
+- name: VLESS-5 | 241ms
+  type: vless
+  server: roz1r.skystreamgame.com
+  port: 8443
+  uuid: 0468a043-e12c-466e-881c-7d685c1b3950
+  network: tcp
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 1705ms
-  - VLESS-2 | 1246ms
-  - VLESS-3 | 1237ms
-  - VLESS-4 | 1257ms
+  - VLESS-1 | 272ms
+  - VLESS-2 | 1616ms
+  - VLESS-3 | 1522ms
+  - VLESS-4 | 462ms
+  - VLESS-5 | 241ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 1705ms
-  - VLESS-2 | 1246ms
-  - VLESS-3 | 1237ms
-  - VLESS-4 | 1257ms
+  - VLESS-1 | 272ms
+  - VLESS-2 | 1616ms
+  - VLESS-3 | 1522ms
+  - VLESS-4 | 462ms
+  - VLESS-5 | 241ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
