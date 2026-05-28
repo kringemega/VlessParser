@@ -5,54 +5,30 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 272ms
-  type: vless
-  server: 144.31.190.253
+- name: TROJAN-1 | 296ms
+  type: trojan
+  server: 212.183.88.136
   port: 443
-  uuid: 1d29d287-0e02-4e8e-81a4-14708d96e7ba
-  network: tcp
-- name: VLESS-2 | 1616ms
+  password: humanity
+  sni: www.calmlunch.com
+- name: VLESS-2 | 1372ms
   type: vless
-  server: 144.31.24.49
+  server: noble-nest.scan-cdn.com
   port: 8443
-  uuid: 408e86f5-beb7-4649-85c8-d01ad3eceab5
-  network: grpc
-- name: VLESS-3 | 1522ms
-  type: vless
-  server: 158.160.238.201
-  port: 443
-  uuid: 0c6003a2-369d-4eca-95e6-85eb58dd95f5
-  network: tcp
-- name: VLESS-4 | 462ms
-  type: vless
-  server: ss.ll0ll.vip
-  port: 2096
-  uuid: 5610a52c-48e0-4e8c-9230-fb302b04d02e
-  network: grpc
-- name: VLESS-5 | 241ms
-  type: vless
-  server: roz1r.skystreamgame.com
-  port: 8443
-  uuid: 0468a043-e12c-466e-881c-7d685c1b3950
+  uuid: bdddc783-a4f3-47f7-8850-21416d0a31f1
   network: tcp
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 272ms
-  - VLESS-2 | 1616ms
-  - VLESS-3 | 1522ms
-  - VLESS-4 | 462ms
-  - VLESS-5 | 241ms
+  - TROJAN-1 | 296ms
+  - VLESS-2 | 1372ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 272ms
-  - VLESS-2 | 1616ms
-  - VLESS-3 | 1522ms
-  - VLESS-4 | 462ms
-  - VLESS-5 | 241ms
+  - TROJAN-1 | 296ms
+  - VLESS-2 | 1372ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
