@@ -5,7 +5,35 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 1095ms
+- name: VLESS-1 | 226ms
+  type: vless
+  server: 5.83.129.113
+  port: 443
+  uuid: 91e120bc-159a-4390-b4e1-197b19602ea0
+  network: tcp
+  tls: true
+  servername: sub.sbrf-cdn342.ru
+- name: VLESS-2 | 339ms
+  type: vless
+  server: 212.46.33.4
+  port: 443
+  uuid: 94ae5ad5-8f3e-41bf-9546-99a1543d3cd1
+  network: grpc
+- name: VLESS-3 | 338ms
+  type: vless
+  server: de.sbrf-cdn342.ru
+  port: 443
+  uuid: 91e120bc-159a-4390-b4e1-197b19602ea0
+  network: tcp
+  tls: true
+  servername: sub.sbrf-cdn342.ru
+- name: VLESS-4 | 376ms
+  type: vless
+  server: us01.lumixvpn.org
+  port: 443
+  uuid: 107d9e9e-5634-44ef-a90b-c5118832fae6
+  network: tcp
+- name: VLESS-5 | 646ms
   type: vless
   server: 63.141.128.5
   port: 443
@@ -13,48 +41,110 @@ proxies:
   network: ws
   tls: true
   servername: konkoriazmono.konkuriran.sbs
-- name: VLESS-2 | 487ms
+- name: VLESS-6 | 448ms
+  type: vless
+  server: 85.198.85.193
+  port: 49423
+  uuid: abb8ca6f-a049-4c6d-9780-70624c476a0d
+  network: grpc
+- name: VLESS-7 | 498ms
+  type: vless
+  server: 5.188.114.12
+  port: 8443
+  uuid: 81bc17b1-f73d-419c-a50b-9e2a4d255dfb
+  network: grpc
+- name: VLESS-8 | 579ms
+  type: vless
+  server: 85.198.85.193
+  port: 40470
+  uuid: b43c896e-d9b8-4606-b902-b1bf6d10d2f9
+  network: grpc
+- name: VLESS-9 | 353ms
+  type: vless
+  server: ru.memeplanet.org
+  port: 443
+  uuid: 94ae5ad5-8f3e-41bf-9546-99a1543d3cd1
+  network: tcp
+- name: VLESS-10 | 306ms
   type: vless
   server: eeshka.api.dznn.net
   port: 443
   uuid: 9bc46020-c550-439a-86c5-38f64abc1ffd
   network: tcp
-- name: VLESS-3 | 1647ms
+- name: VLESS-11 | 818ms
   type: vless
-  server: nld.pink-service.ru
+  server: 84.201.174.25
   port: 443
-  uuid: f998c699-43b5-4af2-921e-03b879eb7912
-  network: tcp
-- name: VLESS-4 | 240ms
+  uuid: 94ae5ad5-8f3e-41bf-9546-99a1543d3cd1
+  network: grpc
+- name: VLESS-12 | 561ms
   type: vless
-  server: 85.155.98.79
-  port: 8443
-  uuid: bdddc783-a4f3-47f7-8850-21416d0a31f1
+  server: est-def.sbrf-cdn342.ru
+  port: 443
+  uuid: 91e120bc-159a-4390-b4e1-197b19602ea0
   network: tcp
-- name: VLESS-5 | 278ms
+  tls: true
+  servername: sub.sbrf-cdn342.ru
+- name: VLESS-13 | 60ms
   type: vless
-  server: noble-nest.scan-cdn.com
-  port: 8443
-  uuid: bdddc783-a4f3-47f7-8850-21416d0a31f1
+  server: 216.24.57.7
+  port: 443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: jp.aniua.qzz.io
+- name: VLESS-14 | 1413ms
+  type: vless
+  server: 5.42.123.219
+  port: 16536
+  uuid: f803d12a-a44b-41c3-8811-5d0f9a915180
   network: tcp
+- name: VLESS-15 | 97ms
+  type: vless
+  server: 216.24.57.6
+  port: 443
+  uuid: e258977b-e413-4718-a3af-02d75492c349
+  network: ws
+  tls: true
+  servername: jp.aniua.qzz.io
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 1095ms
-  - VLESS-2 | 487ms
-  - VLESS-3 | 1647ms
-  - VLESS-4 | 240ms
-  - VLESS-5 | 278ms
+  - VLESS-1 | 226ms
+  - VLESS-2 | 339ms
+  - VLESS-3 | 338ms
+  - VLESS-4 | 376ms
+  - VLESS-5 | 646ms
+  - VLESS-6 | 448ms
+  - VLESS-7 | 498ms
+  - VLESS-8 | 579ms
+  - VLESS-9 | 353ms
+  - VLESS-10 | 306ms
+  - VLESS-11 | 818ms
+  - VLESS-12 | 561ms
+  - VLESS-13 | 60ms
+  - VLESS-14 | 1413ms
+  - VLESS-15 | 97ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 1095ms
-  - VLESS-2 | 487ms
-  - VLESS-3 | 1647ms
-  - VLESS-4 | 240ms
-  - VLESS-5 | 278ms
+  - VLESS-1 | 226ms
+  - VLESS-2 | 339ms
+  - VLESS-3 | 338ms
+  - VLESS-4 | 376ms
+  - VLESS-5 | 646ms
+  - VLESS-6 | 448ms
+  - VLESS-7 | 498ms
+  - VLESS-8 | 579ms
+  - VLESS-9 | 353ms
+  - VLESS-10 | 306ms
+  - VLESS-11 | 818ms
+  - VLESS-12 | 561ms
+  - VLESS-13 | 60ms
+  - VLESS-14 | 1413ms
+  - VLESS-15 | 97ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
