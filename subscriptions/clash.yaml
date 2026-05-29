@@ -5,25 +5,23 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 918ms
+- name: VLESS-1 | 1162ms
   type: vless
-  server: 85.198.85.193
-  port: 40470
-  uuid: b43c896e-d9b8-4606-b902-b1bf6d10d2f9
-  network: grpc
-- name: VLESS-2 | 627ms
-  type: vless
-  server: 89.208.208.92
-  port: 7443
-  uuid: cbc27e56-38a1-4b0d-bce3-f9e7dcb807a4
-  network: grpc
-- name: TROJAN-3 | 1530ms
-  type: trojan
-  server: 216.24.57.7
+  server: 5.83.129.113
   port: 443
-  password: humanity
-  sni: www.ignitelimit.com
-- name: VLESS-4 | 608ms
+  uuid: 91e120bc-159a-4390-b4e1-197b19602ea0
+  network: tcp
+  tls: true
+  servername: sub.sbrf-cdn342.ru
+- name: VLESS-2 | 1184ms
+  type: vless
+  server: 5.83.129.113
+  port: 443
+  uuid: 91e120bc-159a-4390-b4e1-197b19602ea0
+  network: tcp
+  tls: true
+  servername: sub.sbrf-cdn342.ru
+- name: VLESS-3 | 716ms
   type: vless
   server: de.sbrf-cdn342.ru
   port: 443
@@ -31,60 +29,36 @@ proxies:
   network: tcp
   tls: true
   servername: sub.sbrf-cdn342.ru
-- name: VLESS-5 | 609ms
+- name: VLESS-4 | 538ms
   type: vless
-  server: de.sbrf-cdn342.ru
+  server: ru.pool-b.vodkacore.pro
+  port: 44003
+  uuid: 2a87235a-cac6-4751-a42a-da603f7de13c
+  network: tcp
+- name: VLESS-5 | 1461ms
+  type: vless
+  server: 84.201.180.13
   port: 443
-  uuid: 91e120bc-159a-4390-b4e1-197b19602ea0
-  network: tcp
-  tls: true
-  servername: sub.sbrf-cdn342.ru
-- name: VLESS-6 | 779ms
-  type: vless
-  server: berocd.herumhas.shop
-  port: 9443
-  uuid: e7902151-e2e1-4d29-a84b-86f0d5d91b65
-  network: tcp
-  tls: true
-  servername: berocd.herumhas.shop
-- name: VLESS-7 | 599ms
-  type: vless
-  server: de.sbrf-cdn342.ru
-  port: 443
-  uuid: 91e120bc-159a-4390-b4e1-197b19602ea0
-  network: tcp
-  tls: true
-  servername: sub.sbrf-cdn342.ru
-- name: VLESS-8 | 1075ms
-  type: vless
-  server: 89.126.229.40
-  port: 443
-  uuid: 301d514e-4aa0-47b0-ba44-a0cb891cd52f
-  network: tcp
+  uuid: eb3fe4a6-831c-5153-9493-5d97b28276f7
+  network: xhttp
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 918ms
-  - VLESS-2 | 627ms
-  - TROJAN-3 | 1530ms
-  - VLESS-4 | 608ms
-  - VLESS-5 | 609ms
-  - VLESS-6 | 779ms
-  - VLESS-7 | 599ms
-  - VLESS-8 | 1075ms
+  - VLESS-1 | 1162ms
+  - VLESS-2 | 1184ms
+  - VLESS-3 | 716ms
+  - VLESS-4 | 538ms
+  - VLESS-5 | 1461ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 918ms
-  - VLESS-2 | 627ms
-  - TROJAN-3 | 1530ms
-  - VLESS-4 | 608ms
-  - VLESS-5 | 609ms
-  - VLESS-6 | 779ms
-  - VLESS-7 | 599ms
-  - VLESS-8 | 1075ms
+  - VLESS-1 | 1162ms
+  - VLESS-2 | 1184ms
+  - VLESS-3 | 716ms
+  - VLESS-4 | 538ms
+  - VLESS-5 | 1461ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
