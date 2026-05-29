@@ -5,60 +5,30 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 1162ms
-  type: vless
-  server: 5.83.129.113
+- name: TROJAN-1 | 81ms
+  type: trojan
+  server: 216.24.57.7
   port: 443
-  uuid: 91e120bc-159a-4390-b4e1-197b19602ea0
-  network: tcp
-  tls: true
-  servername: sub.sbrf-cdn342.ru
-- name: VLESS-2 | 1184ms
-  type: vless
-  server: 5.83.129.113
+  password: Mitivpn
+  sni: dash.hitgram.ir
+- name: TROJAN-2 | 73ms
+  type: trojan
+  server: 216.24.57.7
   port: 443
-  uuid: 91e120bc-159a-4390-b4e1-197b19602ea0
-  network: tcp
-  tls: true
-  servername: sub.sbrf-cdn342.ru
-- name: VLESS-3 | 716ms
-  type: vless
-  server: de.sbrf-cdn342.ru
-  port: 443
-  uuid: 91e120bc-159a-4390-b4e1-197b19602ea0
-  network: tcp
-  tls: true
-  servername: sub.sbrf-cdn342.ru
-- name: VLESS-4 | 538ms
-  type: vless
-  server: ru.pool-b.vodkacore.pro
-  port: 44003
-  uuid: 2a87235a-cac6-4751-a42a-da603f7de13c
-  network: tcp
-- name: VLESS-5 | 1461ms
-  type: vless
-  server: 84.201.180.13
-  port: 443
-  uuid: eb3fe4a6-831c-5153-9493-5d97b28276f7
-  network: xhttp
+  password: Mitivpn
+  sni: cdn.hitgram.ir
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 1162ms
-  - VLESS-2 | 1184ms
-  - VLESS-3 | 716ms
-  - VLESS-4 | 538ms
-  - VLESS-5 | 1461ms
+  - TROJAN-1 | 81ms
+  - TROJAN-2 | 73ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 1162ms
-  - VLESS-2 | 1184ms
-  - VLESS-3 | 716ms
-  - VLESS-4 | 538ms
-  - VLESS-5 | 1461ms
+  - TROJAN-1 | 81ms
+  - TROJAN-2 | 73ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
