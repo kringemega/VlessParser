@@ -9575,9 +9575,109 @@
       "found_at": "2026-05-31T14:19:16.835142",
       "hash": "a071bcb20afe41a5d470a0520d611451",
       "sent_to_telegram": false
+    },
+    {
+      "protocol": "vless",
+      "address": "spb.connectv.net",
+      "ping": 420,
+      "jitter": 395,
+      "download_speed": 11.43,
+      "upload_speed": 0.0,
+      "is_bypassing": false,
+      "connectivity": {
+        "telegram": false,
+        "instagram": true,
+        "youtube": true
+      },
+      "ip": "spb.connectv.net",
+      "config_json": {
+        "log": {
+          "loglevel": "warning"
+        },
+        "inbounds": [
+          {
+            "listen": "127.0.0.1",
+            "port": 10817,
+            "protocol": "http",
+            "settings": {
+              "timeout": 0,
+              "allowTransparent": false,
+              "userLevel": 0
+            },
+            "tag": "http-in"
+          }
+        ],
+        "outbounds": [
+          {
+            "protocol": "vless",
+            "settings": {
+              "vnext": [
+                {
+                  "address": "spb.connectv.net",
+                  "port": 443,
+                  "users": [
+                    {
+                      "id": "477535ff-7878-0003-a614-5bb0e4b80959",
+                      "encryption": "none",
+                      "flow": "xtls-rprx-vision"
+                    }
+                  ]
+                }
+              ]
+            },
+            "streamSettings": {
+              "network": "tcp",
+              "security": "reality",
+              "realitySettings": {
+                "serverName": "spb.connectv.net",
+                "allowInsecure": true,
+                "fingerprint": "randomized",
+                "alpn": [
+                  "h2",
+                  "http/1.1"
+                ],
+                "show": false,
+                "publicKey": "vegx20Xc9XIkr8nfdEB7LZnficXNURVnDbB8_ND97Dw",
+                "shortId": "",
+                "spiderX": "/"
+              },
+              "tcpSettings": {
+                "header": {
+                  "type": "none"
+                }
+              }
+            },
+            "tag": "proxy"
+          },
+          {
+            "protocol": "freedom",
+            "tag": "direct"
+          }
+        ],
+        "routing": {
+          "domainStrategy": "IPIfNonMatch",
+          "rules": [
+            {
+              "type": "field",
+              "ip": [
+                "geoip:private"
+              ],
+              "outboundTag": "direct"
+            }
+          ]
+        }
+      },
+      "uri": "vless://477535ff-7878-0003-a614-5bb0e4b80959@spb.connectv.net:443?type=tcp&security=reality&sni=spb.connectv.net&fp=randomized&flow=xtls-rprx-vision&pbk=vegx20Xc9XIkr8nfdEB7LZnficXNURVnDbB8_ND97Dw#%F0%9F%8C%90%20Anycast-IP%20%7C%20%F0%9F%87%AB%F0%9F%87%AE%20%F0%9F%87%AC%F0%9F%87%A7%20%5B%2ACIDR%5D",
+      "country": "Germany",
+      "country_code": "Germany",
+      "city": "Frankfurt am Main",
+      "isp": "NetCrafters OU",
+      "found_at": "2026-05-31T15:50:34.603080",
+      "hash": "45085f8b31041bb79d331c874c3d1d4a",
+      "sent_to_telegram": false
     }
   ],
-  "last_updated": "2026-05-31T14:19:16.835149",
-  "total_configs": 97,
+  "last_updated": "2026-05-31T15:50:34.603090",
+  "total_configs": 98,
   "created_at": "2026-05-01T11:10:36.324532"
 }
