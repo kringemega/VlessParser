@@ -5431,9 +5431,198 @@
       "found_at": "2026-05-31T18:45:16.852455",
       "hash": "310e6a16d766ed4d3f0c955794100d9a",
       "sent_to_telegram": false
+    },
+    {
+      "protocol": "vless",
+      "address": "cdn3-87.vk-cdnvideo.com",
+      "ping": 788,
+      "jitter": 1046,
+      "download_speed": 6.96,
+      "upload_speed": 6.6,
+      "is_bypassing": true,
+      "connectivity": {
+        "telegram": true,
+        "instagram": true,
+        "youtube": true
+      },
+      "ip": "cdn3-87.vk-cdnvideo.com",
+      "config_json": {
+        "log": {
+          "loglevel": "warning"
+        },
+        "inbounds": [
+          {
+            "listen": "127.0.0.1",
+            "port": 10814,
+            "protocol": "http",
+            "settings": {
+              "timeout": 0,
+              "allowTransparent": false,
+              "userLevel": 0
+            },
+            "tag": "http-in"
+          }
+        ],
+        "outbounds": [
+          {
+            "protocol": "vless",
+            "settings": {
+              "vnext": [
+                {
+                  "address": "cdn3-87.vk-cdnvideo.com",
+                  "port": 8443,
+                  "users": [
+                    {
+                      "id": "931729a8-3c20-4841-89a1-f18dc9ce0a6f",
+                      "encryption": "none",
+                      "flow": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            "streamSettings": {
+              "network": "tcp",
+              "security": "tls",
+              "tlsSettings": {
+                "serverName": "cdn3-87.vk-cdnvideo.com",
+                "allowInsecure": true,
+                "fingerprint": "chrome",
+                "alpn": [
+                  "h2",
+                  "http/1.1"
+                ]
+              },
+              "tcpSettings": {
+                "header": {
+                  "type": "none"
+                }
+              }
+            },
+            "tag": "proxy"
+          },
+          {
+            "protocol": "freedom",
+            "tag": "direct"
+          }
+        ],
+        "routing": {
+          "domainStrategy": "IPIfNonMatch",
+          "rules": [
+            {
+              "type": "field",
+              "ip": [
+                "geoip:private"
+              ],
+              "outboundTag": "direct"
+            }
+          ]
+        }
+      },
+      "uri": "vless://931729a8-3c20-4841-89a1-f18dc9ce0a6f@cdn3-87.vk-cdnvideo.com:8443?&security=tls&fp=chrome&type=tcp&headerType=none&host=cdn3-87.vk-cdnvideo.com&path=%2F#%F0%9F%87%B3%F0%9F%87%B1%20The%20Netherlands%20%7C%20%F0%9F%8C%90%20%5B%2ACIDR%5D",
+      "country": "Russia",
+      "country_code": "Russia",
+      "city": "Moscow",
+      "isp": "Cloud.ru",
+      "found_at": "2026-05-31T20:10:08.088978",
+      "hash": "70aee6a40bcf5138201e0213ea1aaf3e",
+      "sent_to_telegram": false
+    },
+    {
+      "protocol": "vmess",
+      "address": "renderer-stream-1-411.mirra.now",
+      "ping": 1258,
+      "jitter": 1602,
+      "download_speed": 1.02,
+      "upload_speed": 7.64,
+      "is_bypassing": true,
+      "connectivity": {
+        "telegram": true,
+        "instagram": true,
+        "youtube": true
+      },
+      "ip": "renderer-stream-1-411.mirra.now",
+      "config_json": {
+        "log": {
+          "loglevel": "warning"
+        },
+        "inbounds": [
+          {
+            "listen": "127.0.0.1",
+            "port": 10806,
+            "protocol": "http",
+            "settings": {
+              "timeout": 0,
+              "allowTransparent": false,
+              "userLevel": 0
+            },
+            "tag": "http-in"
+          }
+        ],
+        "outbounds": [
+          {
+            "protocol": "vmess",
+            "settings": {
+              "vnext": [
+                {
+                  "address": "renderer-stream-1-411.mirra.now",
+                  "port": 443,
+                  "users": [
+                    {
+                      "id": "df9c9355-b02c-4c12-909d-0dbeb725d52b",
+                      "alterId": 0,
+                      "security": "auto"
+                    }
+                  ]
+                }
+              ]
+            },
+            "streamSettings": {
+              "network": "ws",
+              "security": "tls",
+              "tlsSettings": {
+                "serverName": "renderer-stream-1-411.mirra.now",
+                "allowInsecure": true,
+                "fingerprint": "chrome"
+              },
+              "wsSettings": {
+                "path": "/api/v1/gpu-stream/socket",
+                "headers": {
+                  "Host": "renderer-stream-1-411.mirra.now"
+                }
+              }
+            },
+            "tag": "proxy"
+          },
+          {
+            "protocol": "freedom",
+            "tag": "direct"
+          }
+        ],
+        "routing": {
+          "domainStrategy": "IPIfNonMatch",
+          "rules": [
+            {
+              "type": "field",
+              "ip": [
+                "geoip:private"
+              ],
+              "outboundTag": "direct"
+            }
+          ]
+        }
+      },
+      "uri": "vmess://eyJ2IjoiMiIsInBzIjoi8J+Hs/Cfh7EgVGhlIE5ldGhlcmxhbmRzIHwgWypDSURSXSIsImFkZCI6InJlbmRlcmVyLXN0cmVhbS0xLTQxMS5taXJyYS5ub3ciLCJwb3J0IjoiNDQzIiwiaWQiOiJkZjljOTM1NS1iMDJjLTRjMTItOTA5ZC0wZGJlYjcyNWQ1MmIiLCJhaWQiOiIwIiwic2N5IjoiYXV0byIsIm5ldCI6IndzIiwidHlwZSI6Im5vbmUiLCJob3N0IjoicmVuZGVyZXItc3RyZWFtLTEtNDExLm1pcnJhLm5vdyIsInBhdGgiOiIvYXBpL3YxL2dwdS1zdHJlYW0vc29ja2V0IiwidGxzIjoidGxzIiwic25pIjoiIiwiYWxwbiI6IiIsImZwIjoiIiwiaW5zZWN1cmUiOiIwIn0=",
+      "country": "Russia",
+      "country_code": "Russia",
+      "city": "Moscow",
+      "isp": "OOO \"Sovremennye setevye tekhnologii\"",
+      "found_at": "2026-05-31T20:10:17.233205",
+      "hash": "27d6dadaa20898db37d426aa4cd4b7fb",
+      "sent_to_telegram": false
     }
   ],
-  "last_updated": "2026-05-31T18:45:16.852467",
-  "total_configs": 55,
+  "last_updated": "2026-05-31T20:10:17.233218",
+  "total_configs": 57,
   "created_at": "2026-05-01T11:10:36.324532"
 }
