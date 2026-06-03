@@ -6,7 +6,75 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10819,
+        "port": 10815,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "141.193.213.10",
+              "port": 443,
+              "password": "6b7f37af-a853-4f01-a031-5fa4eca4f5bf"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "ads.ruangguru.com.cyylr.eu.cc",
+            "allowInsecure": true,
+            "fingerprint": "chrome",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ]
+          },
+          "wsSettings": {
+            "path": "/in-do",
+            "headers": {
+              "Host": "ads.ruangguru.com.cyylr.eu.cc"
+            }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10808,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -22,13 +90,13 @@
         "settings": {
           "vnext": [
             {
-              "address": "85.208.85.91",
-              "port": 8443,
+              "address": "ovh.furkbalancer.net",
+              "port": 2053,
               "users": [
                 {
-                  "id": "931729a8-3c20-4841-89a1-f18dc9ce0a6f",
+                  "id": "c286e7ff-3a16-459f-8e17-59de2764cf2e",
                   "encryption": "none",
-                  "flow": ""
+                  "flow": "xtls-rprx-vision"
                 }
               ]
             }
@@ -38,7 +106,7 @@
           "network": "tcp",
           "security": "tls",
           "tlsSettings": {
-            "serverName": "cdn7-09.vk-cdnvideo.com",
+            "serverName": "de.chocolatemango.live",
             "allowInsecure": true,
             "fingerprint": "chrome",
             "alpn": [
@@ -49,6 +117,79 @@
           "tcpSettings": {
             "header": {
               "type": "none"
+            }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10817,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "216.24.57.1",
+              "port": 443,
+              "users": [
+                {
+                  "id": "565b50d4-604d-4a60-9fc2-d9d3dac0aec6",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "dl.cvs.freefiremobile.com.cyylr.eu.cc",
+            "allowInsecure": true,
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ]
+          },
+          "wsSettings": {
+            "path": "/id-pusat",
+            "headers": {
+              "Host": "dl.cvs.freefiremobile.com.cyylr.eu.cc"
             }
           }
         },
@@ -95,157 +236,11 @@
         "settings": {
           "vnext": [
             {
-              "address": "82.202.138.158",
-              "port": 8443,
-              "users": [
-                {
-                  "id": "931729a8-3c20-4841-89a1-f18dc9ce0a6f",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "security": "tls",
-          "tlsSettings": {
-            "serverName": "cdn7-09.vk-cdnvideo.com",
-            "allowInsecure": true,
-            "fingerprint": "chrome",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ]
-          },
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10813,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "82.202.138.158",
-              "port": 8443,
-              "users": [
-                {
-                  "id": "931729a8-3c20-4841-89a1-f18dc9ce0a6f",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "security": "tls",
-          "tlsSettings": {
-            "serverName": "cdn7-09.vk-cdnvideo.com",
-            "allowInsecure": true,
-            "fingerprint": "chrome",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ]
-          },
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10813,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
               "address": "216.24.57.1",
               "port": 443,
               "users": [
                 {
-                  "id": "565b50d4-604d-4a60-9fc2-d9d3dac0aec6",
+                  "id": "1a5b24bc-6180-4fa7-922d-ba7ee8a7a2b7",
                   "encryption": "none",
                   "flow": ""
                 }
@@ -257,18 +252,17 @@
           "network": "ws",
           "security": "tls",
           "tlsSettings": {
-            "serverName": "dl.cvs.freefiremobile.com.cyylr.eu.cc",
+            "serverName": "support.zoom.us.cyylr.eu.cc",
             "allowInsecure": true,
             "fingerprint": "chrome",
             "alpn": [
-              "h2",
               "http/1.1"
             ]
           },
           "wsSettings": {
             "path": "/id-pusat",
             "headers": {
-              "Host": "dl.cvs.freefiremobile.com.cyylr.eu.cc"
+              "Host": "support.zoom.us.cyylr.eu.cc"
             }
           }
         },
@@ -299,7 +293,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10816,
+        "port": 10818,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -335,6 +329,7 @@
             "allowInsecure": true,
             "fingerprint": "chrome",
             "alpn": [
+              "h2",
               "http/1.1"
             ]
           },
@@ -388,7 +383,7 @@
         "settings": {
           "vnext": [
             {
-              "address": "85.208.85.91",
+              "address": "82.202.138.158",
               "port": 8443,
               "users": [
                 {
@@ -445,80 +440,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10818,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "216.24.57.1",
-              "port": 443,
-              "users": [
-                {
-                  "id": "565b50d4-604d-4a60-9fc2-d9d3dac0aec6",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "ws",
-          "security": "tls",
-          "tlsSettings": {
-            "serverName": "dl.cvs.freefiremobile.com.cyylr.eu.cc",
-            "allowInsecure": true,
-            "fingerprint": "chrome",
-            "alpn": [
-              "http/1.1"
-            ]
-          },
-          "wsSettings": {
-            "path": "/id-pusat",
-            "headers": {
-              "Host": "dl.cvs.freefiremobile.com.cyylr.eu.cc"
-            }
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10800,
+        "port": 10815,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -591,80 +513,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10815,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "216.24.57.1",
-              "port": 443,
-              "users": [
-                {
-                  "id": "5dbfed06-dd62-48c0-8e39-b4835defcdb0",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "ws",
-          "security": "tls",
-          "tlsSettings": {
-            "serverName": "investors.spotify.com.cyylr.eu.cc",
-            "allowInsecure": true,
-            "fingerprint": "chrome",
-            "alpn": [
-              "http/1.1"
-            ]
-          },
-          "wsSettings": {
-            "path": "/sg-amz",
-            "headers": {
-              "Host": "investors.spotify.com.cyylr.eu.cc"
-            }
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10808,
+        "port": 10812,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -738,7 +587,81 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10802,
+        "port": 10819,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "141.193.213.11",
+              "port": 443,
+              "users": [
+                {
+                  "id": "%40a_amr79",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "unnes.ac.id.cyylr.eu.cc",
+            "allowInsecure": true,
+            "fingerprint": "chrome",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ]
+          },
+          "wsSettings": {
+            "path": "/my-wbv",
+            "headers": {
+              "Host": "unnes.ac.id.cyylr.eu.cc"
+            }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10817,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -758,7 +681,303 @@
               "port": 443,
               "users": [
                 {
-                  "id": "6e593426-1a8e-4226-984f-0ea174e218c7",
+                  "id": "5dbfed06-dd62-48c0-8e39-b4835defcdb0",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "investors.spotify.com.cyylr.eu.cc",
+            "allowInsecure": true,
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ]
+          },
+          "wsSettings": {
+            "path": "/sg-amz",
+            "headers": {
+              "Host": "investors.spotify.com.cyylr.eu.cc"
+            }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10811,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "89.126.229.40",
+              "port": 443,
+              "users": [
+                {
+                  "id": "301d514e-4aa0-47b0-ba44-a0cb891cd52f",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "www.samsung.com",
+            "allowInsecure": true,
+            "fingerprint": "chrome",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "OZVjfQBboTDTBw0baMFqzVPsVUI4FNQmspTEb0b0zW4",
+            "shortId": "a1b2c3d4",
+            "spiderX": "/"
+          },
+          "tcpSettings": {
+            "header": {
+              "type": "none"
+            }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10816,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "216.24.57.1",
+              "port": 443,
+              "users": [
+                {
+                  "id": "565b50d4-604d-4a60-9fc2-d9d3dac0aec6",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "dl.cvs.freefiremobile.com.cyylr.eu.cc",
+            "allowInsecure": true,
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ]
+          },
+          "wsSettings": {
+            "path": "/id-pusat",
+            "headers": {
+              "Host": "dl.cvs.freefiremobile.com.cyylr.eu.cc"
+            }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10811,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "216.24.57.1",
+              "port": 443,
+              "users": [
+                {
+                  "id": "5dbfed06-dd62-48c0-8e39-b4835defcdb0",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "investors.spotify.com.cyylr.eu.cc",
+            "allowInsecure": true,
+            "fingerprint": "chrome",
+            "alpn": [
+              "http/1.1"
+            ]
+          },
+          "wsSettings": {
+            "path": "/sg-amz",
+            "headers": {
+              "Host": "investors.spotify.com.cyylr.eu.cc"
+            }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10805,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "216.24.57.1",
+              "port": 443,
+              "users": [
+                {
+                  "id": "565b50d4-604d-4a60-9fc2-d9d3dac0aec6",
                   "encryption": "none",
                   "flow": ""
                 }
@@ -832,7 +1051,7 @@
               "port": 443,
               "users": [
                 {
-                  "id": "%40a_amr79",
+                  "id": "9232a847-8f7d-4548-a23a-a8b3550e0f15",
                   "encryption": "none",
                   "flow": ""
                 }
@@ -844,7 +1063,7 @@
           "network": "ws",
           "security": "tls",
           "tlsSettings": {
-            "serverName": "unnes.ac.id.cyylr.eu.cc",
+            "serverName": "grabacademyportal.grab.com.cyylr.eu.cc",
             "allowInsecure": true,
             "fingerprint": "chrome",
             "alpn": [
@@ -853,9 +1072,9 @@
             ]
           },
           "wsSettings": {
-            "path": "/my-wbv",
+            "path": "/id-tksi",
             "headers": {
-              "Host": "unnes.ac.id.cyylr.eu.cc"
+              "Host": "grabacademyportal.grab.com.cyylr.eu.cc"
             }
           }
         },
@@ -886,7 +1105,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10812,
+        "port": 10806,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -906,7 +1125,7 @@
               "port": 443,
               "users": [
                 {
-                  "id": "5dbfed06-dd62-48c0-8e39-b4835defcdb0",
+                  "id": "6e593426-1a8e-4226-984f-0ea174e218c7",
                   "encryption": "none",
                   "flow": ""
                 }
@@ -918,7 +1137,7 @@
           "network": "ws",
           "security": "tls",
           "tlsSettings": {
-            "serverName": "investors.spotify.com.cyylr.eu.cc",
+            "serverName": "dl.cvs.freefiremobile.com.cyylr.eu.cc",
             "allowInsecure": true,
             "fingerprint": "chrome",
             "alpn": [
@@ -926,9 +1145,9 @@
             ]
           },
           "wsSettings": {
-            "path": "/sg-amz",
+            "path": "/id-pusat",
             "headers": {
-              "Host": "investors.spotify.com.cyylr.eu.cc"
+              "Host": "dl.cvs.freefiremobile.com.cyylr.eu.cc"
             }
           }
         },
@@ -959,7 +1178,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10819,
+        "port": 10814,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -975,11 +1194,11 @@
         "settings": {
           "vnext": [
             {
-              "address": "141.193.213.11",
+              "address": "216.24.57.1",
               "port": 443,
               "users": [
                 {
-                  "id": "9232a847-8f7d-4548-a23a-a8b3550e0f15",
+                  "id": "19804f6b-3661-4eca-b294-ba37196dab5b",
                   "encryption": "none",
                   "flow": ""
                 }
@@ -991,18 +1210,17 @@
           "network": "ws",
           "security": "tls",
           "tlsSettings": {
-            "serverName": "grabacademyportal.grab.com.cyylr.eu.cc",
+            "serverName": "graph.instagram.com.cyylr.eu.cc",
             "allowInsecure": true,
             "fingerprint": "chrome",
             "alpn": [
-              "h2",
               "http/1.1"
             ]
           },
           "wsSettings": {
             "path": "/id-tksi",
             "headers": {
-              "Host": "grabacademyportal.grab.com.cyylr.eu.cc"
+              "Host": "graph.instagram.com.cyylr.eu.cc"
             }
           }
         },
@@ -1033,7 +1251,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10801,
+        "port": 10804,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -1049,11 +1267,11 @@
         "settings": {
           "vnext": [
             {
-              "address": "141.193.213.11",
+              "address": "216.24.57.1",
               "port": 443,
               "users": [
                 {
-                  "id": "9232a847-8f7d-4548-a23a-a8b3550e0f15",
+                  "id": "6e593426-1a8e-4226-984f-0ea174e218c7",
                   "encryption": "none",
                   "flow": ""
                 }
@@ -1065,18 +1283,17 @@
           "network": "ws",
           "security": "tls",
           "tlsSettings": {
-            "serverName": "grabacademyportal.grab.com.cyylr.eu.cc",
+            "serverName": "dl.cvs.freefiremobile.com.cyylr.eu.cc",
             "allowInsecure": true,
             "fingerprint": "chrome",
             "alpn": [
-              "h2",
               "http/1.1"
             ]
           },
           "wsSettings": {
-            "path": "/id-tksi",
+            "path": "/id-pusat",
             "headers": {
-              "Host": "grabacademyportal.grab.com.cyylr.eu.cc"
+              "Host": "dl.cvs.freefiremobile.com.cyylr.eu.cc"
             }
           }
         },
