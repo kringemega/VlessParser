@@ -5,24 +5,68 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 418ms
+- name: TROJAN-1 | 989ms
+  type: trojan
+  server: 212.183.88.136
+  port: 443
+  password: humanity
+  sni: www.calmlunch.com
+- name: VLESS-2 | 378ms
   type: vless
-  server: 82.202.156.143
+  server: 216.24.57.7
+  port: 443
+  uuid: fc965ad9-bdd7-4815-ad71-b39ec5972dc1
+  network: ws
+  tls: true
+  servername: octopusss4.com
+- name: VLESS-3 | 370ms
+  type: vless
+  server: 216.24.57.7
+  port: 443
+  uuid: fc965ad9-bdd7-4815-ad71-b39ec5972dc1
+  network: ws
+  tls: true
+  servername: octopusss4.com
+- name: VLESS-4 | 520ms
+  type: vless
+  server: 82.202.136.163
   port: 8443
   uuid: 931729a8-3c20-4841-89a1-f18dc9ce0a6f
   network: tcp
   tls: true
   servername: cdn7-09.vk-cdnvideo.com
+- name: TROJAN-5 | 318ms
+  type: trojan
+  server: 216.24.57.7
+  port: 443
+  password: humanity
+  sni: www.ignitelimit.com
+- name: VLESS-6 | 424ms
+  type: vless
+  server: 155.212.215.179
+  port: 2087
+  uuid: 13d3d4bc-5e3b-11f1-bd95-ee5f4ed81fa1
+  network: tcp
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 418ms
+  - TROJAN-1 | 989ms
+  - VLESS-2 | 378ms
+  - VLESS-3 | 370ms
+  - VLESS-4 | 520ms
+  - TROJAN-5 | 318ms
+  - VLESS-6 | 424ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 418ms
+  - TROJAN-1 | 989ms
+  - VLESS-2 | 378ms
+  - VLESS-3 | 370ms
+  - VLESS-4 | 520ms
+  - TROJAN-5 | 318ms
+  - VLESS-6 | 424ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
