@@ -5,7 +5,23 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 420ms
+- name: VLESS-1 | 539ms
+  type: vless
+  server: 89.232.177.114
+  port: 8443
+  uuid: 931729a8-3c20-4841-89a1-f18dc9ce0a6f
+  network: tcp
+  tls: true
+  servername: cdn7-09.vk-cdnvideo.com
+- name: VLESS-2 | 543ms
+  type: vless
+  server: 82.202.159.156
+  port: 8443
+  uuid: 931729a8-3c20-4841-89a1-f18dc9ce0a6f
+  network: tcp
+  tls: true
+  servername: cdn7-09.vk-cdnvideo.com
+- name: VLESS-3 | 537ms
   type: vless
   server: 213.171.24.172
   port: 8443
@@ -13,116 +29,36 @@ proxies:
   network: tcp
   tls: true
   servername: cdn7-09.vk-cdnvideo.com
-- name: VLESS-2 | 527ms
+- name: VLESS-4 | 739ms
   type: vless
   server: 217.149.25.106
   port: 443
   uuid: 029a4bc6-4557-4b6b-a5fc-6232e943e43b
   network: tcp
-- name: VLESS-3 | 911ms
+- name: VLESS-5 | 697ms
   type: vless
-  server: 5.188.115.153
-  port: 9443
-  uuid: 5d5586a3-b5f3-40ac-bab2-2f36bc60ec0b
-  network: grpc
-- name: VLESS-4 | 510ms
-  type: vless
-  server: 87.239.108.241
-  port: 443
-  uuid: 6c6bb37a-3315-45bc-88d6-0fbba043c07f
-  network: tcp
-- name: VLESS-5 | 604ms
-  type: vless
-  server: 87.239.108.241
-  port: 443
-  uuid: 6c6bb37a-3315-45bc-88d6-0fbba043c07f
-  network: tcp
-- name: VLESS-6 | 826ms
-  type: vless
-  server: 62.152.56.62
+  server: 62.152.56.230
   port: 8443
   uuid: 1da3b96e-55af-0012-9147-39e79074aaea
   network: grpc
-- name: VLESS-7 | 1365ms
-  type: vless
-  server: 51.250.66.119
-  port: 443
-  uuid: e0f64e0b-ecb7-43fa-803b-99b728e54128
-  network: tcp
-- name: VLESS-8 | 439ms
-  type: vless
-  server: cockroachservice.ru
-  port: 443
-  uuid: 6c6bb37a-3315-45bc-88d6-0fbba043c07f
-  network: tcp
-- name: VLESS-9 | 839ms
-  type: vless
-  server: 51.250.66.119
-  port: 443
-  uuid: e0f64e0b-ecb7-43fa-803b-99b728e54128
-  network: tcp
-- name: VLESS-10 | 114ms
-  type: vless
-  server: www.epicgames.com
-  port: 443
-  uuid: c135158e-5869-4397-8116-6695ca18cd48
-  network: ws
-  tls: true
-  servername: cf.hulume.ccwu.cc
-- name: VLESS-11 | 74ms
-  type: vless
-  server: www.epicgames.com
-  port: 443
-  uuid: c135158e-5869-4397-8116-6695ca18cd48
-  network: ws
-  tls: true
-  servername: cf.hulume.ccwu.cc
-- name: VLESS-12 | 719ms
-  type: vless
-  server: 37.9.4.125
-  port: 9443
-  uuid: 5d5586a3-b5f3-40ac-bab2-2f36bc60ec0b
-  network: grpc
-- name: VLESS-13 | 816ms
-  type: vless
-  server: 84.201.170.224
-  port: 443
-  uuid: e0f64e0b-ecb7-43fa-803b-99b728e54128
-  network: tcp
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 420ms
-  - VLESS-2 | 527ms
-  - VLESS-3 | 911ms
-  - VLESS-4 | 510ms
-  - VLESS-5 | 604ms
-  - VLESS-6 | 826ms
-  - VLESS-7 | 1365ms
-  - VLESS-8 | 439ms
-  - VLESS-9 | 839ms
-  - VLESS-10 | 114ms
-  - VLESS-11 | 74ms
-  - VLESS-12 | 719ms
-  - VLESS-13 | 816ms
+  - VLESS-1 | 539ms
+  - VLESS-2 | 543ms
+  - VLESS-3 | 537ms
+  - VLESS-4 | 739ms
+  - VLESS-5 | 697ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 420ms
-  - VLESS-2 | 527ms
-  - VLESS-3 | 911ms
-  - VLESS-4 | 510ms
-  - VLESS-5 | 604ms
-  - VLESS-6 | 826ms
-  - VLESS-7 | 1365ms
-  - VLESS-8 | 439ms
-  - VLESS-9 | 839ms
-  - VLESS-10 | 114ms
-  - VLESS-11 | 74ms
-  - VLESS-12 | 719ms
-  - VLESS-13 | 816ms
+  - VLESS-1 | 539ms
+  - VLESS-2 | 543ms
+  - VLESS-3 | 537ms
+  - VLESS-4 | 739ms
+  - VLESS-5 | 697ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
