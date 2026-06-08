@@ -5,7 +5,33 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 539ms
+- name: VLESS-1 | 467ms
+  type: vless
+  server: ru54.whost-solutions.ru
+  port: 443
+  uuid: e7cb547e-5a74-4695-9019-a2c93e7593ea
+  network: tcp
+- name: VLESS-2 | 453ms
+  type: vless
+  server: 89.208.208.92
+  port: 9443
+  uuid: cbc27e56-38a1-4b0d-bce3-f9e7dcb807a4
+  network: tcp
+- name: VLESS-3 | 507ms
+  type: vless
+  server: 82.202.136.163
+  port: 8443
+  uuid: 931729a8-3c20-4841-89a1-f18dc9ce0a6f
+  network: tcp
+  tls: true
+  servername: cdn7-09.vk-cdnvideo.com
+- name: VLESS-4 | 676ms
+  type: vless
+  server: ru50.whost-solutions.ru
+  port: 443
+  uuid: e7cb547e-5a74-4695-9019-a2c93e7593ea
+  network: tcp
+- name: VLESS-5 | 530ms
   type: vless
   server: 89.232.177.114
   port: 8443
@@ -13,52 +39,144 @@ proxies:
   network: tcp
   tls: true
   servername: cdn7-09.vk-cdnvideo.com
-- name: VLESS-2 | 543ms
+- name: VLESS-6 | 1541ms
   type: vless
-  server: 82.202.159.156
-  port: 8443
-  uuid: 931729a8-3c20-4841-89a1-f18dc9ce0a6f
-  network: tcp
-  tls: true
-  servername: cdn7-09.vk-cdnvideo.com
-- name: VLESS-3 | 537ms
-  type: vless
-  server: 213.171.24.172
-  port: 8443
-  uuid: 931729a8-3c20-4841-89a1-f18dc9ce0a6f
-  network: tcp
-  tls: true
-  servername: cdn7-09.vk-cdnvideo.com
-- name: VLESS-4 | 739ms
-  type: vless
-  server: 217.149.25.106
+  server: cockroachservice.ru
   port: 443
-  uuid: 029a4bc6-4557-4b6b-a5fc-6232e943e43b
+  uuid: 6c6bb37a-3315-45bc-88d6-0fbba043c07f
   network: tcp
-- name: VLESS-5 | 697ms
+- name: VLESS-7 | 471ms
   type: vless
-  server: 62.152.56.230
-  port: 8443
-  uuid: 1da3b96e-55af-0012-9147-39e79074aaea
+  server: ru40.whost-solutions.ru
+  port: 443
+  uuid: e7cb547e-5a74-4695-9019-a2c93e7593ea
+  network: tcp
+- name: VLESS-8 | 478ms
+  type: vless
+  server: ru59.whost-solutions.ru
+  port: 443
+  uuid: e7cb547e-5a74-4695-9019-a2c93e7593ea
+  network: tcp
+- name: VLESS-9 | 600ms
+  type: vless
+  server: ru48.whost-solutions.ru
+  port: 443
+  uuid: e7cb547e-5a74-4695-9019-a2c93e7593ea
+  network: tcp
+- name: VLESS-10 | 606ms
+  type: vless
+  server: ru48.whost-solutions.ru
+  port: 443
+  uuid: e7cb547e-5a74-4695-9019-a2c93e7593ea
+  network: tcp
+- name: VLESS-11 | 491ms
+  type: vless
+  server: ru40.whost-solutions.ru
+  port: 443
+  uuid: e7cb547e-5a74-4695-9019-a2c93e7593ea
+  network: tcp
+- name: VLESS-12 | 513ms
+  type: vless
+  server: ru49.whost-solutions.ru
+  port: 443
+  uuid: e7cb547e-5a74-4695-9019-a2c93e7593ea
+  network: tcp
+- name: VMESS-13 | 977ms
+  type: vmess
+  server: 93.93.88.22
+  port: 443
+  uuid: df9c9355-b02c-4c12-909d-0dbeb725d52b
+  alterId: 0
+  cipher: auto
+  network: ws
+  tls: true
+  servername: renderer-stream-1-411.mirra.now
+  ws-opts:
+    path: /api/v1/gpu-stream/socket
+    headers:
+      Host: renderer-stream-1-411.mirra.now
+- name: VLESS-14 | 558ms
+  type: vless
+  server: ru49.whost-solutions.ru
+  port: 443
+  uuid: e7cb547e-5a74-4695-9019-a2c93e7593ea
+  network: tcp
+- name: VLESS-15 | 362ms
+  type: vless
+  server: 89.208.208.92
+  port: 7443
+  uuid: cbc27e56-38a1-4b0d-bce3-f9e7dcb807a4
   network: grpc
+- name: VMESS-16 | 1386ms
+  type: vmess
+  server: 37.220.161.247
+  port: 443
+  uuid: df9c9355-b02c-4c12-909d-0dbeb725d52b
+  alterId: 0
+  cipher: auto
+  network: ws
+  tls: true
+  servername: renderer-stream-1-411.mirra.now
+  ws-opts:
+    path: /api/v1/gpu-stream/socket
+    headers:
+      Host: renderer-stream-1-411.mirra.now
+- name: VMESS-17 | 644ms
+  type: vmess
+  server: 93.93.89.117
+  port: 443
+  uuid: df9c9355-b02c-4c12-909d-0dbeb725d52b
+  alterId: 0
+  cipher: auto
+  network: ws
+  tls: true
+  servername: renderer-stream-1-411.mirra.now
+  ws-opts:
+    path: /api/v1/gpu-stream/socket
+    headers:
+      Host: renderer-stream-1-411.mirra.now
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 539ms
-  - VLESS-2 | 543ms
-  - VLESS-3 | 537ms
-  - VLESS-4 | 739ms
-  - VLESS-5 | 697ms
+  - VLESS-1 | 467ms
+  - VLESS-2 | 453ms
+  - VLESS-3 | 507ms
+  - VLESS-4 | 676ms
+  - VLESS-5 | 530ms
+  - VLESS-6 | 1541ms
+  - VLESS-7 | 471ms
+  - VLESS-8 | 478ms
+  - VLESS-9 | 600ms
+  - VLESS-10 | 606ms
+  - VLESS-11 | 491ms
+  - VLESS-12 | 513ms
+  - VMESS-13 | 977ms
+  - VLESS-14 | 558ms
+  - VLESS-15 | 362ms
+  - VMESS-16 | 1386ms
+  - VMESS-17 | 644ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 539ms
-  - VLESS-2 | 543ms
-  - VLESS-3 | 537ms
-  - VLESS-4 | 739ms
-  - VLESS-5 | 697ms
+  - VLESS-1 | 467ms
+  - VLESS-2 | 453ms
+  - VLESS-3 | 507ms
+  - VLESS-4 | 676ms
+  - VLESS-5 | 530ms
+  - VLESS-6 | 1541ms
+  - VLESS-7 | 471ms
+  - VLESS-8 | 478ms
+  - VLESS-9 | 600ms
+  - VLESS-10 | 606ms
+  - VLESS-11 | 491ms
+  - VLESS-12 | 513ms
+  - VMESS-13 | 977ms
+  - VLESS-14 | 558ms
+  - VLESS-15 | 362ms
+  - VMESS-16 | 1386ms
+  - VMESS-17 | 644ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
