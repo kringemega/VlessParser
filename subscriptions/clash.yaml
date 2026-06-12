@@ -5,86 +5,98 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 538ms
+- name: VLESS-1 | 346ms
+  type: vless
+  server: 47.80.24.245
+  port: 8123
+  uuid: 5fb6c5d2-629b-48c6-bb3c-595caf2007ee
+  network: tcp
+- name: VLESS-2 | 719ms
+  type: vless
+  server: 192.0.63.255
+  port: 2083
+  uuid: 8ccf871b-6586-44ad-9b4c-e7c6097eac59
+  network: ws
+  tls: true
+  servername: liz1.jooje.lat
+- name: VLESS-3 | 499ms
+  type: vless
+  server: 82.202.143.65
+  port: 443
+  uuid: a879334c-1ed5-4f0c-9e0b-779af37fec28
+  network: grpc
+- name: VLESS-4 | 540ms
+  type: vless
+  server: l11.l-itx.info
+  port: 2053
+  uuid: f1a44ae4-20f9-4dd7-b60e-b4f2acecfdb4
+  network: ws
+  tls: true
+  servername: itx-server.digital
+- name: VLESS-5 | 515ms
+  type: vless
+  server: 154.91.157.187
+  port: 8443
+  uuid: db7fecc6-7677-4b25-9a6a-d34149648b4b
+  network: tcp
+- name: VLESS-6 | 397ms
+  type: vless
+  server: 154.91.157.187
+  port: 8443
+  uuid: f8e699e8-c856-4297-b42c-0097544121c3
+  network: tcp
+- name: VLESS-7 | 1272ms
   type: vless
   server: br-m247-01.com
   port: 8443
   uuid: db7fecc6-7677-4b25-9a6a-d34149648b4b
   network: tcp
-- name: VLESS-2 | 1521ms
-  type: vless
-  server: in.maximum-vpn.com
-  port: 443
-  uuid: b46caa37-244f-46b6-921e-664cb2cc6f9d
-  network: tcp
-- name: VLESS-3 | 957ms
-  type: vless
-  server: 51.250.43.93
-  port: 443
-  uuid: 58d3d960-dfba-4f6d-908d-f4696686867f
-  network: tcp
-- name: VLESS-4 | 422ms
-  type: vless
-  server: 45.197.134.28
-  port: 8443
-  uuid: cc2282b8-eceb-493b-9fd2-0c898840f6ee
-  network: tcp
-- name: VLESS-5 | 437ms
-  type: vless
-  server: 45.197.134.28
-  port: 8443
-  uuid: 3b7950ed-e076-4a51-8df2-222a88689700
-  network: tcp
-- name: VLESS-6 | 868ms
-  type: vless
-  server: 78.159.245.42
-  port: 27015
-  uuid: b84bd2ec-6a5d-4fbb-89af-31cc8ef458d7
-  network: tcp
-- name: VLESS-7 | 220ms
+- name: VLESS-8 | 474ms
   type: vless
   server: 130.12.242.112
   port: 7443
   uuid: 1c0277ad-bb4d-496f-bc0c-40ccee03fca5
   network: tcp
-- name: VLESS-8 | 870ms
+- name: VLESS-9 | 498ms
   type: vless
-  server: 78.159.245.118
-  port: 25567
-  uuid: b84bd2ec-6a5d-4fbb-89af-31cc8ef458d7
-  network: tcp
-- name: VLESS-9 | 281ms
-  type: vless
-  server: 89.208.208.92
+  server: 130.12.242.112
   port: 7443
-  uuid: cbc27e56-38a1-4b0d-bce3-f9e7dcb807a4
-  network: grpc
+  uuid: 1c0277ad-bb4d-496f-bc0c-40ccee03fca5
+  network: tcp
+- name: VLESS-10 | 527ms
+  type: vless
+  server: in.maximum-vpn.com
+  port: 443
+  uuid: b46caa37-244f-46b6-921e-664cb2cc6f9d
+  network: tcp
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 538ms
-  - VLESS-2 | 1521ms
-  - VLESS-3 | 957ms
-  - VLESS-4 | 422ms
-  - VLESS-5 | 437ms
-  - VLESS-6 | 868ms
-  - VLESS-7 | 220ms
-  - VLESS-8 | 870ms
-  - VLESS-9 | 281ms
+  - VLESS-1 | 346ms
+  - VLESS-2 | 719ms
+  - VLESS-3 | 499ms
+  - VLESS-4 | 540ms
+  - VLESS-5 | 515ms
+  - VLESS-6 | 397ms
+  - VLESS-7 | 1272ms
+  - VLESS-8 | 474ms
+  - VLESS-9 | 498ms
+  - VLESS-10 | 527ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 538ms
-  - VLESS-2 | 1521ms
-  - VLESS-3 | 957ms
-  - VLESS-4 | 422ms
-  - VLESS-5 | 437ms
-  - VLESS-6 | 868ms
-  - VLESS-7 | 220ms
-  - VLESS-8 | 870ms
-  - VLESS-9 | 281ms
+  - VLESS-1 | 346ms
+  - VLESS-2 | 719ms
+  - VLESS-3 | 499ms
+  - VLESS-4 | 540ms
+  - VLESS-5 | 515ms
+  - VLESS-6 | 397ms
+  - VLESS-7 | 1272ms
+  - VLESS-8 | 474ms
+  - VLESS-9 | 498ms
+  - VLESS-10 | 527ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
