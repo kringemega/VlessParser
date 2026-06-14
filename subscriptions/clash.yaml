@@ -5,126 +5,38 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VMESS-1 | 1192ms
-  type: vmess
-  server: cf.scpnb.top
-  port: 443
-  uuid: 7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed
-  alterId: 0
-  cipher: auto
-  network: ws
-  tls: true
-  servername: vienna-bread-threats-amendment.trycloudflare.com
-  ws-opts:
-    path: /7c84ae69-f0b3-47dc-83c5-e7b5f00f5bed-vm
-    headers:
-      Host: vienna-bread-threats-amendment.trycloudflare.com
-- name: VLESS-2 | 321ms
+- name: VLESS-1 | 240ms
   type: vless
   server: 95.213.184.91
   port: 2053
   uuid: d98c856e-4aec-4d6c-ac66-fca0e474991d
   network: tcp
-- name: VLESS-3 | 1396ms
+- name: VLESS-2 | 924ms
   type: vless
-  server: 51.250.17.80
+  server: 51.250.102.69
   port: 443
-  uuid: 9b4e2dff-3f04-4397-a748-902ab1965ec1
+  uuid: 83a8c535-042e-4f7c-809e-d8e4fc7da0b0
   network: tcp
-- name: VLESS-4 | 559ms
+- name: VLESS-3 | 1209ms
   type: vless
-  server: 93.77.163.232
+  server: 51.250.102.69
   port: 443
-  uuid: 0d27f12d-1632-5662-bdbf-5ac93eed5171
-  network: tcp
-- name: VLESS-5 | 555ms
-  type: vless
-  server: 93.77.163.232
-  port: 443
-  uuid: 0d27f12d-1632-5662-bdbf-5ac93eed5171
-  network: tcp
-- name: VLESS-6 | 1391ms
-  type: vless
-  server: 51.250.17.80
-  port: 443
-  uuid: 79b3a65b-3f70-4fff-85e4-82a7b9d37f73
-  network: tcp
-- name: VLESS-7 | 301ms
-  type: vless
-  server: 51.250.19.217
-  port: 443
-  uuid: 6a152189-679e-4633-9222-781992c7bf7d
-  network: tcp
-- name: VLESS-8 | 1181ms
-  type: vless
-  server: 51.250.24.232
-  port: 443
-  uuid: 9dc84b73-9278-4280-9e16-bf81739a8216
-  network: tcp
-- name: VLESS-9 | 693ms
-  type: vless
-  server: 84.201.166.176
-  port: 443
-  uuid: 1ad4bc6a-f707-4439-b20e-a99565650d45
-  network: grpc
-- name: VLESS-10 | 1349ms
-  type: vless
-  server: 51.250.24.232
-  port: 443
-  uuid: 9b4e2dff-3f04-4397-a748-902ab1965ec1
-  network: tcp
-- name: VLESS-11 | 903ms
-  type: vless
-  server: 51.250.97.18
-  port: 443
-  uuid: 9b4e2dff-3f04-4397-a748-902ab1965ec1
-  network: tcp
-- name: VLESS-12 | 921ms
-  type: vless
-  server: 82.22.40.175
-  port: 8443
-  uuid: 0d27f12d-1632-5662-bdbf-5ac93eed5171
-  network: tcp
-- name: VLESS-13 | 801ms
-  type: vless
-  server: 84.201.179.148
-  port: 8443
-  uuid: 6a152189-679e-4633-9222-781992c7bf7d
+  uuid: 29afdbd0-3f4c-4d53-9ce1-c531ba0b3490
   network: tcp
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VMESS-1 | 1192ms
-  - VLESS-2 | 321ms
-  - VLESS-3 | 1396ms
-  - VLESS-4 | 559ms
-  - VLESS-5 | 555ms
-  - VLESS-6 | 1391ms
-  - VLESS-7 | 301ms
-  - VLESS-8 | 1181ms
-  - VLESS-9 | 693ms
-  - VLESS-10 | 1349ms
-  - VLESS-11 | 903ms
-  - VLESS-12 | 921ms
-  - VLESS-13 | 801ms
+  - VLESS-1 | 240ms
+  - VLESS-2 | 924ms
+  - VLESS-3 | 1209ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VMESS-1 | 1192ms
-  - VLESS-2 | 321ms
-  - VLESS-3 | 1396ms
-  - VLESS-4 | 559ms
-  - VLESS-5 | 555ms
-  - VLESS-6 | 1391ms
-  - VLESS-7 | 301ms
-  - VLESS-8 | 1181ms
-  - VLESS-9 | 693ms
-  - VLESS-10 | 1349ms
-  - VLESS-11 | 903ms
-  - VLESS-12 | 921ms
-  - VLESS-13 | 801ms
+  - VLESS-1 | 240ms
+  - VLESS-2 | 924ms
+  - VLESS-3 | 1209ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
