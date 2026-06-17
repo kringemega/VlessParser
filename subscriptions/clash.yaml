@@ -5,30 +5,50 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 1251ms
+- name: VLESS-1 | 140ms
   type: vless
   server: 37.139.34.63
   port: 23356
   uuid: bfd6c195-e37e-40ed-b962-c3ea4ac0f5df
   network: grpc
-- name: VLESS-2 | 1241ms
+- name: VLESS-2 | 156ms
   type: vless
-  server: 37.139.34.63
+  server: nl.mail-appstatus.net
   port: 23356
   uuid: bfd6c195-e37e-40ed-b962-c3ea4ac0f5df
   network: grpc
+- name: VLESS-3 | 1120ms
+  type: vless
+  server: 157.22.241.100
+  port: 2053
+  uuid: f1a44ae4-20f9-4dd7-b60e-b4f2acecfdb4
+  network: ws
+  tls: true
+  servername: 554dad6ab34f7baf.itx-server.digital
+- name: VLESS-4 | 267ms
+  type: vless
+  server: 109.120.177.229
+  port: 443
+  uuid: 7d4e24ec-9941-40b4-94f4-f127ed542629
+  network: ws
+  tls: true
+  servername: damp-moon-8a5cjn.gicoh49569.workers.dev
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 1251ms
-  - VLESS-2 | 1241ms
+  - VLESS-1 | 140ms
+  - VLESS-2 | 156ms
+  - VLESS-3 | 1120ms
+  - VLESS-4 | 267ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 1251ms
-  - VLESS-2 | 1241ms
+  - VLESS-1 | 140ms
+  - VLESS-2 | 156ms
+  - VLESS-3 | 1120ms
+  - VLESS-4 | 267ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
