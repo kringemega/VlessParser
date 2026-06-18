@@ -5,72 +5,30 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 370ms
+- name: VLESS-1 | 345ms
   type: vless
-  server: 141.193.213.20
+  server: 45.92.177.186
   port: 443
-  uuid: 4f013568-a58b-4b04-b5dd-4d52bf1c33a4
-  network: ws
-  tls: true
-  servername: amoosamiii.net
-- name: VLESS-2 | 299ms
-  type: vless
-  server: 89.106.86.101
-  port: 443
-  uuid: d23a1ce1-b6a6-4a58-b56b-1be6a1cd7d39
+  uuid: 52b71b75-4b77-4cec-990b-046ec1938e1f
   network: tcp
-  tls: true
-  servername: nlxeon41x611.potatosubge20.org
-- name: VLESS-3 | 301ms
+- name: VLESS-2 | 1793ms
   type: vless
-  server: 89.106.86.101
-  port: 443
-  uuid: d23a1ce1-b6a6-4a58-b56b-1be6a1cd7d39
-  network: tcp
-  tls: true
-  servername: nlxeon41x611.potatosubge20.org
-- name: VLESS-4 | 663ms
-  type: vless
-  server: 5.83.129.22
-  port: 443
-  uuid: d23a1ce1-b6a6-4a58-b56b-1be6a1cd7d39
-  network: tcp
-  tls: true
-  servername: 50gport2.potatosubge20.org
-- name: VLESS-5 | 663ms
-  type: vless
-  server: 5.83.129.22
-  port: 443
-  uuid: d23a1ce1-b6a6-4a58-b56b-1be6a1cd7d39
-  network: tcp
-  tls: true
-  servername: 50gport2.potatosubge20.org
-- name: VLESS-6 | 1444ms
-  type: vless
-  server: 81.19.135.87
-  port: 443
-  uuid: ff19693c-11f3-4df9-8713-79a85a5ca090
-  network: tcp
+  server: 46.254.17.58
+  port: 80
+  uuid: 9afc3066-ae6e-48a8-ad83-73f61776f608
+  network: grpc
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 370ms
-  - VLESS-2 | 299ms
-  - VLESS-3 | 301ms
-  - VLESS-4 | 663ms
-  - VLESS-5 | 663ms
-  - VLESS-6 | 1444ms
+  - VLESS-1 | 345ms
+  - VLESS-2 | 1793ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 370ms
-  - VLESS-2 | 299ms
-  - VLESS-3 | 301ms
-  - VLESS-4 | 663ms
-  - VLESS-5 | 663ms
-  - VLESS-6 | 1444ms
+  - VLESS-1 | 345ms
+  - VLESS-2 | 1793ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
