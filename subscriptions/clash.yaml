@@ -5,42 +5,30 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: TROJAN-1 | 365ms
-  type: trojan
-  server: news.microsoft.com
-  port: 443
-  password: 87873670-6845-11f1-94a5-1239d0255272
-  sni: uk1.test3.net
-- name: VLESS-2 | 833ms
+- name: VLESS-1 | 671ms
   type: vless
-  server: 164.38.155.135
+  server: 176.108.244.152
   port: 443
-  uuid: AlfredConfig
-  network: ws
-  tls: true
-  servername: alfi.yas-nowin.ir
-- name: VLESS-3 | 824ms
+  uuid: 227131c5-1063-4d5d-9038-8dacdcefc569
+  network: tcp
+- name: VLESS-2 | 553ms
   type: vless
-  server: 164.38.155.135
+  server: 176.108.243.253
   port: 443
-  uuid: AlfredConfig
-  network: ws
-  tls: true
-  servername: alfi.yas-nowin.ir
+  uuid: 7e6d3393-bb84-45c7-9eef-35de95805b7e
+  network: tcp
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - TROJAN-1 | 365ms
-  - VLESS-2 | 833ms
-  - VLESS-3 | 824ms
+  - VLESS-1 | 671ms
+  - VLESS-2 | 553ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - TROJAN-1 | 365ms
-  - VLESS-2 | 833ms
-  - VLESS-3 | 824ms
+  - VLESS-1 | 671ms
+  - VLESS-2 | 553ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
