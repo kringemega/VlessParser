@@ -159,6 +159,83 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
+        "port": 10816,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "176.108.243.253",
+              "port": 443,
+              "users": [
+                {
+                  "id": "7e6d3393-bb84-45c7-9eef-35de95805b7e",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "tc-most.api-yandex.net",
+            "allowInsecure": true,
+            "fingerprint": "firefox",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "hx551Gx5MsoXCBfylyRDQDxa156NtbyHQbmJ0m9TiFM",
+            "shortId": "0a77acf800003f",
+            "spiderX": "/"
+          },
+          "tcpSettings": {
+            "header": {
+              "type": "none"
+            }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
         "port": 10815,
         "protocol": "http",
         "settings": {
@@ -390,7 +467,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10801,
+        "port": 10815,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -402,94 +479,17 @@
     ],
     "outbounds": [
       {
-        "protocol": "vless",
+        "protocol": "vmess",
         "settings": {
           "vnext": [
             {
-              "address": "65.109.217.246",
-              "port": 2026,
+              "address": "37.220.161.249",
+              "port": 443,
               "users": [
                 {
-                  "id": "8a59eb4c-d127-4f32-9f51-9a1be5086fc0",
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "security": "reality",
-          "realitySettings": {
-            "serverName": "www.oracle.com",
-            "allowInsecure": true,
-            "fingerprint": "firefox",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ],
-            "show": false,
-            "publicKey": "yt2kyF7DABbLCwB49Hd3VuNu7-QN57GiLoeiD5vVg30",
-            "shortId": "c576f7ccd9019b",
-            "spiderX": "/"
-          },
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10814,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "203.189.233.99",
-              "port": 8443,
-              "users": [
-                {
-                  "id": "4c1b83e4-5ade-46a8-966d-1eeb7a8dcc65",
-                  "encryption": "none",
-                  "flow": ""
+                  "id": "df9c9355-b02c-4c12-909d-0dbeb725d52b",
+                  "alterId": 0,
+                  "security": "auto"
                 }
               ]
             }
@@ -499,18 +499,14 @@
           "network": "ws",
           "security": "tls",
           "tlsSettings": {
-            "serverName": "lh1.fum.ccwu.cc",
+            "serverName": "renderer-stream-1-411.mirra.now",
             "allowInsecure": true,
-            "fingerprint": "random",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ]
+            "fingerprint": "chrome"
           },
           "wsSettings": {
-            "path": "/proxyip=sjc.o00o.ooo",
+            "path": "/api/v1/gpu-stream/socket",
             "headers": {
-              "Host": "lh1.fum.ccwu.cc"
+              "Host": "renderer-stream-1-411.mirra.now"
             }
           }
         },
@@ -541,7 +537,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10811,
+        "port": 10808,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -553,41 +549,34 @@
     ],
     "outbounds": [
       {
-        "protocol": "vless",
+        "protocol": "vmess",
         "settings": {
           "vnext": [
             {
-              "address": "88.218.67.115",
+              "address": "renderer-stream-1-411.mirra.now",
               "port": 443,
               "users": [
                 {
-                  "id": "dd9901b2-1b17-0017-b468-b7e94a5bc2c6",
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision"
+                  "id": "df9c9355-b02c-4c12-909d-0dbeb725d52b",
+                  "alterId": 0,
+                  "security": "auto"
                 }
               ]
             }
           ]
         },
         "streamSettings": {
-          "network": "tcp",
-          "security": "reality",
-          "realitySettings": {
-            "serverName": "cascad.anotherboring.top",
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "renderer-stream-1-411.mirra.now",
             "allowInsecure": true,
-            "fingerprint": "firefox",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ],
-            "show": false,
-            "publicKey": "ho7BivYLLBlfgtWEaRqF_g6OOHiKINEyAFDm6wbPDXI",
-            "shortId": "b8357afdce856d30",
-            "spiderX": "/"
+            "fingerprint": "chrome"
           },
-          "tcpSettings": {
-            "header": {
-              "type": "none"
+          "wsSettings": {
+            "path": "/api/v1/gpu-stream/socket",
+            "headers": {
+              "Host": "renderer-stream-1-411.mirra.now"
             }
           }
         },
@@ -618,7 +607,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10816,
+        "port": 10809,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -630,41 +619,34 @@
     ],
     "outbounds": [
       {
-        "protocol": "vless",
+        "protocol": "vmess",
         "settings": {
           "vnext": [
             {
-              "address": "176.108.243.253",
+              "address": "37.220.161.249",
               "port": 443,
               "users": [
                 {
-                  "id": "7e6d3393-bb84-45c7-9eef-35de95805b7e",
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision"
+                  "id": "df9c9355-b02c-4c12-909d-0dbeb725d52b",
+                  "alterId": 0,
+                  "security": "auto"
                 }
               ]
             }
           ]
         },
         "streamSettings": {
-          "network": "tcp",
-          "security": "reality",
-          "realitySettings": {
-            "serverName": "tc-most.api-yandex.net",
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "renderer-stream-1-411.mirra.now",
             "allowInsecure": true,
-            "fingerprint": "firefox",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ],
-            "show": false,
-            "publicKey": "hx551Gx5MsoXCBfylyRDQDxa156NtbyHQbmJ0m9TiFM",
-            "shortId": "0a77acf800003f",
-            "spiderX": "/"
+            "fingerprint": "chrome"
           },
-          "tcpSettings": {
-            "header": {
-              "type": "none"
+          "wsSettings": {
+            "path": "/api/v1/gpu-stream/socket",
+            "headers": {
+              "Host": "renderer-stream-1-411.mirra.now"
             }
           }
         },
@@ -695,7 +677,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10812,
+        "port": 10819,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -707,41 +689,174 @@
     ],
     "outbounds": [
       {
-        "protocol": "vless",
+        "protocol": "vmess",
         "settings": {
           "vnext": [
             {
-              "address": "88.218.67.115",
+              "address": "renderer-stream-1-411.mirra.now",
               "port": 443,
               "users": [
                 {
-                  "id": "dd9901b2-1b17-0017-b468-b7e94a5bc2c6",
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision"
+                  "id": "df9c9355-b02c-4c12-909d-0dbeb725d52b",
+                  "alterId": 0,
+                  "security": "auto"
                 }
               ]
             }
           ]
         },
         "streamSettings": {
-          "network": "tcp",
-          "security": "reality",
-          "realitySettings": {
-            "serverName": "cascad.anotherboring.top",
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "renderer-stream-1-411.mirra.now",
             "allowInsecure": true,
-            "fingerprint": "qq",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ],
-            "show": false,
-            "publicKey": "ho7BivYLLBlfgtWEaRqF_g6OOHiKINEyAFDm6wbPDXI",
-            "shortId": "b8357afdce856d30",
-            "spiderX": "/"
+            "fingerprint": "chrome"
           },
-          "tcpSettings": {
-            "header": {
-              "type": "none"
+          "wsSettings": {
+            "path": "/api/v1/gpu-stream/socket",
+            "headers": {
+              "Host": "renderer-stream-1-411.mirra.now"
+            }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10817,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vmess",
+        "settings": {
+          "vnext": [
+            {
+              "address": "93.93.89.118",
+              "port": 443,
+              "users": [
+                {
+                  "id": "df9c9355-b02c-4c12-909d-0dbeb725d52b",
+                  "alterId": 0,
+                  "security": "auto"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "renderer-stream-1-411.mirra.now",
+            "allowInsecure": true,
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/api/v1/gpu-stream/socket",
+            "headers": {
+              "Host": "renderer-stream-1-411.mirra.now"
+            }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10810,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vmess",
+        "settings": {
+          "vnext": [
+            {
+              "address": "93.93.88.22",
+              "port": 443,
+              "users": [
+                {
+                  "id": "df9c9355-b02c-4c12-909d-0dbeb725d52b",
+                  "alterId": 0,
+                  "security": "auto"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "renderer-stream-1-411.mirra.now",
+            "allowInsecure": true,
+            "fingerprint": "chrome"
+          },
+          "wsSettings": {
+            "path": "/api/v1/gpu-stream/socket",
+            "headers": {
+              "Host": "renderer-stream-1-411.mirra.now"
             }
           }
         },
