@@ -5,27 +5,29 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 3266ms
-  type: vless
-  server: 193.33.133.189
-  port: 443
-  uuid: 77864cb4-7791-4e01-97ed-0aaf6904389f
-  network: xhttp
-- name: VLESS-2 | 322ms
+- name: VLESS-1 | 819ms
   type: vless
   server: 66.81.247.209
   port: 8880
   uuid: e52fedb7-befe-4615-a53e-89d446f74bf4
   network: ws
-- name: VLESS-3 | 274ms
+- name: VLESS-2 | 2201ms
   type: vless
-  server: 66.81.247.118
-  port: 8880
-  uuid: e52fedb7-befe-4615-a53e-89d446f74bf4
+  server: s10211.cdn.ngenix.net
+  port: 443
+  uuid: dba50bb9-2456-4128-8632-f7ba1e6a7ab5
   network: ws
-- name: VMESS-4 | 594ms
+  tls: true
+  servername: s10211.cdn.ngenix.net
+- name: VLESS-3 | 543ms
+  type: vless
+  server: 193.33.133.189
+  port: 443
+  uuid: 77864cb4-7791-4e01-97ed-0aaf6904389f
+  network: xhttp
+- name: VMESS-4 | 758ms
   type: vmess
-  server: 37.220.161.247
+  server: renderer-stream-1-411.mirra.now
   port: 443
   uuid: df9c9355-b02c-4c12-909d-0dbeb725d52b
   alterId: 0
@@ -36,7 +38,21 @@ proxies:
   ws-opts:
     path: /api/v1/gpu-stream/socket
     headers: {}
-- name: VMESS-5 | 765ms
+- name: VMESS-5 | 574ms
+  type: vmess
+  server: 93.93.89.118
+  port: 443
+  uuid: df9c9355-b02c-4c12-909d-0dbeb725d52b
+  alterId: 0
+  cipher: auto
+  network: ws
+  tls: true
+  servername: renderer-stream-1-411.mirra.now
+  ws-opts:
+    path: /api/v1/gpu-stream/socket
+    headers:
+      Host: renderer-stream-1-411.mirra.now
+- name: VMESS-6 | 578ms
   type: vmess
   server: 37.220.161.249
   port: 443
@@ -50,7 +66,21 @@ proxies:
     path: /api/v1/gpu-stream/socket
     headers:
       Host: renderer-stream-1-411.mirra.now
-- name: VMESS-6 | 852ms
+- name: VMESS-7 | 594ms
+  type: vmess
+  server: 37.220.161.249
+  port: 443
+  uuid: df9c9355-b02c-4c12-909d-0dbeb725d52b
+  alterId: 0
+  cipher: auto
+  network: ws
+  tls: true
+  servername: renderer-stream-1-411.mirra.now
+  ws-opts:
+    path: /api/v1/gpu-stream/socket
+    headers:
+      Host: renderer-stream-1-411.mirra.now
+- name: VMESS-8 | 718ms
   type: vmess
   server: renderer-stream-1-411.mirra.now
   port: 443
@@ -64,26 +94,69 @@ proxies:
     path: /api/v1/gpu-stream/socket
     headers:
       Host: renderer-stream-1-411.mirra.now
+- name: VMESS-9 | 568ms
+  type: vmess
+  server: 93.93.89.99
+  port: 443
+  uuid: df9c9355-b02c-4c12-909d-0dbeb725d52b
+  alterId: 0
+  cipher: auto
+  network: ws
+  tls: true
+  servername: renderer-stream-1-411.mirra.now
+  ws-opts:
+    path: /api/v1/gpu-stream/socket
+    headers:
+      Host: renderer-stream-1-411.mirra.now
+- name: VMESS-10 | 566ms
+  type: vmess
+  server: 37.220.161.247
+  port: 443
+  uuid: df9c9355-b02c-4c12-909d-0dbeb725d52b
+  alterId: 0
+  cipher: auto
+  network: ws
+  tls: true
+  servername: renderer-stream-1-411.mirra.now
+  ws-opts:
+    path: /api/v1/gpu-stream/socket
+    headers: {}
+- name: VLESS-11 | 617ms
+  type: vless
+  server: 185.141.227.218
+  port: 2069
+  uuid: c3a13a65-4712-4f29-ab0a-bf4711656357
+  network: tcp
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 3266ms
-  - VLESS-2 | 322ms
-  - VLESS-3 | 274ms
-  - VMESS-4 | 594ms
-  - VMESS-5 | 765ms
-  - VMESS-6 | 852ms
+  - VLESS-1 | 819ms
+  - VLESS-2 | 2201ms
+  - VLESS-3 | 543ms
+  - VMESS-4 | 758ms
+  - VMESS-5 | 574ms
+  - VMESS-6 | 578ms
+  - VMESS-7 | 594ms
+  - VMESS-8 | 718ms
+  - VMESS-9 | 568ms
+  - VMESS-10 | 566ms
+  - VLESS-11 | 617ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 3266ms
-  - VLESS-2 | 322ms
-  - VLESS-3 | 274ms
-  - VMESS-4 | 594ms
-  - VMESS-5 | 765ms
-  - VMESS-6 | 852ms
+  - VLESS-1 | 819ms
+  - VLESS-2 | 2201ms
+  - VLESS-3 | 543ms
+  - VMESS-4 | 758ms
+  - VMESS-5 | 574ms
+  - VMESS-6 | 578ms
+  - VMESS-7 | 594ms
+  - VMESS-8 | 718ms
+  - VMESS-9 | 568ms
+  - VMESS-10 | 566ms
+  - VLESS-11 | 617ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
