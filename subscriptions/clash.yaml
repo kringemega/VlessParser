@@ -5,46 +5,30 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 3556ms
+- name: VLESS-1 | 376ms
   type: vless
-  server: 217.144.184.251
-  port: 2053
-  uuid: 8ebbdd3b-703c-47df-8bc9-bc9cf6606bc1
+  server: multi.fresedvpn.site
+  port: 2096
+  uuid: 2a2ac65e-ff89-49c8-bf7a-f218206bb419
+  network: ws
+- name: VLESS-2 | 1452ms
+  type: vless
+  server: 45.131.214.45
+  port: 443
+  uuid: e64100fd-773d-4cc6-adbe-a4c94876d07a
   network: grpc
-- name: VLESS-2 | 271ms
-  type: vless
-  server: 66.81.247.209
-  port: 8880
-  uuid: e52fedb7-befe-4615-a53e-89d446f74bf4
-  network: ws
-- name: VLESS-3 | 577ms
-  type: vless
-  server: 66.81.247.209
-  port: 8880
-  uuid: e52fedb7-befe-4615-a53e-89d446f74bf4
-  network: ws
-- name: VLESS-4 | 495ms
-  type: vless
-  server: 66.81.247.118
-  port: 8880
-  uuid: e52fedb7-befe-4615-a53e-89d446f74bf4
-  network: ws
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 3556ms
-  - VLESS-2 | 271ms
-  - VLESS-3 | 577ms
-  - VLESS-4 | 495ms
+  - VLESS-1 | 376ms
+  - VLESS-2 | 1452ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 3556ms
-  - VLESS-2 | 271ms
-  - VLESS-3 | 577ms
-  - VLESS-4 | 495ms
+  - VLESS-1 | 376ms
+  - VLESS-2 | 1452ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
