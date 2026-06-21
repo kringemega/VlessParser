@@ -6710,9 +6710,97 @@
       "found_at": "2026-06-21T02:00:20.281972",
       "hash": "d4a37d4c80e3bb5f53d30a5eadd4f361",
       "sent_to_telegram": false
+    },
+    {
+      "protocol": "vless",
+      "address": "66.81.247.209",
+      "ping": 271,
+      "jitter": 233,
+      "download_speed": 8.78,
+      "upload_speed": 2.39,
+      "is_bypassing": true,
+      "connectivity": {
+        "telegram": true,
+        "instagram": true,
+        "youtube": true
+      },
+      "ip": "66.81.247.209",
+      "config_json": {
+        "log": {
+          "loglevel": "warning"
+        },
+        "inbounds": [
+          {
+            "listen": "127.0.0.1",
+            "port": 10803,
+            "protocol": "http",
+            "settings": {
+              "timeout": 0,
+              "allowTransparent": false,
+              "userLevel": 0
+            },
+            "tag": "http-in"
+          }
+        ],
+        "outbounds": [
+          {
+            "protocol": "vless",
+            "settings": {
+              "vnext": [
+                {
+                  "address": "66.81.247.209",
+                  "port": 8880,
+                  "users": [
+                    {
+                      "id": "e52fedb7-befe-4615-a53e-89d446f74bf4",
+                      "encryption": "none",
+                      "flow": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            "streamSettings": {
+              "network": "ws",
+              "security": "none",
+              "wsSettings": {
+                "path": "/cdn/assets/stream",
+                "headers": {
+                  "Host": "cnd.finland2.nexusdataroute.com"
+                }
+              }
+            },
+            "tag": "proxy"
+          },
+          {
+            "protocol": "freedom",
+            "tag": "direct"
+          }
+        ],
+        "routing": {
+          "domainStrategy": "IPIfNonMatch",
+          "rules": [
+            {
+              "type": "field",
+              "ip": [
+                "geoip:private"
+              ],
+              "outboundTag": "direct"
+            }
+          ]
+        }
+      },
+      "uri": "vless://e52fedb7-befe-4615-a53e-89d446f74bf4@66.81.247.209:8880?type=ws&security=none&fp=firefox&path=%2Fcdn%2Fassets%2Fstream&host=cnd.finland2.nexusdataroute.com#%F0%9F%87%AB%F0%9F%87%AE%20Finland%20%7C%20%F0%9F%8C%90%20%5B%2ACIDR%5D",
+      "country": "United States",
+      "country_code": "US",
+      "city": "Belmont",
+      "isp": "Cloudflare London, LLC",
+      "found_at": "2026-06-21T06:59:52.629015",
+      "hash": "1a660c96aac2b043062877061bd4d4cf",
+      "sent_to_telegram": false
     }
   ],
-  "last_updated": "2026-06-21T02:00:20.281982",
-  "total_configs": 70,
+  "last_updated": "2026-06-21T06:59:52.629023",
+  "total_configs": 71,
   "created_at": "2026-05-01T11:10:36.324532"
 }
