@@ -16754,9 +16754,109 @@
       "found_at": "2026-06-24T21:24:14.179438",
       "hash": "654e3cfd5a48a2abd8594f88dcf1cd3a",
       "sent_to_telegram": false
+    },
+    {
+      "protocol": "vless",
+      "address": "185.171.202.201",
+      "ping": 480,
+      "jitter": 411,
+      "download_speed": 13.92,
+      "upload_speed": 11.61,
+      "is_bypassing": true,
+      "connectivity": {
+        "telegram": true,
+        "instagram": true,
+        "youtube": true
+      },
+      "ip": "185.171.202.201",
+      "config_json": {
+        "log": {
+          "loglevel": "warning"
+        },
+        "inbounds": [
+          {
+            "listen": "127.0.0.1",
+            "port": 10800,
+            "protocol": "http",
+            "settings": {
+              "timeout": 0,
+              "allowTransparent": false,
+              "userLevel": 0
+            },
+            "tag": "http-in"
+          }
+        ],
+        "outbounds": [
+          {
+            "protocol": "vless",
+            "settings": {
+              "vnext": [
+                {
+                  "address": "185.171.202.201",
+                  "port": 443,
+                  "users": [
+                    {
+                      "id": "67b004ae-50a6-40f4-ac17-17336e5de35e",
+                      "encryption": "none",
+                      "flow": "xtls-rprx-vision"
+                    }
+                  ]
+                }
+              ]
+            },
+            "streamSettings": {
+              "network": "tcp",
+              "security": "reality",
+              "realitySettings": {
+                "serverName": "deepl.com",
+                "allowInsecure": true,
+                "fingerprint": "firefox",
+                "alpn": [
+                  "h2",
+                  "http/1.1"
+                ],
+                "show": false,
+                "publicKey": "XP021Gnd6DIRMV_-JmMw50SPWQRWRcLrke5Uq_-OMk8",
+                "shortId": "e3170c535dcdd117",
+                "spiderX": "/"
+              },
+              "tcpSettings": {
+                "header": {
+                  "type": "none"
+                }
+              }
+            },
+            "tag": "proxy"
+          },
+          {
+            "protocol": "freedom",
+            "tag": "direct"
+          }
+        ],
+        "routing": {
+          "domainStrategy": "IPIfNonMatch",
+          "rules": [
+            {
+              "type": "field",
+              "ip": [
+                "geoip:private"
+              ],
+              "outboundTag": "direct"
+            }
+          ]
+        }
+      },
+      "uri": "vless://67b004ae-50a6-40f4-ac17-17336e5de35e@185.171.202.201:443?type=tcp&security=reality&sni=deepl.com&fp=firefox&flow=xtls-rprx-vision&pbk=XP021Gnd6DIRMV_-JmMw50SPWQRWRcLrke5Uq_-OMk8&sid=e3170c535dcdd117#%F0%9F%87%AB%F0%9F%87%B7%20France%20%7C%20%F0%9F%8C%90%20%5B%2ACIDR%5D",
+      "country": "France",
+      "country_code": "FR",
+      "city": "Paris",
+      "isp": "Dyjix SAS",
+      "found_at": "2026-06-24T22:48:17.551997",
+      "hash": "763b01a38b96259ffdc3717ac4cfb49a",
+      "sent_to_telegram": false
     }
   ],
-  "last_updated": "2026-06-24T21:24:14.179457",
-  "total_configs": 182,
+  "last_updated": "2026-06-24T22:48:17.552006",
+  "total_configs": 183,
   "created_at": "2026-05-01T11:10:36.324532"
 }
