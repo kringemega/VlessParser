@@ -5,51 +5,73 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 523ms
+- name: VLESS-1 | 332ms
+  type: vless
+  server: 87.242.110.169
+  port: 443
+  uuid: b2b8bd00-2e42-4875-8d7b-bcf97093a1d4
+  network: tcp
+- name: VLESS-2 | 869ms
   type: vless
   server: 82.202.177.144
   port: 5269
   uuid: 083471bf-bbf4-4e1d-8953-912b8d3b6255
   network: tcp
-- name: VLESS-2 | 383ms
+- name: VLESS-3 | 480ms
+  type: vless
+  server: 95.163.211.206
+  port: 443
+  uuid: b2b8bd00-2e42-4875-8d7b-bcf97093a1d4
+  network: tcp
+- name: VLESS-4 | 642ms
   type: vless
   server: 87.242.110.7
   port: 443
   uuid: b2b8bd00-2e42-4875-8d7b-bcf97093a1d4
   network: tcp
-- name: VLESS-3 | 795ms
-  type: vless
-  server: 95.163.211.22
-  port: 443
-  uuid: b2b8bd00-2e42-4875-8d7b-bcf97093a1d4
-  network: tcp
-- name: VLESS-4 | 77ms
-  type: vless
-  server: 91.193.58.77
-  port: 443
-  uuid: 0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c
-  network: ws
-  tls: true
-  servername: unnes.ac.id.yxls.eu.cc
-- name: VLESS-5 | 377ms
+- name: VLESS-5 | 391ms
   type: vless
   server: 193.39.168.154
   port: 443
   uuid: b2b8bd00-2e42-4875-8d7b-bcf97093a1d4
   network: tcp
-- name: VLESS-6 | 1036ms
+- name: VLESS-6 | 502ms
+  type: vless
+  server: 82.202.177.144
+  port: 5269
+  uuid: 083471bf-bbf4-4e1d-8953-912b8d3b6255
+  network: tcp
+- name: VLESS-7 | 501ms
+  type: vless
+  server: 82.202.177.144
+  port: 5269
+  uuid: 083471bf-bbf4-4e1d-8953-912b8d3b6255
+  network: tcp
+- name: VLESS-8 | 610ms
+  type: vless
+  server: 95.163.211.206
+  port: 443
+  uuid: b2b8bd00-2e42-4875-8d7b-bcf97093a1d4
+  network: tcp
+- name: VLESS-9 | 1397ms
+  type: vless
+  server: 95.163.211.22
+  port: 443
+  uuid: b2b8bd00-2e42-4875-8d7b-bcf97093a1d4
+  network: tcp
+- name: VLESS-10 | 538ms
+  type: vless
+  server: 95.163.211.22
+  port: 443
+  uuid: b2b8bd00-2e42-4875-8d7b-bcf97093a1d4
+  network: tcp
+- name: VLESS-11 | 544ms
   type: vless
   server: 95.163.211.17
   port: 443
   uuid: b2b8bd00-2e42-4875-8d7b-bcf97093a1d4
   network: tcp
-- name: VLESS-7 | 501ms
-  type: vless
-  server: 87.242.110.7
-  port: 443
-  uuid: b2b8bd00-2e42-4875-8d7b-bcf97093a1d4
-  network: tcp
-- name: VLESS-8 | 102ms
+- name: VLESS-12 | 89ms
   type: vless
   server: 91.193.58.77
   port: 443
@@ -57,7 +79,15 @@ proxies:
   network: ws
   tls: true
   servername: unnes.ac.id.yxls.eu.cc
-- name: VLESS-9 | 48ms
+- name: VLESS-13 | 66ms
+  type: vless
+  server: 91.193.58.77
+  port: 443
+  uuid: 0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c
+  network: ws
+  tls: true
+  servername: unnes.ac.id.yxls.eu.cc
+- name: VLESS-14 | 77ms
   type: vless
   server: 91.193.58.77
   port: 443
@@ -70,27 +100,37 @@ proxy-groups:
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 523ms
-  - VLESS-2 | 383ms
-  - VLESS-3 | 795ms
-  - VLESS-4 | 77ms
-  - VLESS-5 | 377ms
-  - VLESS-6 | 1036ms
+  - VLESS-1 | 332ms
+  - VLESS-2 | 869ms
+  - VLESS-3 | 480ms
+  - VLESS-4 | 642ms
+  - VLESS-5 | 391ms
+  - VLESS-6 | 502ms
   - VLESS-7 | 501ms
-  - VLESS-8 | 102ms
-  - VLESS-9 | 48ms
+  - VLESS-8 | 610ms
+  - VLESS-9 | 1397ms
+  - VLESS-10 | 538ms
+  - VLESS-11 | 544ms
+  - VLESS-12 | 89ms
+  - VLESS-13 | 66ms
+  - VLESS-14 | 77ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 523ms
-  - VLESS-2 | 383ms
-  - VLESS-3 | 795ms
-  - VLESS-4 | 77ms
-  - VLESS-5 | 377ms
-  - VLESS-6 | 1036ms
+  - VLESS-1 | 332ms
+  - VLESS-2 | 869ms
+  - VLESS-3 | 480ms
+  - VLESS-4 | 642ms
+  - VLESS-5 | 391ms
+  - VLESS-6 | 502ms
   - VLESS-7 | 501ms
-  - VLESS-8 | 102ms
-  - VLESS-9 | 48ms
+  - VLESS-8 | 610ms
+  - VLESS-9 | 1397ms
+  - VLESS-10 | 538ms
+  - VLESS-11 | 544ms
+  - VLESS-12 | 89ms
+  - VLESS-13 | 66ms
+  - VLESS-14 | 77ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
