@@ -6131,9 +6131,109 @@
       "found_at": "2026-06-28T09:41:13.487537",
       "hash": "4711ea12f9d997c8fe7904206b5abdaa",
       "sent_to_telegram": false
+    },
+    {
+      "protocol": "vless",
+      "address": "62.152.56.205",
+      "ping": 436,
+      "jitter": 384,
+      "download_speed": 0.96,
+      "upload_speed": 2.3,
+      "is_bypassing": true,
+      "connectivity": {
+        "telegram": true,
+        "instagram": true,
+        "youtube": true
+      },
+      "ip": "62.152.56.205",
+      "config_json": {
+        "log": {
+          "loglevel": "warning"
+        },
+        "inbounds": [
+          {
+            "listen": "127.0.0.1",
+            "port": 10802,
+            "protocol": "http",
+            "settings": {
+              "timeout": 0,
+              "allowTransparent": false,
+              "userLevel": 0
+            },
+            "tag": "http-in"
+          }
+        ],
+        "outbounds": [
+          {
+            "protocol": "vless",
+            "settings": {
+              "vnext": [
+                {
+                  "address": "62.152.56.205",
+                  "port": 443,
+                  "users": [
+                    {
+                      "id": "b97b46c9-974a-4e0e-8812-01abfcf3a843",
+                      "encryption": "none",
+                      "flow": "xtls-rprx-vision"
+                    }
+                  ]
+                }
+              ]
+            },
+            "streamSettings": {
+              "network": "tcp",
+              "security": "reality",
+              "realitySettings": {
+                "serverName": "ads.x5.ru",
+                "allowInsecure": true,
+                "fingerprint": "firefox",
+                "alpn": [
+                  "h2",
+                  "http/1.1"
+                ],
+                "show": false,
+                "publicKey": "Mn0DIMKW6zu0_D3E1qKO7xMlIVZvB-rqO_-f7Le2vAs",
+                "shortId": "428ef87fd47a3a32",
+                "spiderX": "/"
+              },
+              "tcpSettings": {
+                "header": {
+                  "type": "none"
+                }
+              }
+            },
+            "tag": "proxy"
+          },
+          {
+            "protocol": "freedom",
+            "tag": "direct"
+          }
+        ],
+        "routing": {
+          "domainStrategy": "IPIfNonMatch",
+          "rules": [
+            {
+              "type": "field",
+              "ip": [
+                "geoip:private"
+              ],
+              "outboundTag": "direct"
+            }
+          ]
+        }
+      },
+      "uri": "vless://b97b46c9-974a-4e0e-8812-01abfcf3a843@62.152.56.205:443?type=tcp&security=reality&encryption=none&sni=ads.x5.ru&fp=firefox&pbk=Mn0DIMKW6zu0_D3E1qKO7xMlIVZvB-rqO_-f7Le2vAs&sid=428ef87fd47a3a32&flow=xtls-rprx-vision&headerType=none&allowInsecure=1#%F0%9F%87%B8%F0%9F%87%AA%20Sweden%20%5B%2ACIDR%5D",
+      "country": "Russia",
+      "country_code": "RU",
+      "city": "Moscow",
+      "isp": "Citytelecom LLC",
+      "found_at": "2026-06-28T11:48:06.930904",
+      "hash": "fb4633a3a480a2d2f01890617c8ea43e",
+      "sent_to_telegram": false
     }
   ],
-  "last_updated": "2026-06-28T09:41:13.487544",
-  "total_configs": 63,
+  "last_updated": "2026-06-28T11:48:06.930913",
+  "total_configs": 64,
   "created_at": "2026-05-01T11:10:36.324532"
 }
