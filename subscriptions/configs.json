@@ -6,7 +6,229 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
+        "port": 10811,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "91.193.58.77",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "unnes.ac.id.yxls.eu.cc",
+            "allowInsecure": true,
+            "fingerprint": "chrome",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ]
+          },
+          "wsSettings": {
+            "path": "/ca-cl",
+            "headers": {
+              "Host": "unnes.ac.id.yxls.eu.cc"
+            }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
         "port": 10813,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "91.193.58.77",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "unnes.ac.id.yxls.eu.cc",
+            "allowInsecure": true,
+            "fingerprint": "firefox",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ]
+          },
+          "wsSettings": {
+            "path": "/ca-cl",
+            "headers": {
+              "Host": "unnes.ac.id.yxls.eu.cc"
+            }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10812,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "91.193.58.77",
+              "port": 443,
+              "users": [
+                {
+                  "id": "0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "unnes.ac.id.yxls.eu.cc",
+            "allowInsecure": true,
+            "fingerprint": "chrome",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ]
+          },
+          "wsSettings": {
+            "path": "/ca-cl",
+            "headers": {
+              "Host": "unnes.ac.id.yxls.eu.cc"
+            }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10810,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -79,7 +301,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10816,
+        "port": 10819,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -91,19 +313,13 @@
     ],
     "outbounds": [
       {
-        "protocol": "vless",
+        "protocol": "trojan",
         "settings": {
-          "vnext": [
+          "servers": [
             {
-              "address": "91.193.58.77",
+              "address": "91.193.58.201",
               "port": 443,
-              "users": [
-                {
-                  "id": "0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
+              "password": "MiTiVPN"
             }
           ]
         },
@@ -111,166 +327,17 @@
           "network": "ws",
           "security": "tls",
           "tlsSettings": {
-            "serverName": "unnes.ac.id.yxls.eu.cc",
-            "allowInsecure": true,
-            "fingerprint": "firefox",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ]
-          },
-          "wsSettings": {
-            "path": "/ca-cl",
-            "headers": {
-              "Host": "unnes.ac.id.yxls.eu.cc"
-            }
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10815,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "91.193.58.77",
-              "port": 443,
-              "users": [
-                {
-                  "id": "0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "ws",
-          "security": "tls",
-          "tlsSettings": {
-            "serverName": "unnes.ac.id.yxls.eu.cc",
+            "serverName": "95r.ir",
             "allowInsecure": true,
             "fingerprint": "chrome",
             "alpn": [
-              "h2",
               "http/1.1"
             ]
           },
           "wsSettings": {
-            "path": "/ca-cl",
+            "path": "/MiTiVPN=NL",
             "headers": {
-              "Host": "unnes.ac.id.yxls.eu.cc"
-            }
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10814,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "91.193.58.77",
-              "port": 443,
-              "users": [
-                {
-                  "id": "0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "ws",
-          "security": "tls",
-          "tlsSettings": {
-            "serverName": "unnes.ac.id.yxls.eu.cc",
-            "allowInsecure": true,
-            "fingerprint": "chrome",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ]
-          },
-          "wsSettings": {
-            "path": "/ca-cl",
-            "headers": {
-              "Host": "unnes.ac.id.yxls.eu.cc"
+              "Host": "95r.ir"
             }
           }
         },
@@ -313,6 +380,80 @@
     ],
     "outbounds": [
       {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "news.microsoft.com",
+              "port": 443,
+              "users": [
+                {
+                  "id": "14b59caf-a196-4ec2-8c70-c7b388062f5b",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "JoinProxyVPN11.vangoghhh.info",
+            "allowInsecure": true,
+            "fingerprint": "chrome",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ]
+          },
+          "wsSettings": {
+            "path": "/rdfgtws",
+            "headers": {
+              "Host": "vangoghhh.info"
+            }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10816,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
         "protocol": "trojan",
         "settings": {
           "servers": [
@@ -368,7 +509,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10816,
+        "port": 10817,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -435,7 +576,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10815,
+        "port": 10803,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -447,32 +588,37 @@
     ],
     "outbounds": [
       {
-        "protocol": "trojan",
+        "protocol": "vless",
         "settings": {
-          "servers": [
+          "vnext": [
             {
-              "address": "91.193.58.201",
+              "address": "37.139.34.124",
               "port": 443,
-              "password": "MiTiVPN"
+              "users": [
+                {
+                  "id": "ae0959f1-f25a-43d0-9c88-be1672641fc3",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
             }
           ]
         },
         "streamSettings": {
-          "network": "ws",
-          "security": "tls",
-          "tlsSettings": {
-            "serverName": "95r.ir",
+          "network": "raw",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "ads.x5.ru",
             "allowInsecure": true,
-            "fingerprint": "chrome",
+            "fingerprint": "firefox",
             "alpn": [
+              "h2",
               "http/1.1"
-            ]
-          },
-          "wsSettings": {
-            "path": "/MiTiVPN=NL",
-            "headers": {
-              "Host": "95r.ir"
-            }
+            ],
+            "show": false,
+            "publicKey": "FOVEr4SzLDQGUn1yY8-Y_C5mIV6WBJL2sTZKQvK83z4",
+            "shortId": "",
+            "spiderX": "/"
           }
         },
         "tag": "proxy"
@@ -502,7 +648,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10812,
+        "port": 10809,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -578,75 +724,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10814,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "trojan",
-        "settings": {
-          "servers": [
-            {
-              "address": "blog.webex.com",
-              "port": 443,
-              "password": "afbcd89a-5a90-4a44-a42a-be08f444aa3f"
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "ws",
-          "security": "tls",
-          "tlsSettings": {
-            "serverName": "unnes.ac.id.yxls.eu.cc",
-            "allowInsecure": true,
-            "fingerprint": "chrome",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ]
-          },
-          "wsSettings": {
-            "path": "/br-orcl",
-            "headers": {
-              "Host": "unnes.ac.id.yxls.eu.cc"
-            }
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10818,
+        "port": 10805,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -662,13 +740,13 @@
         "settings": {
           "vnext": [
             {
-              "address": "95.163.209.42",
-              "port": 443,
+              "address": "plmw.verymad.net",
+              "port": 28737,
               "users": [
                 {
-                  "id": "2285c587-67f4-4404-bb78-c91e8e4f5338",
+                  "id": "c0961459-f199-4c41-899b-b16138f875e7",
                   "encryption": "none",
-                  "flow": "xtls-rprx-vision"
+                  "flow": ""
                 }
               ]
             }
@@ -678,7 +756,7 @@
           "network": "tcp",
           "security": "reality",
           "realitySettings": {
-            "serverName": "vk.com",
+            "serverName": "www.vk.com",
             "allowInsecure": true,
             "fingerprint": "firefox",
             "alpn": [
@@ -686,8 +764,8 @@
               "http/1.1"
             ],
             "show": false,
-            "publicKey": "USzFIqCCFTRAzEJo8Npt_Ds-uRK_FnlvRsR-Iv88_AE",
-            "shortId": "a1",
+            "publicKey": "Q8yB9j_8uP7SgGdVZdQQBzcnB7IROViEbnGtedncSVo",
+            "shortId": "5dcc574365",
             "spiderX": "/"
           },
           "tcpSettings": {
@@ -723,7 +801,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10817,
+        "port": 10802,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -739,11 +817,11 @@
         "settings": {
           "vnext": [
             {
-              "address": "172.64.147.226",
-              "port": 2083,
+              "address": "78.41.111.87",
+              "port": 443,
               "users": [
                 {
-                  "id": "1189bc23-27f7-47c1-89d4-1e6843a09cb6",
+                  "id": "dba50bb9-2456-4128-8632-f7ba1e6a7ab5",
                   "encryption": "none",
                   "flow": ""
                 }
@@ -755,18 +833,18 @@
           "network": "ws",
           "security": "tls",
           "tlsSettings": {
-            "serverName": "freetools-h2s.pages.dev",
+            "serverName": "s10211.cdn.ngenix.net",
             "allowInsecure": true,
-            "fingerprint": "chrome",
+            "fingerprint": "qq",
             "alpn": [
               "h2",
               "http/1.1"
             ]
           },
           "wsSettings": {
-            "path": "/",
+            "path": "/api/user",
             "headers": {
-              "Host": "freetools-h2s.pages.dev"
+              "Host": "s10211.cdn.ngenix.net"
             }
           }
         },
@@ -797,7 +875,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10818,
+        "port": 10804,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -813,11 +891,11 @@
         "settings": {
           "vnext": [
             {
-              "address": "cf1.466688.xyz",
-              "port": 8443,
+              "address": "82.202.142.216",
+              "port": 9881,
               "users": [
                 {
-                  "id": "3db635e4-f9ec-42d6-8aba-e23df8b0e6da",
+                  "id": "97d290a0-acec-4aae-b8cf-c7111a5a6397",
                   "encryption": "none",
                   "flow": ""
                 }
@@ -826,23 +904,8 @@
           ]
         },
         "streamSettings": {
-          "network": "ws",
-          "security": "tls",
-          "tlsSettings": {
-            "serverName": "mocik38250.pages.dev",
-            "allowInsecure": true,
-            "fingerprint": "chrome",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ]
-          },
-          "wsSettings": {
-            "path": "/friend/list/shop?ed=2560",
-            "headers": {
-              "Host": "mocik38250.pages.dev"
-            }
-          }
+          "network": "xhttp",
+          "security": "none"
         },
         "tag": "proxy"
       },
