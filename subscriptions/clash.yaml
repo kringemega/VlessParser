@@ -5,53 +5,75 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: TROJAN-1 | 87ms
+- name: TROJAN-1 | 211ms
+  type: trojan
+  server: 216.24.57.1
+  port: 443
+  password: humanity
+  sni: www.calmloud.com
+- name: TROJAN-2 | 74ms
   type: trojan
   server: 91.193.58.201
   port: 443
   password: MiTiVPN
   sni: 95r.ir
-- name: TROJAN-2 | 88ms
+- name: VLESS-3 | 246ms
+  type: vless
+  server: news.microsoft.com
+  port: 443
+  uuid: 14b59caf-a196-4ec2-8c70-c7b388062f5b
+  network: ws
+  tls: true
+  servername: JoinProxyVPN11.vangoghhh.info
+- name: TROJAN-4 | 127ms
   type: trojan
   server: 91.193.58.201
   port: 443
   password: MiTiVPN
   sni: 95r.ir
-- name: VLESS-3 | 999ms
-  type: vless
-  server: msk.v2raytun-proxy.app
-  port: 2083
-  uuid: 7b973a03-7d66-4ae0-85a8-d43a5e561b74
-  network: grpc
-- name: VLESS-4 | 1003ms
-  type: vless
-  server: msk.v2raytun-proxy.app
-  port: 2083
-  uuid: 7b973a03-7d66-4ae0-85a8-d43a5e561b74
-  network: grpc
-- name: VLESS-5 | 91ms
-  type: vless
-  server: 91.193.58.77
+- name: TROJAN-5 | 57ms
+  type: trojan
+  server: 91.193.58.201
   port: 443
-  uuid: 0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c
-  network: ws
-  tls: true
-  servername: unnes.ac.id.yxls.eu.cc
-- name: VLESS-6 | 89ms
-  type: vless
-  server: 91.193.58.77
-  port: 443
-  uuid: 0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c
-  network: ws
-  tls: true
-  servername: unnes.ac.id.yxls.eu.cc
-- name: TROJAN-7 | 134ms
+  password: MiTiVPN
+  sni: 95r.ir
+- name: TROJAN-6 | 50ms
   type: trojan
   server: blog.webex.com
   port: 443
   password: afbcd89a-5a90-4a44-a42a-be08f444aa3f
   sni: unnes.ac.id.yxls.eu.cc
-- name: VLESS-8 | 80ms
+- name: VLESS-7 | 358ms
+  type: vless
+  server: 217.16.29.31
+  port: 65535
+  uuid: 910776af-dce0-425d-ae28-4fb154b9f7c2
+  network: tcp
+- name: VLESS-8 | 385ms
+  type: vless
+  server: 84.201.178.0
+  port: 443
+  uuid: 694eadbe-d61f-4f80-957b-d55d990e8ffa
+  network: tcp
+- name: TROJAN-9 | 267ms
+  type: trojan
+  server: 216.24.57.1
+  port: 443
+  password: humanity
+  sni: www.creationlong.org
+- name: VLESS-10 | 1373ms
+  type: vless
+  server: 82.22.40.138
+  port: 443
+  uuid: 8083cfd0-55ab-4cf8-9ec9-86d953f96802
+  network: tcp
+- name: VLESS-11 | 376ms
+  type: vless
+  server: 84.201.164.72
+  port: 443
+  uuid: 694eadbe-d61f-4f80-957b-d55d990e8ffa
+  network: tcp
+- name: VLESS-12 | 57ms
   type: vless
   server: 91.193.58.77
   port: 443
@@ -59,7 +81,23 @@ proxies:
   network: ws
   tls: true
   servername: unnes.ac.id.yxls.eu.cc
-- name: VLESS-9 | 94ms
+- name: VLESS-13 | 61ms
+  type: vless
+  server: 91.193.58.77
+  port: 443
+  uuid: 0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c
+  network: ws
+  tls: true
+  servername: unnes.ac.id.yxls.eu.cc
+- name: VLESS-14 | 59ms
+  type: vless
+  server: 91.193.58.77
+  port: 443
+  uuid: 0ac0a6f0-d3f0-47f1-8de4-ce785e515a5c
+  network: ws
+  tls: true
+  servername: unnes.ac.id.yxls.eu.cc
+- name: VLESS-15 | 78ms
   type: vless
   server: 91.193.58.77
   port: 443
@@ -72,27 +110,39 @@ proxy-groups:
   type: select
   proxies:
   - Auto-Select
-  - TROJAN-1 | 87ms
-  - TROJAN-2 | 88ms
-  - VLESS-3 | 999ms
-  - VLESS-4 | 1003ms
-  - VLESS-5 | 91ms
-  - VLESS-6 | 89ms
-  - TROJAN-7 | 134ms
-  - VLESS-8 | 80ms
-  - VLESS-9 | 94ms
+  - TROJAN-1 | 211ms
+  - TROJAN-2 | 74ms
+  - VLESS-3 | 246ms
+  - TROJAN-4 | 127ms
+  - TROJAN-5 | 57ms
+  - TROJAN-6 | 50ms
+  - VLESS-7 | 358ms
+  - VLESS-8 | 385ms
+  - TROJAN-9 | 267ms
+  - VLESS-10 | 1373ms
+  - VLESS-11 | 376ms
+  - VLESS-12 | 57ms
+  - VLESS-13 | 61ms
+  - VLESS-14 | 59ms
+  - VLESS-15 | 78ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - TROJAN-1 | 87ms
-  - TROJAN-2 | 88ms
-  - VLESS-3 | 999ms
-  - VLESS-4 | 1003ms
-  - VLESS-5 | 91ms
-  - VLESS-6 | 89ms
-  - TROJAN-7 | 134ms
-  - VLESS-8 | 80ms
-  - VLESS-9 | 94ms
+  - TROJAN-1 | 211ms
+  - TROJAN-2 | 74ms
+  - VLESS-3 | 246ms
+  - TROJAN-4 | 127ms
+  - TROJAN-5 | 57ms
+  - TROJAN-6 | 50ms
+  - VLESS-7 | 358ms
+  - VLESS-8 | 385ms
+  - TROJAN-9 | 267ms
+  - VLESS-10 | 1373ms
+  - VLESS-11 | 376ms
+  - VLESS-12 | 57ms
+  - VLESS-13 | 61ms
+  - VLESS-14 | 59ms
+  - VLESS-15 | 78ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
