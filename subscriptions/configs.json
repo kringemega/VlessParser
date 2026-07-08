@@ -6,7 +6,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10817,
+        "port": 10814,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -65,7 +65,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10803,
+        "port": 10815,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -81,11 +81,11 @@
         "settings": {
           "vnext": [
             {
-              "address": "78.41.111.87",
-              "port": 443,
+              "address": "5.42.100.84",
+              "port": 48212,
               "users": [
                 {
-                  "id": "dba50bb9-2456-4128-8632-f7ba1e6a7ab5",
+                  "id": "2f93a08b-5c23-502c-936d-a53072cf9882",
                   "encryption": "none",
                   "flow": ""
                 }
@@ -94,23 +94,219 @@
           ]
         },
         "streamSettings": {
-          "network": "ws",
-          "security": "tls",
-          "tlsSettings": {
-            "serverName": "s10211.cdn.ngenix.net",
+          "network": "grpc",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "yandex.ru",
             "allowInsecure": true,
-            "fingerprint": "qq",
+            "fingerprint": "chrome",
             "alpn": [
               "h2",
               "http/1.1"
-            ]
+            ],
+            "show": false,
+            "publicKey": "8rZnE8gkbRv3ZVHUvkyrMZnmoIRhtncAgQpUAPAwIlo",
+            "shortId": "62b5466a2183d4da",
+            "spiderX": "/"
           },
-          "wsSettings": {
-            "path": "/api/user",
-            "headers": {
-              "Host": "s10211.cdn.ngenix.net"
-            }
+          "grpcSettings": {
+            "serviceName": "grpc",
+            "multiMode": true
           }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10816,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "5.42.100.84",
+              "port": 48212,
+              "users": [
+                {
+                  "id": "2f93a08b-5c23-502c-936d-a53072cf9882",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "yandex.ru",
+            "allowInsecure": true,
+            "fingerprint": "firefox",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "8rZnE8gkbRv3ZVHUvkyrMZnmoIRhtncAgQpUAPAwIlo",
+            "shortId": "62b5466a2183d4da",
+            "spiderX": "/"
+          },
+          "grpcSettings": {
+            "serviceName": "grpc",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10807,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "141.98.87.48",
+              "port": 9999,
+              "users": [
+                {
+                  "id": "f83d8e60-f039-45c8-95d2-2a44c59025f6",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "raw",
+          "security": "none"
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10813,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "192.144.13.35",
+              "port": 59242,
+              "users": [
+                {
+                  "id": "ad997094-40d4-461c-baf1-759d987351c3",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "raw",
+          "security": "none"
         },
         "tag": "proxy"
       },

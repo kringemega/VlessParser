@@ -15624,9 +15624,108 @@
       "found_at": "2026-07-08T19:27:44.819737",
       "hash": "503d19eb6777b512e763b792227bfb2e",
       "sent_to_telegram": false
+    },
+    {
+      "protocol": "vless",
+      "address": "5.42.100.84",
+      "ping": 548,
+      "jitter": 563,
+      "download_speed": 7.92,
+      "upload_speed": 6.53,
+      "is_bypassing": true,
+      "connectivity": {
+        "telegram": true,
+        "instagram": true,
+        "youtube": true
+      },
+      "ip": "5.42.100.84",
+      "config_json": {
+        "log": {
+          "loglevel": "warning"
+        },
+        "inbounds": [
+          {
+            "listen": "127.0.0.1",
+            "port": 10815,
+            "protocol": "http",
+            "settings": {
+              "timeout": 0,
+              "allowTransparent": false,
+              "userLevel": 0
+            },
+            "tag": "http-in"
+          }
+        ],
+        "outbounds": [
+          {
+            "protocol": "vless",
+            "settings": {
+              "vnext": [
+                {
+                  "address": "5.42.100.84",
+                  "port": 48212,
+                  "users": [
+                    {
+                      "id": "2f93a08b-5c23-502c-936d-a53072cf9882",
+                      "encryption": "none",
+                      "flow": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            "streamSettings": {
+              "network": "grpc",
+              "security": "reality",
+              "realitySettings": {
+                "serverName": "yandex.ru",
+                "allowInsecure": true,
+                "fingerprint": "chrome",
+                "alpn": [
+                  "h2",
+                  "http/1.1"
+                ],
+                "show": false,
+                "publicKey": "8rZnE8gkbRv3ZVHUvkyrMZnmoIRhtncAgQpUAPAwIlo",
+                "shortId": "62b5466a2183d4da",
+                "spiderX": "/"
+              },
+              "grpcSettings": {
+                "serviceName": "grpc",
+                "multiMode": true
+              }
+            },
+            "tag": "proxy"
+          },
+          {
+            "protocol": "freedom",
+            "tag": "direct"
+          }
+        ],
+        "routing": {
+          "domainStrategy": "IPIfNonMatch",
+          "rules": [
+            {
+              "type": "field",
+              "ip": [
+                "geoip:private"
+              ],
+              "outboundTag": "direct"
+            }
+          ]
+        }
+      },
+      "uri": "vless://2f93a08b-5c23-502c-936d-a53072cf9882@5.42.100.84:48212?encryption=none&fp=chrome&pbk=8rZnE8gkbRv3ZVHUvkyrMZnmoIRhtncAgQpUAPAwIlo&security=reality&serviceName=grpc&sid=62b5466a2183d4da&sni=yandex.ru&type=grpc#%F0%9F%87%B7%F0%9F%87%BA%20Russia%20%7C%20%F0%9F%8C%90%20%5B%2ACIDR%5D",
+      "country": "Russia",
+      "country_code": "RU",
+      "city": "Moscow",
+      "isp": "JSC TIMEWEB",
+      "found_at": "2026-07-08T22:07:12.560453",
+      "hash": "66fe0c16cfa83ea1c3a1267f6fc62a81",
+      "sent_to_telegram": false
     }
   ],
-  "last_updated": "2026-07-08T19:27:44.819748",
-  "total_configs": 165,
+  "last_updated": "2026-07-08T22:07:12.560475",
+  "total_configs": 166,
   "created_at": "2026-05-01T11:10:36.324532"
 }

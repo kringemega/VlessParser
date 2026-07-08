@@ -5,32 +5,54 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 561ms
+- name: VLESS-1 | 1083ms
   type: vless
   server: 192.144.13.35
   port: 59242
   uuid: ad997094-40d4-461c-baf1-759d987351c3
   network: raw
-- name: VLESS-2 | 1840ms
+- name: VLESS-2 | 548ms
   type: vless
-  server: 78.41.111.87
-  port: 443
-  uuid: dba50bb9-2456-4128-8632-f7ba1e6a7ab5
-  network: ws
-  tls: true
-  servername: s10211.cdn.ngenix.net
+  server: 5.42.100.84
+  port: 48212
+  uuid: 2f93a08b-5c23-502c-936d-a53072cf9882
+  network: grpc
+- name: VLESS-3 | 632ms
+  type: vless
+  server: 5.42.100.84
+  port: 48212
+  uuid: 2f93a08b-5c23-502c-936d-a53072cf9882
+  network: grpc
+- name: VLESS-4 | 1016ms
+  type: vless
+  server: 141.98.87.48
+  port: 9999
+  uuid: f83d8e60-f039-45c8-95d2-2a44c59025f6
+  network: raw
+- name: VLESS-5 | 364ms
+  type: vless
+  server: 192.144.13.35
+  port: 59242
+  uuid: ad997094-40d4-461c-baf1-759d987351c3
+  network: raw
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 561ms
-  - VLESS-2 | 1840ms
+  - VLESS-1 | 1083ms
+  - VLESS-2 | 548ms
+  - VLESS-3 | 632ms
+  - VLESS-4 | 1016ms
+  - VLESS-5 | 364ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 561ms
-  - VLESS-2 | 1840ms
+  - VLESS-1 | 1083ms
+  - VLESS-2 | 548ms
+  - VLESS-3 | 632ms
+  - VLESS-4 | 1016ms
+  - VLESS-5 | 364ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
