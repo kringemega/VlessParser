@@ -5,54 +5,86 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 1083ms
+- name: VLESS-1 | 342ms
+  type: vless
+  server: 5.42.100.84
+  port: 48212
+  uuid: 2f93a08b-5c23-502c-936d-a53072cf9882
+  network: grpc
+- name: VLESS-2 | 246ms
   type: vless
   server: 192.144.13.35
   port: 59242
   uuid: ad997094-40d4-461c-baf1-759d987351c3
   network: raw
-- name: VLESS-2 | 548ms
+- name: VLESS-3 | 338ms
   type: vless
   server: 5.42.100.84
   port: 48212
   uuid: 2f93a08b-5c23-502c-936d-a53072cf9882
   network: grpc
-- name: VLESS-3 | 632ms
+- name: VLESS-4 | 262ms
   type: vless
-  server: 5.42.100.84
-  port: 48212
-  uuid: 2f93a08b-5c23-502c-936d-a53072cf9882
-  network: grpc
-- name: VLESS-4 | 1016ms
+  server: 192.144.13.35
+  port: 59242
+  uuid: ad997094-40d4-461c-baf1-759d987351c3
+  network: raw
+- name: VLESS-5 | 1413ms
+  type: vless
+  server: 158.160.252.95
+  port: 443
+  uuid: f6aaa6db-d249-4dab-bc44-8ce670060de3
+  network: raw
+- name: VLESS-6 | 1433ms
+  type: vless
+  server: 158.160.22.195
+  port: 443
+  uuid: f6aaa6db-d249-4dab-bc44-8ce670060de3
+  network: tcp
+- name: VLESS-7 | 671ms
+  type: vless
+  server: 141.98.87.48
+  port: 443
+  uuid: 31fb98b7-e7a1-4b56-8c6a-3f060f06393c
+  network: raw
+- name: VLESS-8 | 617ms
   type: vless
   server: 141.98.87.48
   port: 9999
   uuid: f83d8e60-f039-45c8-95d2-2a44c59025f6
   network: raw
-- name: VLESS-5 | 364ms
+- name: VLESS-9 | 608ms
   type: vless
-  server: 192.144.13.35
-  port: 59242
-  uuid: ad997094-40d4-461c-baf1-759d987351c3
+  server: 141.98.87.48
+  port: 9999
+  uuid: f83d8e60-f039-45c8-95d2-2a44c59025f6
   network: raw
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 1083ms
-  - VLESS-2 | 548ms
-  - VLESS-3 | 632ms
-  - VLESS-4 | 1016ms
-  - VLESS-5 | 364ms
+  - VLESS-1 | 342ms
+  - VLESS-2 | 246ms
+  - VLESS-3 | 338ms
+  - VLESS-4 | 262ms
+  - VLESS-5 | 1413ms
+  - VLESS-6 | 1433ms
+  - VLESS-7 | 671ms
+  - VLESS-8 | 617ms
+  - VLESS-9 | 608ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 1083ms
-  - VLESS-2 | 548ms
-  - VLESS-3 | 632ms
-  - VLESS-4 | 1016ms
-  - VLESS-5 | 364ms
+  - VLESS-1 | 342ms
+  - VLESS-2 | 246ms
+  - VLESS-3 | 338ms
+  - VLESS-4 | 262ms
+  - VLESS-5 | 1413ms
+  - VLESS-6 | 1433ms
+  - VLESS-7 | 671ms
+  - VLESS-8 | 617ms
+  - VLESS-9 | 608ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
