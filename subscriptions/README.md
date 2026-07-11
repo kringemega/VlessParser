@@ -1,7 +1,7 @@
 # V2Ray Tester Pro - Subscription Files
 
-**Last Updated:** 2026-07-11 21:53
-**Total Nodes:** 64
+**Last Updated:** 2026-07-11 22:52
+**Total Nodes:** 72
 
 ## 📥 Quick Import
 
