@@ -5,51 +5,43 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 322ms
+- name: VLESS-1 | 331ms
+  type: vless
+  server: 186.246.0.111
+  port: 443
+  uuid: 18167dd6-2c24-4f6b-a416-64bac693127a
+  network: grpc
+- name: VLESS-2 | 371ms
+  type: vless
+  server: 186.246.0.111
+  port: 443
+  uuid: 18167dd6-2c24-4f6b-a416-64bac693127a
+  network: grpc
+- name: VLESS-3 | 352ms
   type: vless
   server: 85.239.54.134
   port: 8443
   uuid: 96423879-75e7-4b83-9298-98a39888a8ba
   network: tcp
-- name: VLESS-2 | 1744ms
+- name: VLESS-4 | 1607ms
   type: vless
-  server: 83.166.253.148
+  server: 155.212.168.164
   port: 443
-  uuid: a3e03930-7645-4bf0-ad4d-40d44341fa88
+  uuid: 4392b776-41a2-4300-b545-a3d2724b605b
+  network: raw
+- name: VLESS-5 | 320ms
+  type: vless
+  server: 138.16.169.188
+  port: 2087
+  uuid: ab51054f-de76-4a0f-9f3a-b44c8df86a6c
+  network: raw
+- name: VLESS-6 | 1326ms
+  type: vless
+  server: 77.110.113.188
+  port: 443
+  uuid: 218fd696-e3a2-4c33-b397-a5f13a82969e
   network: tcp
-- name: VLESS-3 | 429ms
-  type: vless
-  server: 78.159.250.189
-  port: 1111
-  uuid: 1db3cf89-7ca0-4d7d-8c7c-4f57ae2a29da
-  network: raw
-- name: VLESS-4 | 401ms
-  type: vless
-  server: 78.159.250.189
-  port: 1111
-  uuid: 1db3cf89-7ca0-4d7d-8c7c-4f57ae2a29da
-  network: raw
-- name: VLESS-5 | 348ms
-  type: vless
-  server: 176.109.85.89
-  port: 2443
-  uuid: f14a4abb-ecb9-4be4-8a99-3d3895ab3464
-  network: grpc
-- name: VLESS-6 | 1183ms
-  type: vless
-  server: 185.91.53.52
-  port: 443
-  uuid: e42e3cc4-3228-0028-acf7-38a04f3b03e9
-  network: raw
-- name: VLESS-7 | 1227ms
-  type: vless
-  server: mx.bexumconnect.ltd
-  port: 443
-  uuid: 1e06c388-d31c-420e-916a-94a990648e34
-  network: tcp
-  tls: true
-  servername: mx.bexumconnect.ltd
-- name: VLESS-8 | 405ms
+- name: VLESS-7 | 201ms
   type: vless
   server: 109.120.152.19
   port: 443
@@ -57,86 +49,44 @@ proxies:
   network: tcp
   tls: true
   servername: fast_s89.screw.page
-- name: VLESS-9 | 1078ms
+- name: VLESS-8 | 572ms
   type: vless
-  server: 176.109.85.89
-  port: 2443
-  uuid: f14a4abb-ecb9-4be4-8a99-3d3895ab3464
-  network: grpc
-- name: VLESS-10 | 1218ms
-  type: vless
-  server: mx.bexumconnect.ltd
-  port: 443
-  uuid: 1e06c388-d31c-420e-916a-94a990648e34
-  network: tcp
-  tls: true
-  servername: mx.bexumconnect.ltd
-- name: VLESS-11 | 323ms
-  type: vless
-  server: 109.69.20.228
-  port: 8443
-  uuid: bb229808-c207-428c-a398-0b4bf30f29be
-  network: tcp
-  tls: true
-  servername: vpn.oplatasite.ru
-- name: VLESS-12 | 989ms
-  type: vless
-  server: 78.159.250.245
-  port: 8443
-  uuid: a982c357-ae92-40ce-9dad-0e3c3b393ac2
+  server: 78.159.250.189
+  port: 1111
+  uuid: 1db3cf89-7ca0-4d7d-8c7c-4f57ae2a29da
   network: raw
-- name: VLESS-13 | 1237ms
+- name: VLESS-9 | 641ms
   type: vless
-  server: mx.bexumconnect.ltd
-  port: 443
-  uuid: 1e06c388-d31c-420e-916a-94a990648e34
-  network: tcp
-  tls: true
-  servername: mx.bexumconnect.ltd
-- name: VLESS-14 | 332ms
-  type: vless
-  server: 109.120.152.19
-  port: 443
-  uuid: c0aa0cee-e855-4bcc-9afc-46241cb17990
+  server: 78.159.250.112
+  port: 1111
+  uuid: 1db3cf89-7ca0-4d7d-8c7c-4f57ae2a29da
   network: raw
-  tls: true
-  servername: fast_s89.screw.page
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 322ms
-  - VLESS-2 | 1744ms
-  - VLESS-3 | 429ms
-  - VLESS-4 | 401ms
-  - VLESS-5 | 348ms
-  - VLESS-6 | 1183ms
-  - VLESS-7 | 1227ms
-  - VLESS-8 | 405ms
-  - VLESS-9 | 1078ms
-  - VLESS-10 | 1218ms
-  - VLESS-11 | 323ms
-  - VLESS-12 | 989ms
-  - VLESS-13 | 1237ms
-  - VLESS-14 | 332ms
+  - VLESS-1 | 331ms
+  - VLESS-2 | 371ms
+  - VLESS-3 | 352ms
+  - VLESS-4 | 1607ms
+  - VLESS-5 | 320ms
+  - VLESS-6 | 1326ms
+  - VLESS-7 | 201ms
+  - VLESS-8 | 572ms
+  - VLESS-9 | 641ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 322ms
-  - VLESS-2 | 1744ms
-  - VLESS-3 | 429ms
-  - VLESS-4 | 401ms
-  - VLESS-5 | 348ms
-  - VLESS-6 | 1183ms
-  - VLESS-7 | 1227ms
-  - VLESS-8 | 405ms
-  - VLESS-9 | 1078ms
-  - VLESS-10 | 1218ms
-  - VLESS-11 | 323ms
-  - VLESS-12 | 989ms
-  - VLESS-13 | 1237ms
-  - VLESS-14 | 332ms
+  - VLESS-1 | 331ms
+  - VLESS-2 | 371ms
+  - VLESS-3 | 352ms
+  - VLESS-4 | 1607ms
+  - VLESS-5 | 320ms
+  - VLESS-6 | 1326ms
+  - VLESS-7 | 201ms
+  - VLESS-8 | 572ms
+  - VLESS-9 | 641ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
