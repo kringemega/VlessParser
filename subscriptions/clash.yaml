@@ -5,13 +5,43 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 1357ms
+- name: VLESS-1 | 479ms
+  type: vless
+  server: 194.55.239.205
+  port: 8443
+  uuid: ecad47b0-249e-000c-adff-e3c8f02b1897
+  network: tcp
+- name: VLESS-2 | 479ms
+  type: vless
+  server: 194.55.239.205
+  port: 8443
+  uuid: ecad47b0-249e-000c-adff-e3c8f02b1897
+  network: tcp
+- name: VLESS-3 | 1166ms
   type: vless
   server: 78.159.250.40
   port: 8443
   uuid: ecad47b0-249e-0009-adff-e3c8f02b1897
   network: tcp
-- name: VLESS-2 | 1472ms
+- name: VLESS-4 | 1348ms
+  type: vless
+  server: 78.159.250.40
+  port: 8443
+  uuid: ecad47b0-249e-0009-adff-e3c8f02b1897
+  network: tcp
+- name: VLESS-5 | 1282ms
+  type: vless
+  server: 78.159.250.40
+  port: 8443
+  uuid: ecad47b0-249e-0009-adff-e3c8f02b1897
+  network: tcp
+- name: VLESS-6 | 1275ms
+  type: vless
+  server: 78.159.250.40
+  port: 8443
+  uuid: ecad47b0-249e-0009-adff-e3c8f02b1897
+  network: tcp
+- name: VLESS-7 | 1973ms
   type: vless
   server: 78.159.250.40
   port: 8443
@@ -22,13 +52,23 @@ proxy-groups:
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 1357ms
-  - VLESS-2 | 1472ms
+  - VLESS-1 | 479ms
+  - VLESS-2 | 479ms
+  - VLESS-3 | 1166ms
+  - VLESS-4 | 1348ms
+  - VLESS-5 | 1282ms
+  - VLESS-6 | 1275ms
+  - VLESS-7 | 1973ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 1357ms
-  - VLESS-2 | 1472ms
+  - VLESS-1 | 479ms
+  - VLESS-2 | 479ms
+  - VLESS-3 | 1166ms
+  - VLESS-4 | 1348ms
+  - VLESS-5 | 1282ms
+  - VLESS-6 | 1275ms
+  - VLESS-7 | 1973ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
