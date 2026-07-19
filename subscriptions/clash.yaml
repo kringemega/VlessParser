@@ -5,40 +5,108 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 1773ms
+- name: VLESS-1 | 538ms
   type: vless
-  server: 45.151.62.149
+  server: nlc.tunnelguard.ru
   port: 443
-  uuid: 218fd696-e3a2-4c33-b397-a5f13a82969e
-  network: grpc
-- name: VLESS-2 | 582ms
+  uuid: 83d32308-70ad-4ca8-822e-7b653e1bd35c
+  network: xhttp
+  tls: true
+  servername: nlc.tunnelguard.ru
+- name: VLESS-2 | 1307ms
   type: vless
-  server: 194.55.239.174
-  port: 443
-  uuid: 2c634977-584e-4e1f-b501-1b70c77a6743
+  server: media.kinodrozd.com
+  port: 14443
+  uuid: 8f0560ec-ba22-4431-a6a7-318dc59d5233
   network: ws
   tls: true
-  servername: furrycdn.net
-- name: TROJAN-3 | 620ms
-  type: trojan
-  server: 5.23.55.128
-  port: 2053
-  password: 4PZV9xYUGS3OgZR92y9PrQ
-  sni: vac-service.ru
+  servername: media.kinodrozd.com
+- name: VLESS-3 | 808ms
+  type: vless
+  server: 51.250.3.73
+  port: 443
+  uuid: 3fffe7ed-7374-57ba-956f-6e930f10f04f
+  network: tcp
+- name: VLESS-4 | 634ms
+  type: vless
+  server: 51.250.3.73
+  port: 443
+  uuid: 3fffe7ed-7374-57ba-956f-6e930f10f04f
+  network: tcp
+- name: VLESS-5 | 781ms
+  type: vless
+  server: 51.250.3.73
+  port: 443
+  uuid: 3fffe7ed-7374-57ba-956f-6e930f10f04f
+  network: tcp
+- name: VLESS-6 | 553ms
+  type: vless
+  server: nlc.tunnelguard.ru
+  port: 443
+  uuid: 83d32308-70ad-4ca8-822e-7b653e1bd35c
+  network: xhttp
+  tls: true
+  servername: nlc.tunnelguard.ru
+- name: VLESS-7 | 563ms
+  type: vless
+  server: nlc.tunnelguard.ru
+  port: 443
+  uuid: 83d32308-70ad-4ca8-822e-7b653e1bd35c
+  network: xhttp
+  tls: true
+  servername: nlc.tunnelguard.ru
+- name: VLESS-8 | 534ms
+  type: vless
+  server: nlc.tunnelguard.ru
+  port: 443
+  uuid: 83d32308-70ad-4ca8-822e-7b653e1bd35c
+  network: xhttp
+  tls: true
+  servername: nlc.tunnelguard.ru
+- name: VLESS-9 | 552ms
+  type: vless
+  server: nlc.tunnelguard.ru
+  port: 443
+  uuid: 83d32308-70ad-4ca8-822e-7b653e1bd35c
+  network: xhttp
+  tls: true
+  servername: nlc.tunnelguard.ru
+- name: VLESS-10 | 1588ms
+  type: vless
+  server: media.kinodrozd.com
+  port: 14443
+  uuid: 8f0560ec-ba22-4431-a6a7-318dc59d5233
+  network: ws
+  tls: true
+  servername: media.kinodrozd.com
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 1773ms
-  - VLESS-2 | 582ms
-  - TROJAN-3 | 620ms
+  - VLESS-1 | 538ms
+  - VLESS-2 | 1307ms
+  - VLESS-3 | 808ms
+  - VLESS-4 | 634ms
+  - VLESS-5 | 781ms
+  - VLESS-6 | 553ms
+  - VLESS-7 | 563ms
+  - VLESS-8 | 534ms
+  - VLESS-9 | 552ms
+  - VLESS-10 | 1588ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 1773ms
-  - VLESS-2 | 582ms
-  - TROJAN-3 | 620ms
+  - VLESS-1 | 538ms
+  - VLESS-2 | 1307ms
+  - VLESS-3 | 808ms
+  - VLESS-4 | 634ms
+  - VLESS-5 | 781ms
+  - VLESS-6 | 553ms
+  - VLESS-7 | 563ms
+  - VLESS-8 | 534ms
+  - VLESS-9 | 552ms
+  - VLESS-10 | 1588ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
