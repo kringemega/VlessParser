@@ -5,91 +5,85 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 413ms
+- name: VLESS-1 | 464ms
   type: vless
   server: 185.147.27.155
   port: 443
   uuid: 6f98a077-004e-4b86-8b78-8d09308d3868
   network: xhttp
-- name: VLESS-2 | 400ms
+- name: VLESS-2 | 466ms
   type: vless
   server: 185.147.27.155
   port: 443
   uuid: 6f98a077-004e-4b86-8b78-8d09308d3868
   network: xhttp
-- name: VLESS-3 | 408ms
+- name: VLESS-3 | 423ms
   type: vless
-  server: 186.246.10.209
+  server: 185.147.27.155
   port: 443
-  uuid: d068ffda-ef60-437a-aeed-b531282d281e
-  network: tcp
-- name: VLESS-4 | 1016ms
+  uuid: 6f98a077-004e-4b86-8b78-8d09308d3868
+  network: xhttp
+- name: VLESS-4 | 440ms
+  type: vless
+  server: 185.147.27.155
+  port: 443
+  uuid: 6f98a077-004e-4b86-8b78-8d09308d3868
+  network: xhttp
+- name: VLESS-5 | 541ms
   type: vless
   server: 185.147.27.5
   port: 443
   uuid: 6f98a077-004e-4b86-8b78-8d09308d3868
   network: xhttp
-- name: VLESS-5 | 1007ms
+- name: VLESS-6 | 489ms
+  type: vless
+  server: 135.106.158.189
+  port: 443
+  uuid: 340e4de3-144b-49c4-ad72-b49b35713728
+  network: grpc
+- name: VLESS-7 | 532ms
   type: vless
   server: 185.147.27.5
   port: 443
   uuid: 6f98a077-004e-4b86-8b78-8d09308d3868
   network: xhttp
-- name: VLESS-6 | 435ms
+- name: VLESS-8 | 523ms
+  type: vless
+  server: 185.147.27.5
+  port: 443
+  uuid: 6f98a077-004e-4b86-8b78-8d09308d3868
+  network: xhttp
+- name: VLESS-9 | 445ms
   type: vless
   server: 178.154.214.214
   port: 443
   uuid: 09a36cea-a641-4b7e-9fb1-789ebe589b50
   network: tcp
-- name: VLESS-7 | 406ms
+- name: VLESS-10 | 494ms
   type: vless
-  server: 186.246.10.209
+  server: 135.106.158.189
   port: 443
-  uuid: d068ffda-ef60-437a-aeed-b531282d281e
-  network: tcp
-- name: VLESS-8 | 424ms
-  type: vless
-  server: 186.246.10.209
-  port: 443
-  uuid: d068ffda-ef60-437a-aeed-b531282d281e
-  network: tcp
-- name: VLESS-9 | 441ms
-  type: vless
-  server: yt.orpheous.ru
-  port: 443
-  uuid: 09a36cea-a641-4b7e-9fb1-789ebe589b50
-  network: tcp
-- name: VLESS-10 | 437ms
-  type: vless
-  server: yt.orpheous.ru
-  port: 443
-  uuid: 09a36cea-a641-4b7e-9fb1-789ebe589b50
-  network: tcp
-- name: VLESS-11 | 505ms
+  uuid: 340e4de3-144b-49c4-ad72-b49b35713728
+  network: grpc
+- name: VLESS-11 | 434ms
   type: vless
   server: 178.154.214.214
   port: 443
   uuid: 09a36cea-a641-4b7e-9fb1-789ebe589b50
   network: tcp
-- name: VLESS-12 | 433ms
+- name: VLESS-12 | 434ms
   type: vless
   server: 178.154.214.214
   port: 443
   uuid: 09a36cea-a641-4b7e-9fb1-789ebe589b50
   network: tcp
-- name: VLESS-13 | 471ms
+- name: VLESS-13 | 440ms
   type: vless
-  server: yt.orpheous.ru
+  server: 178.154.214.214
   port: 443
   uuid: 09a36cea-a641-4b7e-9fb1-789ebe589b50
   network: tcp
-- name: VLESS-14 | 1363ms
-  type: vless
-  server: 95.163.211.150
-  port: 443
-  uuid: d768d4ba-0b73-4509-87ea-afb074d2f766
-  network: raw
-- name: VMESS-15 | 713ms
+- name: VMESS-14 | 579ms
   type: vmess
   server: cvm1.w-mebel.pro
   port: 443
@@ -103,60 +97,42 @@ proxies:
     path: /video/v5/chunks
     headers:
       Host: cvm1.w-mebel.pro
-- name: VLESS-16 | 624ms
-  type: vless
-  server: 95.163.211.150
-  port: 443
-  uuid: d768d4ba-0b73-4509-87ea-afb074d2f766
-  network: raw
-- name: VLESS-17 | 550ms
-  type: vless
-  server: 95.163.211.150
-  port: 443
-  uuid: d768d4ba-0b73-4509-87ea-afb074d2f766
-  network: raw
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 413ms
-  - VLESS-2 | 400ms
-  - VLESS-3 | 408ms
-  - VLESS-4 | 1016ms
-  - VLESS-5 | 1007ms
-  - VLESS-6 | 435ms
-  - VLESS-7 | 406ms
-  - VLESS-8 | 424ms
-  - VLESS-9 | 441ms
-  - VLESS-10 | 437ms
-  - VLESS-11 | 505ms
-  - VLESS-12 | 433ms
-  - VLESS-13 | 471ms
-  - VLESS-14 | 1363ms
-  - VMESS-15 | 713ms
-  - VLESS-16 | 624ms
-  - VLESS-17 | 550ms
+  - VLESS-1 | 464ms
+  - VLESS-2 | 466ms
+  - VLESS-3 | 423ms
+  - VLESS-4 | 440ms
+  - VLESS-5 | 541ms
+  - VLESS-6 | 489ms
+  - VLESS-7 | 532ms
+  - VLESS-8 | 523ms
+  - VLESS-9 | 445ms
+  - VLESS-10 | 494ms
+  - VLESS-11 | 434ms
+  - VLESS-12 | 434ms
+  - VLESS-13 | 440ms
+  - VMESS-14 | 579ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 413ms
-  - VLESS-2 | 400ms
-  - VLESS-3 | 408ms
-  - VLESS-4 | 1016ms
-  - VLESS-5 | 1007ms
-  - VLESS-6 | 435ms
-  - VLESS-7 | 406ms
-  - VLESS-8 | 424ms
-  - VLESS-9 | 441ms
-  - VLESS-10 | 437ms
-  - VLESS-11 | 505ms
-  - VLESS-12 | 433ms
-  - VLESS-13 | 471ms
-  - VLESS-14 | 1363ms
-  - VMESS-15 | 713ms
-  - VLESS-16 | 624ms
-  - VLESS-17 | 550ms
+  - VLESS-1 | 464ms
+  - VLESS-2 | 466ms
+  - VLESS-3 | 423ms
+  - VLESS-4 | 440ms
+  - VLESS-5 | 541ms
+  - VLESS-6 | 489ms
+  - VLESS-7 | 532ms
+  - VLESS-8 | 523ms
+  - VLESS-9 | 445ms
+  - VLESS-10 | 494ms
+  - VLESS-11 | 434ms
+  - VLESS-12 | 434ms
+  - VLESS-13 | 440ms
+  - VMESS-14 | 579ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
