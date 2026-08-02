@@ -5,62 +5,54 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 444ms
+- name: VLESS-1 | 461ms
   type: vless
   server: 176.98.176.110
   port: 443
   uuid: d17418df-741d-480e-9dac-de5624dd776d
   network: grpc
-- name: VLESS-2 | 450ms
+- name: VLESS-2 | 528ms
   type: vless
   server: 176.98.176.110
   port: 443
   uuid: d17418df-741d-480e-9dac-de5624dd776d
   network: grpc
-- name: VLESS-3 | 1442ms
+- name: VLESS-3 | 463ms
   type: vless
-  server: 193.233.245.121
-  port: 443
-  uuid: c46e2605-be24-4555-b7db-0fc6773ad004
-  network: xhttp
-- name: VLESS-4 | 1085ms
+  server: hentai.colorbox.space
+  port: 80
+  uuid: 8c7752f1-c2fc-47ff-8357-3ed5150d0338
+  network: ws
+- name: VLESS-4 | 480ms
   type: vless
-  server: 193.233.245.121
+  server: 176.98.176.110
   port: 443
-  uuid: c46e2605-be24-4555-b7db-0fc6773ad004
-  network: xhttp
-- name: VLESS-5 | 627ms
-  type: vless
-  server: 46.8.220.182
-  port: 443
-  uuid: 218fd696-e3a2-4c33-b397-a5f13a82969e
+  uuid: d17418df-741d-480e-9dac-de5624dd776d
   network: grpc
-- name: VLESS-6 | 1293ms
+- name: VLESS-5 | 1411ms
   type: vless
-  server: 46.8.220.182
-  port: 443
-  uuid: 218fd696-e3a2-4c33-b397-a5f13a82969e
-  network: grpc
+  server: 45.67.57.57
+  port: 28559
+  uuid: 0c7ba501-13f9-453d-a82e-80f70e291fad
+  network: tcp
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 444ms
-  - VLESS-2 | 450ms
-  - VLESS-3 | 1442ms
-  - VLESS-4 | 1085ms
-  - VLESS-5 | 627ms
-  - VLESS-6 | 1293ms
+  - VLESS-1 | 461ms
+  - VLESS-2 | 528ms
+  - VLESS-3 | 463ms
+  - VLESS-4 | 480ms
+  - VLESS-5 | 1411ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 444ms
-  - VLESS-2 | 450ms
-  - VLESS-3 | 1442ms
-  - VLESS-4 | 1085ms
-  - VLESS-5 | 627ms
-  - VLESS-6 | 1293ms
+  - VLESS-1 | 461ms
+  - VLESS-2 | 528ms
+  - VLESS-3 | 463ms
+  - VLESS-4 | 480ms
+  - VLESS-5 | 1411ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
