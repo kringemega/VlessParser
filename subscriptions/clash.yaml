@@ -5,54 +5,62 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 360ms
+- name: VLESS-1 | 444ms
   type: vless
-  server: 45.151.101.197
-  port: 30160
+  server: 176.98.176.110
+  port: 443
+  uuid: d17418df-741d-480e-9dac-de5624dd776d
+  network: grpc
+- name: VLESS-2 | 450ms
+  type: vless
+  server: 176.98.176.110
+  port: 443
+  uuid: d17418df-741d-480e-9dac-de5624dd776d
+  network: grpc
+- name: VLESS-3 | 1442ms
+  type: vless
+  server: 193.233.245.121
+  port: 443
   uuid: c46e2605-be24-4555-b7db-0fc6773ad004
   network: xhttp
-- name: VLESS-2 | 487ms
+- name: VLESS-4 | 1085ms
   type: vless
-  server: 193.233.218.38
-  port: 50443
-  uuid: 40769826-172c-453b-9a45-05726aab0f45
-  network: grpc
-- name: VLESS-3 | 475ms
-  type: vless
-  server: hentai.colorbox.space
-  port: 80
-  uuid: 8c7752f1-c2fc-47ff-8357-3ed5150d0338
-  network: ws
-- name: VLESS-4 | 1002ms
-  type: vless
-  server: 45.67.57.57
-  port: 28559
-  uuid: 0c7ba501-13f9-453d-a82e-80f70e291fad
-  network: tcp
-- name: VLESS-5 | 355ms
-  type: vless
-  server: 31.129.55.217
+  server: 193.233.245.121
   port: 443
-  uuid: 742e841d-140d-4795-9f16-3cf119129fec
+  uuid: c46e2605-be24-4555-b7db-0fc6773ad004
+  network: xhttp
+- name: VLESS-5 | 627ms
+  type: vless
+  server: 46.8.220.182
+  port: 443
+  uuid: 218fd696-e3a2-4c33-b397-a5f13a82969e
+  network: grpc
+- name: VLESS-6 | 1293ms
+  type: vless
+  server: 46.8.220.182
+  port: 443
+  uuid: 218fd696-e3a2-4c33-b397-a5f13a82969e
   network: grpc
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 360ms
-  - VLESS-2 | 487ms
-  - VLESS-3 | 475ms
-  - VLESS-4 | 1002ms
-  - VLESS-5 | 355ms
+  - VLESS-1 | 444ms
+  - VLESS-2 | 450ms
+  - VLESS-3 | 1442ms
+  - VLESS-4 | 1085ms
+  - VLESS-5 | 627ms
+  - VLESS-6 | 1293ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 360ms
-  - VLESS-2 | 487ms
-  - VLESS-3 | 475ms
-  - VLESS-4 | 1002ms
-  - VLESS-5 | 355ms
+  - VLESS-1 | 444ms
+  - VLESS-2 | 450ms
+  - VLESS-3 | 1442ms
+  - VLESS-4 | 1085ms
+  - VLESS-5 | 627ms
+  - VLESS-6 | 1293ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
