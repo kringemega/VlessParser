@@ -6,7 +6,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10804,
+        "port": 10802,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -82,7 +82,83 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10804,
+        "port": 10813,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "176.98.176.110",
+              "port": 443,
+              "users": [
+                {
+                  "id": "d17418df-741d-480e-9dac-de5624dd776d",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "stepik.org",
+            "allowInsecure": true,
+            "fingerprint": "ios",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "gWQI82-139LOX4McshbOZOGRElcpw_TXwvjVstOGswY",
+            "shortId": "d2f7a1c9e3b04685",
+            "spiderX": "/"
+          },
+          "grpcSettings": {
+            "serviceName": "",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10808,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -158,72 +234,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10801,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "hentai.colorbox.space",
-              "port": 80,
-              "users": [
-                {
-                  "id": "8c7752f1-c2fc-47ff-8357-3ed5150d0338",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "ws",
-          "security": "none",
-          "wsSettings": {
-            "path": "/",
-            "headers": {
-              "Host": "hentai.colorbox.space"
-            }
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10801,
+        "port": 10806,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -299,7 +310,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10805,
+        "port": 10817,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -315,11 +326,11 @@
         "settings": {
           "vnext": [
             {
-              "address": "45.67.57.57",
-              "port": 28559,
+              "address": "45.151.101.197",
+              "port": 30160,
               "users": [
                 {
-                  "id": "0c7ba501-13f9-453d-a82e-80f70e291fad",
+                  "id": "c46e2605-be24-4555-b7db-0fc6773ad004",
                   "encryption": "none",
                   "flow": ""
                 }
@@ -328,11 +339,84 @@
           ]
         },
         "streamSettings": {
-          "network": "tcp",
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "yandex.tr",
+            "allowInsecure": true,
+            "fingerprint": "ios",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "vqr3sFlSCpzBjw61NnufMWLDfevzkuT24qo1SaEhp1k",
+            "shortId": "",
+            "spiderX": "/"
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10814,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "hentai.colorbox.space",
+              "port": 80,
+              "users": [
+                {
+                  "id": "8c7752f1-c2fc-47ff-8357-3ed5150d0338",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
           "security": "none",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
+          "wsSettings": {
+            "path": "/",
+            "headers": {
+              "Host": "hentai.colorbox.space"
             }
           }
         },
