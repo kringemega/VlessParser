@@ -58561,9 +58561,108 @@
       "found_at": "2026-08-17T09:44:05.531891",
       "hash": "fe6eec6f22f52a2cf69684bb1e6c8eae",
       "sent_to_telegram": false
+    },
+    {
+      "protocol": "vless",
+      "address": "176.109.108.83",
+      "ping": 1066,
+      "jitter": 1186,
+      "download_speed": 5.18,
+      "upload_speed": 0.0,
+      "is_bypassing": true,
+      "connectivity": {
+        "telegram": false,
+        "instagram": true,
+        "youtube": true
+      },
+      "ip": "176.109.108.83",
+      "config_json": {
+        "log": {
+          "loglevel": "warning"
+        },
+        "inbounds": [
+          {
+            "listen": "127.0.0.1",
+            "port": 10801,
+            "protocol": "http",
+            "settings": {
+              "timeout": 0,
+              "allowTransparent": false,
+              "userLevel": 0
+            },
+            "tag": "http-in"
+          }
+        ],
+        "outbounds": [
+          {
+            "protocol": "vless",
+            "settings": {
+              "vnext": [
+                {
+                  "address": "176.109.108.83",
+                  "port": 9830,
+                  "users": [
+                    {
+                      "id": "553e3253-c454-431d-a7e6-42bc06ea5e14",
+                      "encryption": "none",
+                      "flow": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            "streamSettings": {
+              "network": "grpc",
+              "security": "reality",
+              "realitySettings": {
+                "serverName": "dl.google.com",
+                "allowInsecure": true,
+                "fingerprint": "safari",
+                "alpn": [
+                  "h2",
+                  "http/1.1"
+                ],
+                "show": false,
+                "publicKey": "bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU",
+                "shortId": "aabb",
+                "spiderX": "/"
+              },
+              "grpcSettings": {
+                "serviceName": "grpc-tunnel",
+                "multiMode": true
+              }
+            },
+            "tag": "proxy"
+          },
+          {
+            "protocol": "freedom",
+            "tag": "direct"
+          }
+        ],
+        "routing": {
+          "domainStrategy": "IPIfNonMatch",
+          "rules": [
+            {
+              "type": "field",
+              "ip": [
+                "geoip:private"
+              ],
+              "outboundTag": "direct"
+            }
+          ]
+        }
+      },
+      "uri": "vless://553e3253-c454-431d-a7e6-42bc06ea5e14@176.109.108.83:9830/?type=grpc&encryption=none&flow=&serviceName=grpc-tunnel&sni=dl.google.com&fp=safari&security=reality&pbk=bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU&sid=aabb#%F0%9F%87%A6%F0%9F%87%B9%20Austria%20%5B%2ACIDR%5D",
+      "country": "Russian Federation",
+      "country_code": "RU",
+      "city": "Moscow",
+      "isp": "Cloud Technologies LLC trading as Cloud.ru",
+      "found_at": "2026-08-17T10:33:05.438504",
+      "hash": "269adb8f6d4a03bb2fe68692587abc2e",
+      "sent_to_telegram": false
     }
   ],
-  "last_updated": "2026-08-17T09:44:05.531909",
-  "total_configs": 616,
+  "last_updated": "2026-08-17T10:33:05.438515",
+  "total_configs": 617,
   "created_at": "2026-05-01T11:10:36.324532"
 }
