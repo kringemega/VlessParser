@@ -5,7 +5,13 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 795ms
+- name: VLESS-1 | 1158ms
+  type: vless
+  server: 176.123.164.9
+  port: 9872
+  uuid: fd94a343-cb11-45e6-9882-72352d0a2b8f
+  network: grpc
+- name: VLESS-2 | 554ms
   type: vless
   server: 46.182.24.112
   port: 2096
@@ -13,96 +19,90 @@ proxies:
   network: grpc
   tls: true
   servername: v1.api2.ttpservers.ru
-- name: VLESS-2 | 779ms
+- name: VLESS-3 | 1414ms
   type: vless
-  server: 212.41.26.84
-  port: 443
-  uuid: 163dc809-7970-4ff8-a7e5-8080ad53e7bb
+  server: 176.123.164.9
+  port: 9872
+  uuid: fd94a343-cb11-45e6-9882-72352d0a2b8f
   network: grpc
-  tls: true
-  servername: v1.api2.ttpservers.ru
-- name: VLESS-3 | 829ms
+- name: VLESS-4 | 358ms
   type: vless
-  server: 46.182.24.112
-  port: 2096
-  uuid: 163dc809-7970-4ff8-a7e5-8080ad53e7bb
+  server: 194.67.103.173
+  port: 9882
+  uuid: fd94a343-cb11-45e6-9882-72352d0a2b8f
   network: grpc
-  tls: true
-  servername: v1.api2.ttpservers.ru
-- name: VLESS-4 | 818ms
+- name: VLESS-5 | 351ms
   type: vless
-  server: 46.182.24.112
-  port: 2096
-  uuid: 163dc809-7970-4ff8-a7e5-8080ad53e7bb
+  server: 194.67.103.173
+  port: 9882
+  uuid: fd94a343-cb11-45e6-9882-72352d0a2b8f
   network: grpc
-  tls: true
-  servername: v1.api2.ttpservers.ru
-- name: VLESS-5 | 1076ms
+- name: VLESS-6 | 229ms
   type: vless
-  server: 46.182.24.112
-  port: 2096
-  uuid: 163dc809-7970-4ff8-a7e5-8080ad53e7bb
+  server: 194.67.103.173
+  port: 9882
+  uuid: fd94a343-cb11-45e6-9882-72352d0a2b8f
   network: grpc
-  tls: true
-  servername: v1.api2.ttpservers.ru
-- name: VLESS-6 | 798ms
+- name: VLESS-7 | 230ms
   type: vless
-  server: 212.41.26.84
-  port: 443
-  uuid: 163dc809-7970-4ff8-a7e5-8080ad53e7bb
+  server: 194.67.103.173
+  port: 9882
+  uuid: fd94a343-cb11-45e6-9882-72352d0a2b8f
   network: grpc
-  tls: true
-  servername: v1.api2.ttpservers.ru
-- name: VLESS-7 | 907ms
+- name: VLESS-8 | 654ms
   type: vless
-  server: 46.182.24.112
-  port: 2096
-  uuid: 163dc809-7970-4ff8-a7e5-8080ad53e7bb
+  server: 134.0.116.208
+  port: 9878
+  uuid: 2a650f3b-d95b-4bd6-aadf-16ccc0717155
   network: grpc
-  tls: true
-  servername: v1.api2.ttpservers.ru
-- name: VLESS-8 | 923ms
+- name: VLESS-9 | 562ms
   type: vless
-  server: 212.41.26.84
-  port: 443
-  uuid: 163dc809-7970-4ff8-a7e5-8080ad53e7bb
+  server: 134.0.116.208
+  port: 9878
+  uuid: 2a650f3b-d95b-4bd6-aadf-16ccc0717155
   network: grpc
-  tls: true
-  servername: v1.api2.ttpservers.ru
-- name: VLESS-9 | 800ms
+- name: VLESS-10 | 865ms
   type: vless
-  server: 212.41.26.84
-  port: 443
-  uuid: 163dc809-7970-4ff8-a7e5-8080ad53e7bb
+  server: 134.0.116.208
+  port: 9878
+  uuid: f4685d27-73e3-4588-9622-add50b84046a
   network: grpc
-  tls: true
-  servername: v1.api2.ttpservers.ru
+- name: VLESS-11 | 1455ms
+  type: vless
+  server: 176.123.164.9
+  port: 9872
+  uuid: fd94a343-cb11-45e6-9882-72352d0a2b8f
+  network: grpc
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 795ms
-  - VLESS-2 | 779ms
-  - VLESS-3 | 829ms
-  - VLESS-4 | 818ms
-  - VLESS-5 | 1076ms
-  - VLESS-6 | 798ms
-  - VLESS-7 | 907ms
-  - VLESS-8 | 923ms
-  - VLESS-9 | 800ms
+  - VLESS-1 | 1158ms
+  - VLESS-2 | 554ms
+  - VLESS-3 | 1414ms
+  - VLESS-4 | 358ms
+  - VLESS-5 | 351ms
+  - VLESS-6 | 229ms
+  - VLESS-7 | 230ms
+  - VLESS-8 | 654ms
+  - VLESS-9 | 562ms
+  - VLESS-10 | 865ms
+  - VLESS-11 | 1455ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 795ms
-  - VLESS-2 | 779ms
-  - VLESS-3 | 829ms
-  - VLESS-4 | 818ms
-  - VLESS-5 | 1076ms
-  - VLESS-6 | 798ms
-  - VLESS-7 | 907ms
-  - VLESS-8 | 923ms
-  - VLESS-9 | 800ms
+  - VLESS-1 | 1158ms
+  - VLESS-2 | 554ms
+  - VLESS-3 | 1414ms
+  - VLESS-4 | 358ms
+  - VLESS-5 | 351ms
+  - VLESS-6 | 229ms
+  - VLESS-7 | 230ms
+  - VLESS-8 | 654ms
+  - VLESS-9 | 562ms
+  - VLESS-10 | 865ms
+  - VLESS-11 | 1455ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:

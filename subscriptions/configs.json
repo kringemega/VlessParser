@@ -6,7 +6,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10813,
+        "port": 10815,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -22,11 +22,11 @@
         "settings": {
           "vnext": [
             {
-              "address": "46.182.24.112",
-              "port": 2096,
+              "address": "176.123.164.9",
+              "port": 9872,
               "users": [
                 {
-                  "id": "163dc809-7970-4ff8-a7e5-8080ad53e7bb",
+                  "id": "fd94a343-cb11-45e6-9882-72352d0a2b8f",
                   "encryption": "none",
                   "flow": ""
                 }
@@ -36,17 +36,22 @@
         },
         "streamSettings": {
           "network": "grpc",
-          "security": "tls",
-          "tlsSettings": {
-            "serverName": "v1.api2.ttpservers.ru",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "dl.google.com",
             "allowInsecure": true,
-            "fingerprint": "ios",
+            "fingerprint": "edge",
             "alpn": [
-              "h2"
-            ]
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU",
+            "shortId": "aabbccdd",
+            "spiderX": "/"
           },
           "grpcSettings": {
-            "serviceName": "mygrpc",
+            "serviceName": "grpc-tunnel",
             "multiMode": true
           }
         },
@@ -77,78 +82,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10804,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "212.41.26.84",
-              "port": 443,
-              "users": [
-                {
-                  "id": "163dc809-7970-4ff8-a7e5-8080ad53e7bb",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "grpc",
-          "security": "tls",
-          "tlsSettings": {
-            "serverName": "v1.api2.ttpservers.ru",
-            "allowInsecure": true,
-            "fingerprint": "qq",
-            "alpn": [
-              "h2"
-            ]
-          },
-          "grpcSettings": {
-            "serviceName": "mygrpc",
-            "multiMode": true
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10812,
+        "port": 10815,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -183,219 +117,6 @@
             "serverName": "v1.api2.ttpservers.ru",
             "allowInsecure": true,
             "fingerprint": "qq",
-            "alpn": [
-              "h2"
-            ]
-          },
-          "grpcSettings": {
-            "serviceName": "mygrpc",
-            "multiMode": true
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10817,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "46.182.24.112",
-              "port": 2096,
-              "users": [
-                {
-                  "id": "163dc809-7970-4ff8-a7e5-8080ad53e7bb",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "grpc",
-          "security": "tls",
-          "tlsSettings": {
-            "serverName": "v1.api2.ttpservers.ru",
-            "allowInsecure": true,
-            "fingerprint": "firefox",
-            "alpn": [
-              "h2"
-            ]
-          },
-          "grpcSettings": {
-            "serviceName": "mygrpc",
-            "multiMode": true
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10819,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "46.182.24.112",
-              "port": 2096,
-              "users": [
-                {
-                  "id": "163dc809-7970-4ff8-a7e5-8080ad53e7bb",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "grpc",
-          "security": "tls",
-          "tlsSettings": {
-            "serverName": "v1.api2.ttpservers.ru",
-            "allowInsecure": true,
-            "fingerprint": "chrome",
-            "alpn": [
-              "h2"
-            ]
-          },
-          "grpcSettings": {
-            "serviceName": "mygrpc",
-            "multiMode": true
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10816,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "212.41.26.84",
-              "port": 443,
-              "users": [
-                {
-                  "id": "163dc809-7970-4ff8-a7e5-8080ad53e7bb",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "grpc",
-          "security": "tls",
-          "tlsSettings": {
-            "serverName": "v1.api2.ttpservers.ru",
-            "allowInsecure": true,
-            "fingerprint": "firefox",
             "alpn": [
               "h2"
             ]
@@ -448,11 +169,11 @@
         "settings": {
           "vnext": [
             {
-              "address": "46.182.24.112",
-              "port": 2096,
+              "address": "176.123.164.9",
+              "port": 9872,
               "users": [
                 {
-                  "id": "163dc809-7970-4ff8-a7e5-8080ad53e7bb",
+                  "id": "fd94a343-cb11-45e6-9882-72352d0a2b8f",
                   "encryption": "none",
                   "flow": ""
                 }
@@ -462,17 +183,22 @@
         },
         "streamSettings": {
           "network": "grpc",
-          "security": "tls",
-          "tlsSettings": {
-            "serverName": "v1.api2.ttpservers.ru",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "dl.google.com",
             "allowInsecure": true,
-            "fingerprint": "edge",
+            "fingerprint": "chrome",
             "alpn": [
-              "h2"
-            ]
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU",
+            "shortId": "aabbccdd",
+            "spiderX": "/"
           },
           "grpcSettings": {
-            "serviceName": "mygrpc",
+            "serviceName": "grpc-tunnel",
             "multiMode": true
           }
         },
@@ -503,7 +229,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10815,
+        "port": 10814,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -519,11 +245,11 @@
         "settings": {
           "vnext": [
             {
-              "address": "212.41.26.84",
-              "port": 443,
+              "address": "194.67.103.173",
+              "port": 9882,
               "users": [
                 {
-                  "id": "163dc809-7970-4ff8-a7e5-8080ad53e7bb",
+                  "id": "fd94a343-cb11-45e6-9882-72352d0a2b8f",
                   "encryption": "none",
                   "flow": ""
                 }
@@ -533,17 +259,478 @@
         },
         "streamSettings": {
           "network": "grpc",
-          "security": "tls",
-          "tlsSettings": {
-            "serverName": "v1.api2.ttpservers.ru",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "dl.google.com",
             "allowInsecure": true,
-            "fingerprint": "safari",
+            "fingerprint": "edge",
             "alpn": [
-              "h2"
-            ]
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU",
+            "shortId": "aa",
+            "spiderX": "/"
           },
           "grpcSettings": {
-            "serviceName": "mygrpc",
+            "serviceName": "grpc-tunnel",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10805,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "194.67.103.173",
+              "port": 9882,
+              "users": [
+                {
+                  "id": "fd94a343-cb11-45e6-9882-72352d0a2b8f",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "dl.google.com",
+            "allowInsecure": true,
+            "fingerprint": "qq",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU",
+            "shortId": "aa",
+            "spiderX": "/"
+          },
+          "grpcSettings": {
+            "serviceName": "grpc-tunnel",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10804,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "194.67.103.173",
+              "port": 9882,
+              "users": [
+                {
+                  "id": "fd94a343-cb11-45e6-9882-72352d0a2b8f",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "dl.google.com",
+            "allowInsecure": true,
+            "fingerprint": "firefox",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU",
+            "shortId": "aa",
+            "spiderX": "/"
+          },
+          "grpcSettings": {
+            "serviceName": "grpc-tunnel",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10800,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "194.67.103.173",
+              "port": 9882,
+              "users": [
+                {
+                  "id": "fd94a343-cb11-45e6-9882-72352d0a2b8f",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "dl.google.com",
+            "allowInsecure": true,
+            "fingerprint": "ios",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU",
+            "shortId": "aa",
+            "spiderX": "/"
+          },
+          "grpcSettings": {
+            "serviceName": "grpc-tunnel",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10808,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "134.0.116.208",
+              "port": 9878,
+              "users": [
+                {
+                  "id": "2a650f3b-d95b-4bd6-aadf-16ccc0717155",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "dl.google.com",
+            "allowInsecure": true,
+            "fingerprint": "ios",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU",
+            "shortId": "aa",
+            "spiderX": "/"
+          },
+          "grpcSettings": {
+            "serviceName": "grpc-tunnel",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10812,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "134.0.116.208",
+              "port": 9878,
+              "users": [
+                {
+                  "id": "2a650f3b-d95b-4bd6-aadf-16ccc0717155",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "dl.google.com",
+            "allowInsecure": true,
+            "fingerprint": "firefox",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU",
+            "shortId": "aabbccdd",
+            "spiderX": "/"
+          },
+          "grpcSettings": {
+            "serviceName": "grpc-tunnel",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10817,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "134.0.116.208",
+              "port": 9878,
+              "users": [
+                {
+                  "id": "f4685d27-73e3-4588-9622-add50b84046a",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "dl.google.com",
+            "allowInsecure": true,
+            "fingerprint": "qq",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU",
+            "shortId": "aa",
+            "spiderX": "/"
+          },
+          "grpcSettings": {
+            "serviceName": "grpc-tunnel",
             "multiMode": true
           }
         },
@@ -590,11 +777,11 @@
         "settings": {
           "vnext": [
             {
-              "address": "212.41.26.84",
-              "port": 443,
+              "address": "176.123.164.9",
+              "port": 9872,
               "users": [
                 {
-                  "id": "163dc809-7970-4ff8-a7e5-8080ad53e7bb",
+                  "id": "fd94a343-cb11-45e6-9882-72352d0a2b8f",
                   "encryption": "none",
                   "flow": ""
                 }
@@ -604,17 +791,22 @@
         },
         "streamSettings": {
           "network": "grpc",
-          "security": "tls",
-          "tlsSettings": {
-            "serverName": "v1.api2.ttpservers.ru",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "dl.google.com",
             "allowInsecure": true,
-            "fingerprint": "edge",
+            "fingerprint": "ios",
             "alpn": [
-              "h2"
-            ]
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "bnRIb3Er1i-K6NGGByCO9UbGfOvu43ZoiK7ulPd1SzU",
+            "shortId": "aabbccdd",
+            "spiderX": "/"
           },
           "grpcSettings": {
-            "serviceName": "mygrpc",
+            "serviceName": "grpc-tunnel",
             "multiMode": true
           }
         },
