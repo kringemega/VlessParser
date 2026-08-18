@@ -5,49 +5,7 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 473ms
-  type: vless
-  server: 188.68.218.17
-  port: 2083
-  uuid: d8409007-ca8d-4d92-8da3-3720a762fa02
-  network: grpc
-- name: VLESS-2 | 512ms
-  type: vless
-  server: 188.68.218.17
-  port: 2083
-  uuid: d8409007-ca8d-4d92-8da3-3720a762fa02
-  network: grpc
-- name: VLESS-3 | 583ms
-  type: vless
-  server: msk.v2raytun-proxy.app
-  port: 2083
-  uuid: d8409007-ca8d-4d92-8da3-3720a762fa02
-  network: grpc
-- name: VLESS-4 | 484ms
-  type: vless
-  server: 188.68.218.17
-  port: 2083
-  uuid: d8409007-ca8d-4d92-8da3-3720a762fa02
-  network: grpc
-- name: VLESS-5 | 500ms
-  type: vless
-  server: msk.v2raytun-proxy.app
-  port: 2083
-  uuid: d8409007-ca8d-4d92-8da3-3720a762fa02
-  network: grpc
-- name: VLESS-6 | 509ms
-  type: vless
-  server: msk.v2raytun-proxy.app
-  port: 2083
-  uuid: d8409007-ca8d-4d92-8da3-3720a762fa02
-  network: grpc
-- name: VLESS-7 | 610ms
-  type: vless
-  server: 188.68.218.17
-  port: 2083
-  uuid: d8409007-ca8d-4d92-8da3-3720a762fa02
-  network: grpc
-- name: VLESS-8 | 790ms
+- name: VLESS-1 | 523ms
   type: vless
   server: 176.109.85.142
   port: 9445
@@ -55,38 +13,26 @@ proxies:
   network: grpc
   tls: true
   servername: grmn-av2.ghost-service.cc
-- name: VLESS-9 | 493ms
+- name: VLESS-2 | 698ms
   type: vless
-  server: msk.v2raytun-proxy.app
-  port: 2083
-  uuid: d8409007-ca8d-4d92-8da3-3720a762fa02
-  network: grpc
+  server: 66.90.93.74
+  port: 8443
+  uuid: 746c4004-1d8f-4541-8e8a-533213d8a863
+  network: ws
+  tls: true
+  servername: gateway-v1.bosx.net
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 473ms
-  - VLESS-2 | 512ms
-  - VLESS-3 | 583ms
-  - VLESS-4 | 484ms
-  - VLESS-5 | 500ms
-  - VLESS-6 | 509ms
-  - VLESS-7 | 610ms
-  - VLESS-8 | 790ms
-  - VLESS-9 | 493ms
+  - VLESS-1 | 523ms
+  - VLESS-2 | 698ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 473ms
-  - VLESS-2 | 512ms
-  - VLESS-3 | 583ms
-  - VLESS-4 | 484ms
-  - VLESS-5 | 500ms
-  - VLESS-6 | 509ms
-  - VLESS-7 | 610ms
-  - VLESS-8 | 790ms
-  - VLESS-9 | 493ms
+  - VLESS-1 | 523ms
+  - VLESS-2 | 698ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
