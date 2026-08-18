@@ -5,15 +5,31 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 523ms
+- name: VLESS-1 | 1257ms
   type: vless
-  server: 176.109.85.142
-  port: 9445
-  uuid: 694fbac8-56da-4ecd-be68-59c57b700e93
-  network: grpc
+  server: 66.90.93.74
+  port: 8443
+  uuid: 746c4004-1d8f-4541-8e8a-533213d8a863
+  network: ws
   tls: true
-  servername: grmn-av2.ghost-service.cc
-- name: VLESS-2 | 698ms
+  servername: gateway-v1.bosx.net
+- name: VLESS-2 | 363ms
+  type: vless
+  server: 66.90.93.74
+  port: 8443
+  uuid: 746c4004-1d8f-4541-8e8a-533213d8a863
+  network: ws
+  tls: true
+  servername: gateway-v1.bosx.net
+- name: VLESS-3 | 758ms
+  type: vless
+  server: 66.90.93.74
+  port: 8443
+  uuid: 746c4004-1d8f-4541-8e8a-533213d8a863
+  network: ws
+  tls: true
+  servername: gateway-v1.bosx.net
+- name: VLESS-4 | 752ms
   type: vless
   server: 66.90.93.74
   port: 8443
@@ -26,13 +42,17 @@ proxy-groups:
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 523ms
-  - VLESS-2 | 698ms
+  - VLESS-1 | 1257ms
+  - VLESS-2 | 363ms
+  - VLESS-3 | 758ms
+  - VLESS-4 | 752ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 523ms
-  - VLESS-2 | 698ms
+  - VLESS-1 | 1257ms
+  - VLESS-2 | 363ms
+  - VLESS-3 | 758ms
+  - VLESS-4 | 752ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
