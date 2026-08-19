@@ -5,22 +5,54 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 1321ms
+- name: VLESS-1 | 369ms
   type: vless
-  server: 72.56.5.183
+  server: moscow-ru.duckdns.org
   port: 443
-  uuid: f6da8274-44be-4599-a8d8-66929c980677
-  network: grpc
+  uuid: c0ad5bfd-831c-45d5-ba7b-5053532ce772
+  network: tcp
+  tls: true
+  servername: moscow-ru.duckdns.org
+- name: VLESS-2 | 339ms
+  type: vless
+  server: moscow-ru.duckdns.org
+  port: 443
+  uuid: c0ad5bfd-831c-45d5-ba7b-5053532ce772
+  network: tcp
+  tls: true
+  servername: moscow-ru.duckdns.org
+- name: VLESS-3 | 382ms
+  type: vless
+  server: moscow-ru.duckdns.org
+  port: 443
+  uuid: c0ad5bfd-831c-45d5-ba7b-5053532ce772
+  network: tcp
+  tls: true
+  servername: moscow-ru.duckdns.org
+- name: VLESS-4 | 478ms
+  type: vless
+  server: moscow-ru.duckdns.org
+  port: 443
+  uuid: c0ad5bfd-831c-45d5-ba7b-5053532ce772
+  network: tcp
+  tls: true
+  servername: moscow-ru.duckdns.org
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 1321ms
+  - VLESS-1 | 369ms
+  - VLESS-2 | 339ms
+  - VLESS-3 | 382ms
+  - VLESS-4 | 478ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 1321ms
+  - VLESS-1 | 369ms
+  - VLESS-2 | 339ms
+  - VLESS-3 | 382ms
+  - VLESS-4 | 478ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
