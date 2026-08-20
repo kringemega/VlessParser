@@ -5,38 +5,32 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 443ms
+- name: VLESS-1 | 1600ms
   type: vless
-  server: 78.159.250.104
-  port: 15443
-  uuid: a55e85e5-5b8b-4f8f-922e-cdbbd9711e86
-  network: xhttp
-- name: VLESS-2 | 504ms
+  server: 31.29.151.39
+  port: 8444
+  uuid: 78eb4455-0d07-1bbc-93e3-7c8654f11d74
+  network: raw
+- name: VLESS-2 | 790ms
   type: vless
-  server: 78.159.250.104
-  port: 15443
-  uuid: a55e85e5-5b8b-4f8f-922e-cdbbd9711e86
-  network: xhttp
-- name: VLESS-3 | 699ms
-  type: vless
-  server: 78.159.250.104
-  port: 15443
-  uuid: a55e85e5-5b8b-4f8f-922e-cdbbd9711e86
-  network: xhttp
+  server: 85.193.84.49
+  port: 443
+  uuid: 03617697-bdf9-4e60-be63-65e0df332da2
+  network: ws
+  tls: true
+  servername: files-x.bosx.net
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 443ms
-  - VLESS-2 | 504ms
-  - VLESS-3 | 699ms
+  - VLESS-1 | 1600ms
+  - VLESS-2 | 790ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 443ms
-  - VLESS-2 | 504ms
-  - VLESS-3 | 699ms
+  - VLESS-1 | 1600ms
+  - VLESS-2 | 790ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
