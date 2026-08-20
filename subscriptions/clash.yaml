@@ -5,82 +5,38 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 406ms
+- name: VLESS-1 | 443ms
   type: vless
-  server: 45.90.216.147
-  port: 8080
-  uuid: 5e19b3c8-c1dc-4163-95e2-895319c15d6c
+  server: 78.159.250.104
+  port: 15443
+  uuid: a55e85e5-5b8b-4f8f-922e-cdbbd9711e86
   network: xhttp
-- name: VLESS-2 | 485ms
+- name: VLESS-2 | 504ms
   type: vless
-  server: ru.techdatacloud.org
-  port: 8080
-  uuid: 5e19b3c8-c1dc-4163-95e2-895319c15d6c
+  server: 78.159.250.104
+  port: 15443
+  uuid: a55e85e5-5b8b-4f8f-922e-cdbbd9711e86
   network: xhttp
-- name: VLESS-3 | 995ms
+- name: VLESS-3 | 699ms
   type: vless
-  server: 62.233.43.35
-  port: 5443
-  uuid: cbe5611f-392b-4ec3-9d8b-5bbe59c0fa68
-  network: grpc
-  tls: true
-  servername: de2.frost-api.com
-- name: VLESS-4 | 810ms
-  type: vless
-  server: 62.233.43.35
-  port: 5443
-  uuid: cbe5611f-392b-4ec3-9d8b-5bbe59c0fa68
-  network: grpc
-  tls: true
-  servername: de2.frost-api.com
-- name: VLESS-5 | 923ms
-  type: vless
-  server: 138.124.254.21
-  port: 2096
-  uuid: 6fe06b02-74f7-431f-8ca4-c702fa3322bf
-  network: tcp
-- name: VLESS-6 | 241ms
-  type: vless
-  server: 77.95.203.224
-  port: 443
-  uuid: 9d87d5c5-c188-4b38-b055-9df5fc184bb6
-  network: tcp
-- name: VLESS-7 | 1112ms
-  type: vless
-  server: 77.95.203.224
-  port: 443
-  uuid: 9d87d5c5-c188-4b38-b055-9df5fc184bb6
-  network: tcp
-- name: VLESS-8 | 476ms
-  type: vless
-  server: 138.124.254.21
-  port: 2096
-  uuid: 6fe06b02-74f7-431f-8ca4-c702fa3322bf
-  network: tcp
+  server: 78.159.250.104
+  port: 15443
+  uuid: a55e85e5-5b8b-4f8f-922e-cdbbd9711e86
+  network: xhttp
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 406ms
-  - VLESS-2 | 485ms
-  - VLESS-3 | 995ms
-  - VLESS-4 | 810ms
-  - VLESS-5 | 923ms
-  - VLESS-6 | 241ms
-  - VLESS-7 | 1112ms
-  - VLESS-8 | 476ms
+  - VLESS-1 | 443ms
+  - VLESS-2 | 504ms
+  - VLESS-3 | 699ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 406ms
-  - VLESS-2 | 485ms
-  - VLESS-3 | 995ms
-  - VLESS-4 | 810ms
-  - VLESS-5 | 923ms
-  - VLESS-6 | 241ms
-  - VLESS-7 | 1112ms
-  - VLESS-8 | 476ms
+  - VLESS-1 | 443ms
+  - VLESS-2 | 504ms
+  - VLESS-3 | 699ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
