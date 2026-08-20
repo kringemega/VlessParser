@@ -5,30 +5,78 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: SHADOWSOCKS-1 | 489ms
+- name: VLESS-1 | 600ms
+  type: vless
+  server: 185.186.143.76
+  port: 443
+  uuid: 20c4eab4-b569-4423-90d2-3e3364669e6f
+  network: grpc
+- name: VLESS-2 | 1941ms
+  type: vless
+  server: 138.124.255.236
+  port: 443
+  uuid: 423b1d79-08c4-0003-9d5e-c541f791b55f
+  network: tcp
+- name: VLESS-3 | 1235ms
+  type: vless
+  server: 138.124.255.236
+  port: 443
+  uuid: 423b1d79-08c4-0003-9d5e-c541f791b55f
+  network: tcp
+- name: VLESS-4 | 1085ms
+  type: vless
+  server: 138.124.255.236
+  port: 443
+  uuid: 423b1d79-08c4-0003-9d5e-c541f791b55f
+  network: tcp
+- name: VLESS-5 | 1099ms
+  type: vless
+  server: 138.124.255.236
+  port: 443
+  uuid: 423b1d79-08c4-0003-9d5e-c541f791b55f
+  network: tcp
+- name: VLESS-6 | 1854ms
+  type: vless
+  server: 138.124.255.236
+  port: 443
+  uuid: 423b1d79-08c4-0003-9d5e-c541f791b55f
+  network: tcp
+- name: VLESS-7 | 595ms
+  type: vless
+  server: 185.186.143.76
+  port: 443
+  uuid: 20c4eab4-b569-4423-90d2-3e3364669e6f
+  network: grpc
+- name: SHADOWSOCKS-8 | 321ms
   type: ss
-  server: 195.133.23.200
-  port: 10666
+  server: 194.87.69.207
+  port: 20998
   cipher: aes-256-gcm
-  password: 81a20429165df87e
-- name: SHADOWSOCKS-2 | 325ms
-  type: ss
-  server: 46.17.40.234
-  port: 10666
-  cipher: aes-256-gcm
-  password: bdb313adf74c2ede
+  password: d99c422199e62b6b
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - SHADOWSOCKS-1 | 489ms
-  - SHADOWSOCKS-2 | 325ms
+  - VLESS-1 | 600ms
+  - VLESS-2 | 1941ms
+  - VLESS-3 | 1235ms
+  - VLESS-4 | 1085ms
+  - VLESS-5 | 1099ms
+  - VLESS-6 | 1854ms
+  - VLESS-7 | 595ms
+  - SHADOWSOCKS-8 | 321ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - SHADOWSOCKS-1 | 489ms
-  - SHADOWSOCKS-2 | 325ms
+  - VLESS-1 | 600ms
+  - VLESS-2 | 1941ms
+  - VLESS-3 | 1235ms
+  - VLESS-4 | 1085ms
+  - VLESS-5 | 1099ms
+  - VLESS-6 | 1854ms
+  - VLESS-7 | 595ms
+  - SHADOWSOCKS-8 | 321ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
