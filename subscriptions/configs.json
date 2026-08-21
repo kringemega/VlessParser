@@ -6,7 +6,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10808,
+        "port": 10814,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -22,7 +22,7 @@
         "settings": {
           "vnext": [
             {
-              "address": "ru.lobbytech.ru",
+              "address": "83.217.201.244",
               "port": 443,
               "users": [
                 {
@@ -40,7 +40,7 @@
           "realitySettings": {
             "serverName": "www.kinopoisk.ru",
             "allowInsecure": true,
-            "fingerprint": "edge",
+            "fingerprint": "chrome",
             "alpn": [
               "h2",
               "http/1.1"
@@ -83,7 +83,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10801,
+        "port": 10816,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -99,11 +99,11 @@
         "settings": {
           "vnext": [
             {
-              "address": "35xkx2q3tm.philips.kweps.ru",
+              "address": "83.217.201.244",
               "port": 443,
               "users": [
                 {
-                  "id": "20df893e-dcf4-491d-8261-6dbb24f9566b",
+                  "id": "d01d5a74-09fb-4e9e-b0d9-38b5fd77ad70",
                   "encryption": "none",
                   "flow": "xtls-rprx-vision"
                 }
@@ -115,16 +115,16 @@
           "network": "tcp",
           "security": "reality",
           "realitySettings": {
-            "serverName": "www.philips.com",
+            "serverName": "www.kinopoisk.ru",
             "allowInsecure": true,
-            "fingerprint": "edge",
+            "fingerprint": "safari",
             "alpn": [
               "h2",
               "http/1.1"
             ],
             "show": false,
-            "publicKey": "lrcvhYPvMfH_MpHC_PFYNb_bsw6vy2VR0yZxv3Pv8C4",
-            "shortId": "",
+            "publicKey": "iWxxH0TWB1Ciz6sEwtfjUVY61OcTDihou5IJfkt0O0Q",
+            "shortId": "a3f8d21c4b907e56",
             "spiderX": "/"
           },
           "tcpSettings": {
@@ -176,7 +176,312 @@
         "settings": {
           "vnext": [
             {
-              "address": "ru.lobbytech.ru",
+              "address": "201.51.3.146",
+              "port": 443,
+              "users": [
+                {
+                  "id": "20df893e-dcf4-491d-8261-6dbb24f9566b",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "www.philips.com",
+            "allowInsecure": true,
+            "fingerprint": "chrome",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "bBTka5j8aqNSD5hl8X0YUhwYH04IrPIaeKUFkijUllg",
+            "shortId": "",
+            "spiderX": "/"
+          },
+          "tcpSettings": {
+            "header": {
+              "type": "none"
+            }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10803,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "83.217.201.244",
+              "port": 2087,
+              "users": [
+                {
+                  "id": "d01d5a74-09fb-4e9e-b0d9-38b5fd77ad70",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "vk.com",
+            "allowInsecure": true,
+            "fingerprint": "safari",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "iWxxH0TWB1Ciz6sEwtfjUVY61OcTDihou5IJfkt0O0Q",
+            "shortId": "f2a4c6e8",
+            "spiderX": "/"
+          },
+          "grpcSettings": {
+            "serviceName": "grpc",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10802,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "83.217.201.244",
+              "port": 2087,
+              "users": [
+                {
+                  "id": "d01d5a74-09fb-4e9e-b0d9-38b5fd77ad70",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "vk.com",
+            "allowInsecure": true,
+            "fingerprint": "firefox",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "iWxxH0TWB1Ciz6sEwtfjUVY61OcTDihou5IJfkt0O0Q",
+            "shortId": "f2a4c6e8",
+            "spiderX": "/"
+          },
+          "grpcSettings": {
+            "serviceName": "grpc",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10801,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "83.217.201.244",
+              "port": 2087,
+              "users": [
+                {
+                  "id": "d01d5a74-09fb-4e9e-b0d9-38b5fd77ad70",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "vk.com",
+            "allowInsecure": true,
+            "fingerprint": "chrome",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "iWxxH0TWB1Ciz6sEwtfjUVY61OcTDihou5IJfkt0O0Q",
+            "shortId": "f2a4c6e8",
+            "spiderX": "/"
+          },
+          "grpcSettings": {
+            "serviceName": "grpc",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10817,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "83.217.201.244",
               "port": 443,
               "users": [
                 {
@@ -194,7 +499,7 @@
           "realitySettings": {
             "serverName": "www.kinopoisk.ru",
             "allowInsecure": true,
-            "fingerprint": "firefox",
+            "fingerprint": "ios",
             "alpn": [
               "h2",
               "http/1.1"
@@ -237,224 +542,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10800,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "35xkx2q3tm.philips.kweps.ru",
-              "port": 443,
-              "users": [
-                {
-                  "id": "20df893e-dcf4-491d-8261-6dbb24f9566b",
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "security": "reality",
-          "realitySettings": {
-            "serverName": "www.philips.com",
-            "allowInsecure": true,
-            "fingerprint": "chrome",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ],
-            "show": false,
-            "publicKey": "lrcvhYPvMfH_MpHC_PFYNb_bsw6vy2VR0yZxv3Pv8C4",
-            "shortId": "",
-            "spiderX": "/"
-          },
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10812,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "89.19.223.241",
-              "port": 8443,
-              "users": [
-                {
-                  "id": "ad3353cc-d795-4b49-b5d1-e929b8024a49",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "security": "none",
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10810,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "83.217.201.244",
-              "port": 2087,
-              "users": [
-                {
-                  "id": "d01d5a74-09fb-4e9e-b0d9-38b5fd77ad70",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "grpc",
-          "security": "reality",
-          "realitySettings": {
-            "serverName": "vk.com",
-            "allowInsecure": true,
-            "fingerprint": "firefox",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ],
-            "show": false,
-            "publicKey": "iWxxH0TWB1Ciz6sEwtfjUVY61OcTDihou5IJfkt0O0Q",
-            "shortId": "f2a4c6e8",
-            "spiderX": "/"
-          },
-          "grpcSettings": {
-            "serviceName": "grpc",
-            "multiMode": true
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10811,
+        "port": 10813,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -501,83 +589,6 @@
           "grpcSettings": {
             "serviceName": "grpc",
             "multiMode": true
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10812,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "mg.vertiex.ru",
-              "port": 443,
-              "users": [
-                {
-                  "id": "20df893e-dcf4-491d-8261-6dbb24f9566b",
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "security": "reality",
-          "realitySettings": {
-            "serverName": "www.philips.com",
-            "allowInsecure": true,
-            "fingerprint": "ios",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ],
-            "show": false,
-            "publicKey": "bBTka5j8aqNSD5hl8X0YUhwYH04IrPIaeKUFkijUllg",
-            "shortId": "",
-            "spiderX": "/"
-          },
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
           }
         },
         "tag": "proxy"
