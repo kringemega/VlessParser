@@ -5,54 +5,46 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: SHADOWSOCKS-1 | 350ms
+- name: SHADOWSOCKS-1 | 479ms
   type: ss
-  server: 46.17.40.234
-  port: 20199
-  cipher: aes-256-gcm
-  password: bdb313adf74c2ede
-- name: VLESS-2 | 563ms
+  server: 147.45.211.243
+  port: 1080
+  cipher: chacha20-ietf-poly1305
+  password: TU4NUJuMe4XlZ3NCQ_1KiQ
+- name: VLESS-2 | 509ms
   type: vless
   server: 85.198.70.200
-  port: 14405
-  uuid: 9aed98d0-303a-4479-91b7-75c2f59bd4bd
+  port: 14406
+  uuid: 237f91bf-102e-4077-8cc3-baebccb42936
   network: tcp
-- name: VLESS-3 | 561ms
+- name: VLESS-3 | 539ms
   type: vless
   server: 85.198.70.200
-  port: 14405
-  uuid: 9aed98d0-303a-4479-91b7-75c2f59bd4bd
+  port: 14406
+  uuid: 237f91bf-102e-4077-8cc3-baebccb42936
   network: tcp
-- name: VLESS-4 | 588ms
+- name: VLESS-4 | 541ms
   type: vless
   server: 85.198.70.200
-  port: 14405
-  uuid: 9aed98d0-303a-4479-91b7-75c2f59bd4bd
-  network: tcp
-- name: VLESS-5 | 558ms
-  type: vless
-  server: 85.198.70.200
-  port: 14405
-  uuid: 9aed98d0-303a-4479-91b7-75c2f59bd4bd
+  port: 14406
+  uuid: 237f91bf-102e-4077-8cc3-baebccb42936
   network: tcp
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - SHADOWSOCKS-1 | 350ms
-  - VLESS-2 | 563ms
-  - VLESS-3 | 561ms
-  - VLESS-4 | 588ms
-  - VLESS-5 | 558ms
+  - SHADOWSOCKS-1 | 479ms
+  - VLESS-2 | 509ms
+  - VLESS-3 | 539ms
+  - VLESS-4 | 541ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - SHADOWSOCKS-1 | 350ms
-  - VLESS-2 | 563ms
-  - VLESS-3 | 561ms
-  - VLESS-4 | 588ms
-  - VLESS-5 | 558ms
+  - SHADOWSOCKS-1 | 479ms
+  - VLESS-2 | 509ms
+  - VLESS-3 | 539ms
+  - VLESS-4 | 541ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
