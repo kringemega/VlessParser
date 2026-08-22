@@ -21155,9 +21155,97 @@
       "found_at": "2026-08-22T14:22:31.051679",
       "hash": "eee017648d9b2a991fad7670b522813c",
       "sent_to_telegram": false
+    },
+    {
+      "protocol": "vless",
+      "address": "5.42.106.111",
+      "ping": 158,
+      "jitter": 5,
+      "download_speed": 0.0,
+      "upload_speed": 0.0,
+      "is_bypassing": false,
+      "connectivity": {
+        "telegram": false,
+        "instagram": false,
+        "youtube": false
+      },
+      "ip": "5.42.106.111",
+      "config_json": {
+        "log": {
+          "loglevel": "warning"
+        },
+        "inbounds": [
+          {
+            "listen": "127.0.0.1",
+            "port": 10800,
+            "protocol": "http",
+            "settings": {
+              "timeout": 0,
+              "allowTransparent": false,
+              "userLevel": 0
+            },
+            "tag": "http-in"
+          }
+        ],
+        "outbounds": [
+          {
+            "protocol": "vless",
+            "settings": {
+              "vnext": [
+                {
+                  "address": "5.42.106.111",
+                  "port": 2200,
+                  "users": [
+                    {
+                      "id": "099f0859-cb81-4a57-b6d8-2c8e18030627",
+                      "encryption": "none",
+                      "flow": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            "streamSettings": {
+              "network": "ws",
+              "security": "none",
+              "wsSettings": {
+                "path": "/v1",
+                "headers": {
+                  "Host": "rzd.ru"
+                }
+              }
+            },
+            "tag": "proxy"
+          },
+          {
+            "protocol": "freedom",
+            "tag": "direct"
+          }
+        ],
+        "routing": {
+          "domainStrategy": "IPIfNonMatch",
+          "rules": [
+            {
+              "type": "field",
+              "ip": [
+                "geoip:private"
+              ],
+              "outboundTag": "direct"
+            }
+          ]
+        }
+      },
+      "uri": "vless://099f0859-cb81-4a57-b6d8-2c8e18030627@5.42.106.111:2200?encryption=none&type=ws&security=none&path=%2Fv1&host=rzd.ru#%F0%9F%8C%90%20Anycast-IP%20%7C%20%F0%9F%87%A9%F0%9F%87%AA%20%F0%9F%87%B7%F0%9F%87%BA%20%5B%2ACIDR%5D",
+      "country": "Russian Federation",
+      "country_code": "RU",
+      "city": "Moscow",
+      "isp": "JSC TIMEWEB",
+      "found_at": "2026-08-22T16:25:53.315601",
+      "hash": "bf28c4d8b7e651f6d6b638ec098a8f78",
+      "sent_to_telegram": false
     }
   ],
-  "last_updated": "2026-08-22T14:22:31.051687",
-  "total_configs": 216,
+  "last_updated": "2026-08-22T16:25:53.315614",
+  "total_configs": 217,
   "created_at": "2026-05-01T11:10:36.324532"
 }

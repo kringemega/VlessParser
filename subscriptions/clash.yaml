@@ -5,22 +5,22 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: SHADOWSOCKS-1 | 393ms
-  type: ss
-  server: 147.45.211.243
-  port: 1080
-  cipher: chacha20-ietf-poly1305
-  password: TU4NUJuMe4XlZ3NCQ_1KiQ
+- name: VLESS-1 | 158ms
+  type: vless
+  server: 5.42.106.111
+  port: 2200
+  uuid: 099f0859-cb81-4a57-b6d8-2c8e18030627
+  network: ws
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - SHADOWSOCKS-1 | 393ms
+  - VLESS-1 | 158ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - SHADOWSOCKS-1 | 393ms
+  - VLESS-1 | 158ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
