@@ -5,7 +5,55 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 620ms
+- name: VLESS-1 | 265ms
+  type: vless
+  server: 193.187.95.21
+  port: 20040
+  uuid: 82719790-ff61-4284-8668-ba140a4d6cbd
+  network: tcp
+- name: VLESS-2 | 448ms
+  type: vless
+  server: 193.187.95.21
+  port: 20040
+  uuid: 82719790-ff61-4284-8668-ba140a4d6cbd
+  network: tcp
+- name: VLESS-3 | 251ms
+  type: vless
+  server: 193.187.95.21
+  port: 20040
+  uuid: 82719790-ff61-4284-8668-ba140a4d6cbd
+  network: tcp
+- name: VLESS-4 | 335ms
+  type: vless
+  server: 193.187.95.21
+  port: 20040
+  uuid: 82719790-ff61-4284-8668-ba140a4d6cbd
+  network: tcp
+- name: VLESS-5 | 2230ms
+  type: vless
+  server: 85.192.56.243
+  port: 443
+  uuid: 59954126-633d-4ed2-9af5-8801e85ec7d5
+  network: grpc
+- name: VLESS-6 | 2272ms
+  type: vless
+  server: 85.192.56.243
+  port: 443
+  uuid: 59954126-633d-4ed2-9af5-8801e85ec7d5
+  network: grpc
+- name: VLESS-7 | 2270ms
+  type: vless
+  server: 85.192.56.243
+  port: 443
+  uuid: 59954126-633d-4ed2-9af5-8801e85ec7d5
+  network: grpc
+- name: VLESS-8 | 2254ms
+  type: vless
+  server: 85.192.56.243
+  port: 443
+  uuid: 59954126-633d-4ed2-9af5-8801e85ec7d5
+  network: grpc
+- name: VLESS-9 | 875ms
   type: vless
   server: medicine.repaironline.biz
   port: 443
@@ -13,7 +61,7 @@ proxies:
   network: tcp
   tls: true
   servername: medicine.repaironline.biz
-- name: VLESS-2 | 541ms
+- name: VLESS-10 | 805ms
   type: vless
   server: medicine.repaironline.biz
   port: 443
@@ -21,7 +69,7 @@ proxies:
   network: tcp
   tls: true
   servername: medicine.repaironline.biz
-- name: VLESS-3 | 507ms
+- name: VLESS-11 | 1053ms
   type: vless
   server: medicine.repaironline.biz
   port: 443
@@ -29,68 +77,44 @@ proxies:
   network: tcp
   tls: true
   servername: medicine.repaironline.biz
-- name: VLESS-4 | 625ms
+- name: VLESS-12 | 1898ms
   type: vless
-  server: 85.192.56.243
-  port: 443
-  uuid: 59954126-633d-4ed2-9af5-8801e85ec7d5
-  network: grpc
-- name: VLESS-5 | 548ms
-  type: vless
-  server: 85.192.56.243
-  port: 443
-  uuid: 59954126-633d-4ed2-9af5-8801e85ec7d5
-  network: grpc
-- name: VLESS-6 | 523ms
-  type: vless
-  server: 85.192.56.243
-  port: 443
-  uuid: 59954126-633d-4ed2-9af5-8801e85ec7d5
-  network: grpc
-- name: VLESS-7 | 538ms
-  type: vless
-  server: 85.192.56.243
-  port: 443
-  uuid: 59954126-633d-4ed2-9af5-8801e85ec7d5
-  network: grpc
-- name: VLESS-8 | 142ms
-  type: vless
-  server: 94.241.139.164
-  port: 4100
-  uuid: dc988ed2-3fa8-415c-9378-11f3a5421e20
-  network: ws
-- name: VLESS-9 | 147ms
-  type: vless
-  server: 94.241.139.164
-  port: 4100
-  uuid: dc988ed2-3fa8-415c-9378-11f3a5421e20
-  network: ws
+  server: 46.243.234.205
+  port: 2027
+  uuid: 851ed0d8-a37b-452d-8ef2-5b6c2d28a060
+  network: raw
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 620ms
-  - VLESS-2 | 541ms
-  - VLESS-3 | 507ms
-  - VLESS-4 | 625ms
-  - VLESS-5 | 548ms
-  - VLESS-6 | 523ms
-  - VLESS-7 | 538ms
-  - VLESS-8 | 142ms
-  - VLESS-9 | 147ms
+  - VLESS-1 | 265ms
+  - VLESS-2 | 448ms
+  - VLESS-3 | 251ms
+  - VLESS-4 | 335ms
+  - VLESS-5 | 2230ms
+  - VLESS-6 | 2272ms
+  - VLESS-7 | 2270ms
+  - VLESS-8 | 2254ms
+  - VLESS-9 | 875ms
+  - VLESS-10 | 805ms
+  - VLESS-11 | 1053ms
+  - VLESS-12 | 1898ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 620ms
-  - VLESS-2 | 541ms
-  - VLESS-3 | 507ms
-  - VLESS-4 | 625ms
-  - VLESS-5 | 548ms
-  - VLESS-6 | 523ms
-  - VLESS-7 | 538ms
-  - VLESS-8 | 142ms
-  - VLESS-9 | 147ms
+  - VLESS-1 | 265ms
+  - VLESS-2 | 448ms
+  - VLESS-3 | 251ms
+  - VLESS-4 | 335ms
+  - VLESS-5 | 2230ms
+  - VLESS-6 | 2272ms
+  - VLESS-7 | 2270ms
+  - VLESS-8 | 2254ms
+  - VLESS-9 | 875ms
+  - VLESS-10 | 805ms
+  - VLESS-11 | 1053ms
+  - VLESS-12 | 1898ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
