@@ -5,94 +5,80 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 889ms
+- name: VLESS-1 | 307ms
+  type: vless
+  server: lv2-pautina.unlimited-access.ru
+  port: 443
+  uuid: dfd586fd-f329-46c4-ba9a-b6c3cf8e06ba
+  network: grpc
+  tls: true
+  servername: lv2-pautina.unlimited-access.ru
+- name: VLESS-2 | 530ms
+  type: vless
+  server: 77.221.151.51
+  port: 6443
+  uuid: 95e8532b-cc69-42d4-9553-e3c23292b15b
+  network: grpc
+- name: VLESS-3 | 469ms
   type: vless
   server: 111.88.223.82
   port: 443
   uuid: a42939a4-c61c-4ecc-886b-3a317bdf4452
   network: grpc
-- name: VLESS-2 | 575ms
+- name: VLESS-4 | 465ms
   type: vless
   server: 111.88.223.82
   port: 443
   uuid: a42939a4-c61c-4ecc-886b-3a317bdf4452
   network: grpc
-- name: TROJAN-3 | 1344ms
-  type: trojan
-  server: tr-at-pautina.unlimited-access.ru
-  port: 443
-  password: kxHw-Dk-e9dffgzYszMlEqLJ92AnY3Pi
-  sni: tr-at-pautina.unlimited-access.ru
-- name: VLESS-4 | 852ms
+- name: VLESS-5 | 762ms
   type: vless
   server: 111.88.223.82
   port: 443
   uuid: a42939a4-c61c-4ecc-886b-3a317bdf4452
   network: grpc
-- name: VLESS-5 | 680ms
+- name: VLESS-6 | 557ms
   type: vless
   server: 111.88.223.82
   port: 443
   uuid: a42939a4-c61c-4ecc-886b-3a317bdf4452
   network: grpc
-- name: VLESS-6 | 883ms
+- name: VLESS-7 | 672ms
   type: vless
-  server: in-ru-vk-01.ray-balance.space
-  port: 443
-  uuid: 710fc22f-06b2-03ef-bb3e-f57c17b670a6
-  network: tcp
-- name: TROJAN-7 | 1015ms
-  type: trojan
-  server: tr-at-pautina.unlimited-access.ru
-  port: 443
-  password: kxHw-Dk-e9dffgzYszMlEqLJ92AnY3Pi
-  sni: tr-at-pautina.unlimited-access.ru
-- name: VLESS-8 | 1077ms
+  server: 77.221.151.51
+  port: 6443
+  uuid: 95e8532b-cc69-42d4-9553-e3c23292b15b
+  network: grpc
+- name: VLESS-8 | 383ms
   type: vless
-  server: in-ru-vk-01.ray-balance.space
-  port: 443
-  uuid: 710fc22f-06b2-03ef-bb3e-f57c17b670a6
-  network: tcp
-- name: VLESS-9 | 1097ms
-  type: vless
-  server: 84.23.54.213
-  port: 443
-  uuid: 710fc22f-06b2-03ef-bb3e-f57c17b670a6
-  network: tcp
-- name: TROJAN-10 | 1353ms
-  type: trojan
-  server: tr-at-pautina.unlimited-access.ru
-  port: 443
-  password: kxHw-Dk-e9dffgzYszMlEqLJ92AnY3Pi
-  sni: tr-at-pautina.unlimited-access.ru
+  server: 77.221.151.51
+  port: 6443
+  uuid: 95e8532b-cc69-42d4-9553-e3c23292b15b
+  network: grpc
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 889ms
-  - VLESS-2 | 575ms
-  - TROJAN-3 | 1344ms
-  - VLESS-4 | 852ms
-  - VLESS-5 | 680ms
-  - VLESS-6 | 883ms
-  - TROJAN-7 | 1015ms
-  - VLESS-8 | 1077ms
-  - VLESS-9 | 1097ms
-  - TROJAN-10 | 1353ms
+  - VLESS-1 | 307ms
+  - VLESS-2 | 530ms
+  - VLESS-3 | 469ms
+  - VLESS-4 | 465ms
+  - VLESS-5 | 762ms
+  - VLESS-6 | 557ms
+  - VLESS-7 | 672ms
+  - VLESS-8 | 383ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 889ms
-  - VLESS-2 | 575ms
-  - TROJAN-3 | 1344ms
-  - VLESS-4 | 852ms
-  - VLESS-5 | 680ms
-  - VLESS-6 | 883ms
-  - TROJAN-7 | 1015ms
-  - VLESS-8 | 1077ms
-  - VLESS-9 | 1097ms
-  - TROJAN-10 | 1353ms
+  - VLESS-1 | 307ms
+  - VLESS-2 | 530ms
+  - VLESS-3 | 469ms
+  - VLESS-4 | 465ms
+  - VLESS-5 | 762ms
+  - VLESS-6 | 557ms
+  - VLESS-7 | 672ms
+  - VLESS-8 | 383ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
