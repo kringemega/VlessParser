@@ -6,6 +6,82 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
+        "port": 10806,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "111.88.223.82",
+              "port": 443,
+              "users": [
+                {
+                  "id": "a42939a4-c61c-4ecc-886b-3a317bdf4452",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "dl.google.com",
+            "allowInsecure": true,
+            "fingerprint": "qq",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "6CHUluOn_Tdab7JOfUArmcfQPVEd4PbEQJMPvKWElhw",
+            "shortId": "",
+            "spiderX": "/"
+          },
+          "grpcSettings": {
+            "serviceName": "grpc-tunnel",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
         "port": 10815,
         "protocol": "http",
         "settings": {
@@ -83,7 +159,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10810,
+        "port": 10816,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -117,7 +193,7 @@
           "realitySettings": {
             "serverName": "dl.google.com",
             "allowInsecure": true,
-            "fingerprint": "firefox",
+            "fingerprint": "chrome",
             "alpn": [
               "h2",
               "http/1.1"
@@ -159,83 +235,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10808,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "111.88.223.82",
-              "port": 443,
-              "users": [
-                {
-                  "id": "a42939a4-c61c-4ecc-886b-3a317bdf4452",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "grpc",
-          "security": "reality",
-          "realitySettings": {
-            "serverName": "dl.google.com",
-            "allowInsecure": true,
-            "fingerprint": "qq",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ],
-            "show": false,
-            "publicKey": "6CHUluOn_Tdab7JOfUArmcfQPVEd4PbEQJMPvKWElhw",
-            "shortId": "",
-            "spiderX": "/"
-          },
-          "grpcSettings": {
-            "serviceName": "grpc-tunnel",
-            "multiMode": true
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10812,
+        "port": 10815,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -283,6 +283,159 @@
             "header": {
               "type": "none"
             }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10814,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "api.yandex-dev.com",
+              "port": 443,
+              "users": [
+                {
+                  "id": "5e50f2b6-0cf8-4cc5-b68a-1c47b89bd257",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "api.yandex-dev.com",
+            "allowInsecure": true,
+            "fingerprint": "qq",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "IuvAXlAWBpeXehmEk0P-FIGTctUhny2H3UilbWWfJC0",
+            "shortId": "122218f4c1f172e4",
+            "spiderX": "/"
+          },
+          "tcpSettings": {
+            "header": {
+              "type": "none"
+            }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10805,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "111.88.223.82",
+              "port": 443,
+              "users": [
+                {
+                  "id": "a42939a4-c61c-4ecc-886b-3a317bdf4452",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "dl.google.com",
+            "allowInsecure": true,
+            "fingerprint": "firefox",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "6CHUluOn_Tdab7JOfUArmcfQPVEd4PbEQJMPvKWElhw",
+            "shortId": "",
+            "spiderX": "/"
+          },
+          "grpcSettings": {
+            "serviceName": "grpc-tunnel",
+            "multiMode": true
           }
         },
         "tag": "proxy"
@@ -389,159 +542,6 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10814,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "ads.yandex-cloud.org",
-              "port": 443,
-              "users": [
-                {
-                  "id": "5e50f2b6-0cf8-4cc5-b68a-1c47b89bd257",
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "security": "reality",
-          "realitySettings": {
-            "serverName": "ads.yandex-cloud.org",
-            "allowInsecure": true,
-            "fingerprint": "ios",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ],
-            "show": false,
-            "publicKey": "IuvAXlAWBpeXehmEk0P-FIGTctUhny2H3UilbWWfJC0",
-            "shortId": "122218f4c1f172e4",
-            "spiderX": "/"
-          },
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10809,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "111.88.223.82",
-              "port": 443,
-              "users": [
-                {
-                  "id": "a42939a4-c61c-4ecc-886b-3a317bdf4452",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "grpc",
-          "security": "reality",
-          "realitySettings": {
-            "serverName": "dl.google.com",
-            "allowInsecure": true,
-            "fingerprint": "chrome",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ],
-            "show": false,
-            "publicKey": "6CHUluOn_Tdab7JOfUArmcfQPVEd4PbEQJMPvKWElhw",
-            "shortId": "",
-            "spiderX": "/"
-          },
-          "grpcSettings": {
-            "serviceName": "grpc-tunnel",
-            "multiMode": true
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
         "port": 10812,
         "protocol": "http",
         "settings": {
@@ -619,7 +619,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10804,
+        "port": 10812,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -635,7 +635,7 @@
         "settings": {
           "vnext": [
             {
-              "address": "api.yandex-api.org",
+              "address": "api.yandex-dev.com",
               "port": 443,
               "users": [
                 {
@@ -651,9 +651,9 @@
           "network": "tcp",
           "security": "reality",
           "realitySettings": {
-            "serverName": "api.yandex-api.org",
+            "serverName": "api.yandex-dev.com",
             "allowInsecure": true,
-            "fingerprint": "chrome",
+            "fingerprint": "ios",
             "alpn": [
               "h2",
               "http/1.1"
@@ -731,6 +731,83 @@
             "serverName": "api.yandex-api.org",
             "allowInsecure": true,
             "fingerprint": "edge",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "IuvAXlAWBpeXehmEk0P-FIGTctUhny2H3UilbWWfJC0",
+            "shortId": "122218f4c1f172e4",
+            "spiderX": "/"
+          },
+          "tcpSettings": {
+            "header": {
+              "type": "none"
+            }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10806,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "api.yandex-api.org",
+              "port": 443,
+              "users": [
+                {
+                  "id": "5e50f2b6-0cf8-4cc5-b68a-1c47b89bd257",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "api.yandex-api.org",
+            "allowInsecure": true,
+            "fingerprint": "qq",
             "alpn": [
               "h2",
               "http/1.1"
@@ -850,312 +927,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10817,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "api.yandex-dev.com",
-              "port": 443,
-              "users": [
-                {
-                  "id": "5e50f2b6-0cf8-4cc5-b68a-1c47b89bd257",
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "security": "reality",
-          "realitySettings": {
-            "serverName": "api.yandex-dev.com",
-            "allowInsecure": true,
-            "fingerprint": "qq",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ],
-            "show": false,
-            "publicKey": "IuvAXlAWBpeXehmEk0P-FIGTctUhny2H3UilbWWfJC0",
-            "shortId": "122218f4c1f172e4",
-            "spiderX": "/"
-          },
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10819,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "77.221.151.51",
-              "port": 6443,
-              "users": [
-                {
-                  "id": "95e8532b-cc69-42d4-9553-e3c23292b15b",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "grpc",
-          "security": "reality",
-          "realitySettings": {
-            "serverName": "maps.apple.com",
-            "allowInsecure": true,
-            "fingerprint": "safari",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ],
-            "show": false,
-            "publicKey": "OMlQAFrCMZ3DX0xlnbEZiByLBFzpUE8XJHJsrBzLdlY",
-            "shortId": "2da4299da566b7",
-            "spiderX": "/"
-          },
-          "grpcSettings": {
-            "serviceName": "your-custom-path",
-            "multiMode": true
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10817,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "77.221.151.51",
-              "port": 6443,
-              "users": [
-                {
-                  "id": "95e8532b-cc69-42d4-9553-e3c23292b15b",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "grpc",
-          "security": "reality",
-          "realitySettings": {
-            "serverName": "maps.apple.com",
-            "allowInsecure": true,
-            "fingerprint": "firefox",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ],
-            "show": false,
-            "publicKey": "OMlQAFrCMZ3DX0xlnbEZiByLBFzpUE8XJHJsrBzLdlY",
-            "shortId": "2da4299da566b7",
-            "spiderX": "/"
-          },
-          "grpcSettings": {
-            "serviceName": "your-custom-path",
-            "multiMode": true
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10816,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "77.221.151.51",
-              "port": 6443,
-              "users": [
-                {
-                  "id": "95e8532b-cc69-42d4-9553-e3c23292b15b",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "grpc",
-          "security": "reality",
-          "realitySettings": {
-            "serverName": "maps.apple.com",
-            "allowInsecure": true,
-            "fingerprint": "edge",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ],
-            "show": false,
-            "publicKey": "OMlQAFrCMZ3DX0xlnbEZiByLBFzpUE8XJHJsrBzLdlY",
-            "shortId": "2da4299da566b7",
-            "spiderX": "/"
-          },
-          "grpcSettings": {
-            "serviceName": "your-custom-path",
-            "multiMode": true
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10806,
+        "port": 10804,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -1189,7 +961,7 @@
           "realitySettings": {
             "serverName": "api.yandex-api.org",
             "allowInsecure": true,
-            "fingerprint": "qq",
+            "fingerprint": "chrome",
             "alpn": [
               "h2",
               "http/1.1"
@@ -1232,7 +1004,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10805,
+        "port": 10814,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -1248,7 +1020,7 @@
         "settings": {
           "vnext": [
             {
-              "address": "api.yandex-dev.com",
+              "address": "ads.yandex-cloud.org",
               "port": 443,
               "users": [
                 {
@@ -1264,7 +1036,7 @@
           "network": "tcp",
           "security": "reality",
           "realitySettings": {
-            "serverName": "api.yandex-dev.com",
+            "serverName": "ads.yandex-cloud.org",
             "allowInsecure": true,
             "fingerprint": "ios",
             "alpn": [
@@ -1309,7 +1081,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10811,
+        "port": 10802,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -1343,7 +1115,7 @@
           "realitySettings": {
             "serverName": "www.ray-balance.space",
             "allowInsecure": true,
-            "fingerprint": "safari",
+            "fingerprint": "chrome",
             "alpn": [
               "h2",
               "http/1.1"
