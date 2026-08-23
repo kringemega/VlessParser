@@ -5,54 +5,158 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 878ms
+- name: VLESS-1 | 469ms
+  type: vless
+  server: ads.yandex-cloud.org
+  port: 443
+  uuid: 5e50f2b6-0cf8-4cc5-b68a-1c47b89bd257
+  network: tcp
+- name: VLESS-2 | 453ms
+  type: vless
+  server: 111.88.223.82
+  port: 443
+  uuid: a42939a4-c61c-4ecc-886b-3a317bdf4452
+  network: grpc
+- name: VLESS-3 | 471ms
+  type: vless
+  server: 111.88.223.82
+  port: 443
+  uuid: a42939a4-c61c-4ecc-886b-3a317bdf4452
+  network: grpc
+- name: VLESS-4 | 1507ms
+  type: vless
+  server: api.yandex-dev.com
+  port: 443
+  uuid: 5e50f2b6-0cf8-4cc5-b68a-1c47b89bd257
+  network: tcp
+- name: VLESS-5 | 374ms
+  type: vless
+  server: ads.yandex-cloud.org
+  port: 443
+  uuid: 5e50f2b6-0cf8-4cc5-b68a-1c47b89bd257
+  network: tcp
+- name: VLESS-6 | 376ms
+  type: vless
+  server: ads.yandex-cloud.org
+  port: 443
+  uuid: 5e50f2b6-0cf8-4cc5-b68a-1c47b89bd257
+  network: tcp
+- name: VLESS-7 | 465ms
+  type: vless
+  server: 111.88.223.82
+  port: 443
+  uuid: a42939a4-c61c-4ecc-886b-3a317bdf4452
+  network: grpc
+- name: VLESS-8 | 375ms
+  type: vless
+  server: ads.yandex-cloud.org
+  port: 443
+  uuid: 5e50f2b6-0cf8-4cc5-b68a-1c47b89bd257
+  network: tcp
+- name: VLESS-9 | 1434ms
+  type: vless
+  server: api.yandex-api.org
+  port: 443
+  uuid: 5e50f2b6-0cf8-4cc5-b68a-1c47b89bd257
+  network: tcp
+- name: VLESS-10 | 429ms
+  type: vless
+  server: api.yandex-api.org
+  port: 443
+  uuid: 5e50f2b6-0cf8-4cc5-b68a-1c47b89bd257
+  network: tcp
+- name: VLESS-11 | 425ms
+  type: vless
+  server: api.yandex-api.org
+  port: 443
+  uuid: 5e50f2b6-0cf8-4cc5-b68a-1c47b89bd257
+  network: tcp
+- name: VLESS-12 | 705ms
+  type: vless
+  server: api.yandex-dev.com
+  port: 443
+  uuid: 5e50f2b6-0cf8-4cc5-b68a-1c47b89bd257
+  network: tcp
+- name: VLESS-13 | 818ms
   type: vless
   server: 77.221.151.51
   port: 6443
   uuid: 95e8532b-cc69-42d4-9553-e3c23292b15b
   network: grpc
-- name: VLESS-2 | 791ms
+- name: VLESS-14 | 667ms
   type: vless
   server: 77.221.151.51
   port: 6443
   uuid: 95e8532b-cc69-42d4-9553-e3c23292b15b
   network: grpc
-- name: VLESS-3 | 496ms
+- name: VLESS-15 | 657ms
   type: vless
   server: 77.221.151.51
   port: 6443
   uuid: 95e8532b-cc69-42d4-9553-e3c23292b15b
   network: grpc
-- name: VLESS-4 | 507ms
+- name: VLESS-16 | 428ms
   type: vless
-  server: 77.221.151.51
-  port: 6443
-  uuid: 95e8532b-cc69-42d4-9553-e3c23292b15b
-  network: grpc
-- name: VLESS-5 | 604ms
+  server: api.yandex-api.org
+  port: 443
+  uuid: 5e50f2b6-0cf8-4cc5-b68a-1c47b89bd257
+  network: tcp
+- name: VLESS-17 | 372ms
   type: vless
-  server: 77.221.151.51
-  port: 6443
-  uuid: 95e8532b-cc69-42d4-9553-e3c23292b15b
-  network: grpc
+  server: api.yandex-dev.com
+  port: 443
+  uuid: 5e50f2b6-0cf8-4cc5-b68a-1c47b89bd257
+  network: tcp
+- name: VLESS-18 | 531ms
+  type: vless
+  server: in-ru-vk-01.ray-balance.space
+  port: 443
+  uuid: 710fc22f-06b2-03ef-bb3e-f57c17b670a6
+  network: tcp
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 878ms
-  - VLESS-2 | 791ms
-  - VLESS-3 | 496ms
-  - VLESS-4 | 507ms
-  - VLESS-5 | 604ms
+  - VLESS-1 | 469ms
+  - VLESS-2 | 453ms
+  - VLESS-3 | 471ms
+  - VLESS-4 | 1507ms
+  - VLESS-5 | 374ms
+  - VLESS-6 | 376ms
+  - VLESS-7 | 465ms
+  - VLESS-8 | 375ms
+  - VLESS-9 | 1434ms
+  - VLESS-10 | 429ms
+  - VLESS-11 | 425ms
+  - VLESS-12 | 705ms
+  - VLESS-13 | 818ms
+  - VLESS-14 | 667ms
+  - VLESS-15 | 657ms
+  - VLESS-16 | 428ms
+  - VLESS-17 | 372ms
+  - VLESS-18 | 531ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 878ms
-  - VLESS-2 | 791ms
-  - VLESS-3 | 496ms
-  - VLESS-4 | 507ms
-  - VLESS-5 | 604ms
+  - VLESS-1 | 469ms
+  - VLESS-2 | 453ms
+  - VLESS-3 | 471ms
+  - VLESS-4 | 1507ms
+  - VLESS-5 | 374ms
+  - VLESS-6 | 376ms
+  - VLESS-7 | 465ms
+  - VLESS-8 | 375ms
+  - VLESS-9 | 1434ms
+  - VLESS-10 | 429ms
+  - VLESS-11 | 425ms
+  - VLESS-12 | 705ms
+  - VLESS-13 | 818ms
+  - VLESS-14 | 667ms
+  - VLESS-15 | 657ms
+  - VLESS-16 | 428ms
+  - VLESS-17 | 372ms
+  - VLESS-18 | 531ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
