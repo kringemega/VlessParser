@@ -36156,9 +36156,108 @@
       "found_at": "2026-08-24T12:53:04.638430",
       "hash": "e0e8fd59a9971ed90271adc193531ed4",
       "sent_to_telegram": false
+    },
+    {
+      "protocol": "vless",
+      "address": "31.76.84.62",
+      "ping": 489,
+      "jitter": 345,
+      "download_speed": 5.13,
+      "upload_speed": 0.0,
+      "is_bypassing": true,
+      "connectivity": {
+        "telegram": false,
+        "instagram": true,
+        "youtube": true
+      },
+      "ip": "31.76.84.62",
+      "config_json": {
+        "log": {
+          "loglevel": "warning"
+        },
+        "inbounds": [
+          {
+            "listen": "127.0.0.1",
+            "port": 10815,
+            "protocol": "http",
+            "settings": {
+              "timeout": 0,
+              "allowTransparent": false,
+              "userLevel": 0
+            },
+            "tag": "http-in"
+          }
+        ],
+        "outbounds": [
+          {
+            "protocol": "vless",
+            "settings": {
+              "vnext": [
+                {
+                  "address": "31.76.84.62",
+                  "port": 443,
+                  "users": [
+                    {
+                      "id": "791a171e-c0af-4bd7-b8ce-43541c7585db",
+                      "encryption": "none",
+                      "flow": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            "streamSettings": {
+              "network": "grpc",
+              "security": "reality",
+              "realitySettings": {
+                "serverName": "id.pervye.ru",
+                "allowInsecure": true,
+                "fingerprint": "chrome",
+                "alpn": [
+                  "h2",
+                  "http/1.1"
+                ],
+                "show": false,
+                "publicKey": "QZz4tjRkxYsgTZBlRALOQU4O5YnAGtSGkXF8OSX11m8",
+                "shortId": "",
+                "spiderX": "/"
+              },
+              "grpcSettings": {
+                "serviceName": "ns",
+                "multiMode": true
+              }
+            },
+            "tag": "proxy"
+          },
+          {
+            "protocol": "freedom",
+            "tag": "direct"
+          }
+        ],
+        "routing": {
+          "domainStrategy": "IPIfNonMatch",
+          "rules": [
+            {
+              "type": "field",
+              "ip": [
+                "geoip:private"
+              ],
+              "outboundTag": "direct"
+            }
+          ]
+        }
+      },
+      "uri": "vless://791a171e-c0af-4bd7-b8ce-43541c7585db@31.76.84.62:443?security=reality&type=grpc&mode=gun&serviceName=ns&sni=id.pervye.ru&pbk=QZz4tjRkxYsgTZBlRALOQU4O5YnAGtSGkXF8OSX11m8&fp=chrome#%F0%9F%87%B7%F0%9F%87%BA%20Russia%20%7C%20%5B%2ACIDR%5D",
+      "country": "Russian Federation",
+      "country_code": "RU",
+      "city": "Moscow",
+      "isp": "SERV.HOST GROUP LTD",
+      "found_at": "2026-08-24T13:53:53.494864",
+      "hash": "62cd0a8f1c254fdcbc92cb805ed176ff",
+      "sent_to_telegram": false
     }
   ],
-  "last_updated": "2026-08-24T12:53:04.638438",
-  "total_configs": 367,
+  "last_updated": "2026-08-24T13:53:53.494873",
+  "total_configs": 368,
   "created_at": "2026-05-01T11:10:36.324532"
 }
