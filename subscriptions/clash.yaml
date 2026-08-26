@@ -5,53 +5,62 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 405ms
+- name: VLESS-1 | 272ms
   type: vless
-  server: 84.23.54.213
-  port: 443
-  uuid: 710fc22f-06b2-03ef-bb3e-f57c17b670a6
+  server: yt.noooo.win
+  port: 8443
+  uuid: 3a90bf69-1ffe-4ebb-b9a7-ad9ba8e9f66f
   network: tcp
-- name: VLESS-2 | 536ms
-  type: vless
-  server: 84.23.54.213
-  port: 443
-  uuid: bc6a863f-f482-03f5-a950-3dc3d3b17249
-  network: tcp
-- name: SHADOWSOCKS-3 | 262ms
-  type: ss
-  server: 195.133.23.200
-  port: 10889
-  cipher: aes-256-gcm
-  password: 81a20429165df87e
-- name: VMESS-4 | 1407ms
-  type: vmess
-  server: renderer-stream-2-62.mirra.now
-  port: 443
-  uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-  alterId: 0
-  cipher: auto
-  network: ws
   tls: true
-  servername: ''
-  ws-opts:
-    path: /api/v1/gpu-stream/socket
-    headers: {}
+  servername: ai-6a8e584c.noooo.win
+- name: VLESS-2 | 291ms
+  type: vless
+  server: yt.noooo.win
+  port: 8443
+  uuid: 3a90bf69-1ffe-4ebb-b9a7-ad9ba8e9f66f
+  network: tcp
+  tls: true
+  servername: ai-6a8e584c.noooo.win
+- name: VLESS-3 | 275ms
+  type: vless
+  server: yt.noooo.win
+  port: 8443
+  uuid: 3a90bf69-1ffe-4ebb-b9a7-ad9ba8e9f66f
+  network: tcp
+  tls: true
+  servername: ai-6a8e584c.noooo.win
+- name: VLESS-4 | 385ms
+  type: vless
+  server: 194.58.95.183
+  port: 9872
+  uuid: 76186f1e-3062-4a2b-98c2-fab3c61a9511
+  network: grpc
+- name: VLESS-5 | 276ms
+  type: vless
+  server: yt.noooo.win
+  port: 8443
+  uuid: 3a90bf69-1ffe-4ebb-b9a7-ad9ba8e9f66f
+  network: tcp
+  tls: true
+  servername: ai-6a8e584c.noooo.win
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 405ms
-  - VLESS-2 | 536ms
-  - SHADOWSOCKS-3 | 262ms
-  - VMESS-4 | 1407ms
+  - VLESS-1 | 272ms
+  - VLESS-2 | 291ms
+  - VLESS-3 | 275ms
+  - VLESS-4 | 385ms
+  - VLESS-5 | 276ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 405ms
-  - VLESS-2 | 536ms
-  - SHADOWSOCKS-3 | 262ms
-  - VMESS-4 | 1407ms
+  - VLESS-1 | 272ms
+  - VLESS-2 | 291ms
+  - VLESS-3 | 275ms
+  - VLESS-4 | 385ms
+  - VLESS-5 | 276ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
