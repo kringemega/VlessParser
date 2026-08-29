@@ -5,49 +5,60 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 881ms
+- name: VLESS-1 | 444ms
   type: vless
-  server: 176.109.85.143
-  port: 8443
-  uuid: 303035c0-dd28-4568-87bb-9a11637c5407
-  network: raw
-- name: VLESS-2 | 1120ms
+  server: 185.96.80.147
+  port: 443
+  uuid: bec4b96c-0328-4abd-be5e-437ac9f65bcd
+  network: ws
+  tls: true
+  servername: seksi-lady.ru
+- name: VLESS-2 | 438ms
   type: vless
-  server: 176.109.85.143
-  port: 8443
-  uuid: 303035c0-dd28-4568-87bb-9a11637c5407
-  network: raw
-- name: VLESS-3 | 765ms
+  server: 185.96.80.147
+  port: 443
+  uuid: bec4b96c-0328-4abd-be5e-437ac9f65bcd
+  network: ws
+  tls: true
+  servername: seksi-lady.ru
+- name: VLESS-3 | 452ms
   type: vless
-  server: 176.109.85.143
-  port: 8443
-  uuid: 303035c0-dd28-4568-87bb-9a11637c5407
-  network: raw
-- name: VLESS-4 | 1078ms
+  server: 185.96.80.147
+  port: 443
+  uuid: bec4b96c-0328-4abd-be5e-437ac9f65bcd
+  network: ws
+  tls: true
+  servername: seksi-lady.ru
+- name: VLESS-4 | 184ms
   type: vless
-  server: 176.109.85.143
-  port: 8443
-  uuid: 303035c0-dd28-4568-87bb-9a11637c5407
-  network: raw
-- name: VLESS-5 | 1011ms
+  server: 185.96.80.147
+  port: 443
+  uuid: bec4b96c-0328-4abd-be5e-437ac9f65bcd
+  network: ws
+  tls: true
+  servername: seksi-lady.ru
+- name: VLESS-5 | 1142ms
   type: vless
-  server: 176.109.85.142
-  port: 8443
-  uuid: 303035c0-dd28-4568-87bb-9a11637c5407
-  network: raw
-- name: VLESS-6 | 688ms
-  type: vless
-  server: 176.109.85.142
-  port: 8443
-  uuid: 303035c0-dd28-4568-87bb-9a11637c5407
-  network: raw
-- name: VLESS-7 | 686ms
-  type: vless
-  server: 176.109.85.142
-  port: 8443
-  uuid: 303035c0-dd28-4568-87bb-9a11637c5407
-  network: raw
-- name: VMESS-8 | 2001ms
+  server: 185.96.80.147
+  port: 443
+  uuid: bec4b96c-0328-4abd-be5e-437ac9f65bcd
+  network: ws
+  tls: true
+  servername: seksi-lady.ru
+- name: VMESS-6 | 632ms
+  type: vmess
+  server: renderer-stream-2-62.mirra.now
+  port: 443
+  uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+  alterId: 0
+  cipher: auto
+  network: ws
+  tls: true
+  servername: ''
+  ws-opts:
+    path: /api/v1/gpu-stream/socket
+    headers: {}
+- name: VMESS-7 | 390ms
   type: vmess
   server: renderer-stream-2-62.mirra.now
   port: 443
@@ -61,7 +72,7 @@ proxies:
     path: /api/v1/gpu-stream/socket
     headers:
       Host: renderer-stream-2-62.mirra.now
-- name: VMESS-9 | 745ms
+- name: VMESS-8 | 1080ms
   type: vmess
   server: renderer-stream-2-62.mirra.now
   port: 443
@@ -73,8 +84,9 @@ proxies:
   servername: renderer-stream-2-62.mirra.now
   ws-opts:
     path: /api/v1/gpu-stream/socket
-    headers: {}
-- name: VMESS-10 | 2106ms
+    headers:
+      Host: renderer-stream-2-62.mirra.now
+- name: VMESS-9 | 688ms
   type: vmess
   server: renderer-stream-2-62.mirra.now
   port: 443
@@ -87,34 +99,63 @@ proxies:
   ws-opts:
     path: /api/v1/gpu-stream/socket
     headers: {}
+- name: VMESS-10 | 506ms
+  type: vmess
+  server: renderer-stream-2-62.mirra.now
+  port: 443
+  uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+  alterId: 0
+  cipher: auto
+  network: ws
+  tls: true
+  servername: renderer-stream-2-62.mirra.now
+  ws-opts:
+    path: /api/v1/gpu-stream/socket
+    headers:
+      Host: renderer-stream-2-62.mirra.now
+- name: VMESS-11 | 509ms
+  type: vmess
+  server: renderer-stream-2-62.mirra.now
+  port: 443
+  uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+  alterId: 0
+  cipher: auto
+  network: ws
+  tls: true
+  servername: renderer-stream-2-62.mirra.now
+  ws-opts:
+    path: /api/v1/gpu-stream/socket
+    headers: {}
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 881ms
-  - VLESS-2 | 1120ms
-  - VLESS-3 | 765ms
-  - VLESS-4 | 1078ms
-  - VLESS-5 | 1011ms
-  - VLESS-6 | 688ms
-  - VLESS-7 | 686ms
-  - VMESS-8 | 2001ms
-  - VMESS-9 | 745ms
-  - VMESS-10 | 2106ms
+  - VLESS-1 | 444ms
+  - VLESS-2 | 438ms
+  - VLESS-3 | 452ms
+  - VLESS-4 | 184ms
+  - VLESS-5 | 1142ms
+  - VMESS-6 | 632ms
+  - VMESS-7 | 390ms
+  - VMESS-8 | 1080ms
+  - VMESS-9 | 688ms
+  - VMESS-10 | 506ms
+  - VMESS-11 | 509ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 881ms
-  - VLESS-2 | 1120ms
-  - VLESS-3 | 765ms
-  - VLESS-4 | 1078ms
-  - VLESS-5 | 1011ms
-  - VLESS-6 | 688ms
-  - VLESS-7 | 686ms
-  - VMESS-8 | 2001ms
-  - VMESS-9 | 745ms
-  - VMESS-10 | 2106ms
+  - VLESS-1 | 444ms
+  - VLESS-2 | 438ms
+  - VLESS-3 | 452ms
+  - VLESS-4 | 184ms
+  - VLESS-5 | 1142ms
+  - VMESS-6 | 632ms
+  - VMESS-7 | 390ms
+  - VMESS-8 | 1080ms
+  - VMESS-9 | 688ms
+  - VMESS-10 | 506ms
+  - VMESS-11 | 509ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
