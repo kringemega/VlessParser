@@ -5562,9 +5562,108 @@
       "found_at": "2026-09-01T01:48:08.826143",
       "hash": "f68bca2897063ba411c8c0d263150f48",
       "sent_to_telegram": false
+    },
+    {
+      "protocol": "vless",
+      "address": "109.73.205.68",
+      "ping": 892,
+      "jitter": 997,
+      "download_speed": 8.59,
+      "upload_speed": 6.04,
+      "is_bypassing": true,
+      "connectivity": {
+        "telegram": false,
+        "instagram": true,
+        "youtube": true
+      },
+      "ip": "109.73.205.68",
+      "config_json": {
+        "log": {
+          "loglevel": "warning"
+        },
+        "inbounds": [
+          {
+            "listen": "127.0.0.1",
+            "port": 10805,
+            "protocol": "http",
+            "settings": {
+              "timeout": 0,
+              "allowTransparent": false,
+              "userLevel": 0
+            },
+            "tag": "http-in"
+          }
+        ],
+        "outbounds": [
+          {
+            "protocol": "vless",
+            "settings": {
+              "vnext": [
+                {
+                  "address": "109.73.205.68",
+                  "port": 22443,
+                  "users": [
+                    {
+                      "id": "7ab9fe4f-6699-427f-a828-9fcf2496d714",
+                      "encryption": "none",
+                      "flow": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            "streamSettings": {
+              "network": "grpc",
+              "security": "reality",
+              "realitySettings": {
+                "serverName": "www.cloudflare.com",
+                "allowInsecure": true,
+                "fingerprint": "edge",
+                "alpn": [
+                  "h2",
+                  "http/1.1"
+                ],
+                "show": false,
+                "publicKey": "V8llhEcbGI7Zqf52Ec0kryrdRv7lvLcKCjHe1Di23yw",
+                "shortId": "fdf9d63fcdd6be6a",
+                "spiderX": "/"
+              },
+              "grpcSettings": {
+                "serviceName": "f234981844",
+                "multiMode": true
+              }
+            },
+            "tag": "proxy"
+          },
+          {
+            "protocol": "freedom",
+            "tag": "direct"
+          }
+        ],
+        "routing": {
+          "domainStrategy": "IPIfNonMatch",
+          "rules": [
+            {
+              "type": "field",
+              "ip": [
+                "geoip:private"
+              ],
+              "outboundTag": "direct"
+            }
+          ]
+        }
+      },
+      "uri": "vless://7ab9fe4f-6699-427f-a828-9fcf2496d714@109.73.205.68:22443?type=grpc&security=reality&serviceName=f234981844&sni=www.cloudflare.com&pbk=V8llhEcbGI7Zqf52Ec0kryrdRv7lvLcKCjHe1Di23yw&sid=fdf9d63fcdd6be6a&encryption=none&fp=edge#%F0%9F%87%BA%F0%9F%87%B8%20United%20States%20%5B%2ACIDR%5D",
+      "country": "Russian Federation",
+      "country_code": "RU",
+      "city": "Moscow",
+      "isp": "JSC TIMEWEB",
+      "found_at": "2026-09-01T07:23:36.877276",
+      "hash": "e2378a086758864d31c3cfebf429c82a",
+      "sent_to_telegram": false
     }
   ],
-  "last_updated": "2026-09-01T01:48:08.826152",
-  "total_configs": 57,
+  "last_updated": "2026-09-01T07:23:36.877283",
+  "total_configs": 58,
   "created_at": "2026-05-01T11:10:36.324532"
 }
