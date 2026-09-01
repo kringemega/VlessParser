@@ -5,96 +5,137 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 307ms
+- name: VLESS-1 | 209ms
   type: vless
-  server: 195.19.164.83
+  server: 62.113.37.80
+  port: 2053
+  uuid: bd7501b8-5c29-4b4d-a060-76446349c835
+  network: ws
+  tls: true
+  servername: bz11.wba-pn.ru
+- name: VLESS-2 | 577ms
+  type: vless
+  server: bz11.wba-pn.ru
+  port: 2053
+  uuid: bd7501b8-5c29-4b4d-a060-76446349c835
+  network: ws
+  tls: true
+  servername: bz11.wba-pn.ru
+- name: VMESS-3 | 564ms
+  type: vmess
+  server: renderer-stream-2-62.mirra.now
   port: 443
-  uuid: 2ae1bbd2-dd81-4737-bbec-6a8c1c74e8f1
-  network: tcp
-- name: VLESS-2 | 324ms
-  type: vless
-  server: 195.19.164.83
+  uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+  alterId: 0
+  cipher: auto
+  network: ws
+  tls: true
+  servername: ''
+  ws-opts:
+    path: /api/v1/gpu-stream/socket
+    headers: {}
+- name: VMESS-4 | 633ms
+  type: vmess
+  server: renderer-stream-2-62.mirra.now
   port: 443
-  uuid: 2ae1bbd2-dd81-4737-bbec-6a8c1c74e8f1
-  network: tcp
-- name: VLESS-3 | 303ms
-  type: vless
-  server: 195.19.164.83
+  uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+  alterId: 0
+  cipher: auto
+  network: ws
+  tls: true
+  servername: renderer-stream-2-62.mirra.now
+  ws-opts:
+    path: /api/v1/gpu-stream/socket
+    headers:
+      Host: renderer-stream-2-62.mirra.now
+- name: VMESS-5 | 747ms
+  type: vmess
+  server: renderer-stream-2-62.mirra.now
   port: 443
-  uuid: 2ae1bbd2-dd81-4737-bbec-6a8c1c74e8f1
-  network: tcp
-- name: VLESS-4 | 786ms
-  type: vless
-  server: bz11.wba-pn.ru
-  port: 2053
-  uuid: bd7501b8-5c29-4b4d-a060-76446349c835
+  uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+  alterId: 0
+  cipher: auto
   network: ws
   tls: true
-  servername: bz11.wba-pn.ru
-- name: VLESS-5 | 788ms
-  type: vless
-  server: bz11.wba-pn.ru
-  port: 2053
-  uuid: bd7501b8-5c29-4b4d-a060-76446349c835
-  network: ws
-  tls: true
-  servername: bz11.wba-pn.ru
-- name: VLESS-6 | 786ms
-  type: vless
-  server: bz11.wba-pn.ru
-  port: 2053
-  uuid: bd7501b8-5c29-4b4d-a060-76446349c835
-  network: ws
-  tls: true
-  servername: bz11.wba-pn.ru
-- name: VLESS-7 | 319ms
-  type: vless
-  server: 195.19.164.83
+  servername: ''
+  ws-opts:
+    path: /api/v1/gpu-stream/socket
+    headers: {}
+- name: VMESS-6 | 875ms
+  type: vmess
+  server: renderer-stream-2-62.mirra.now
   port: 443
-  uuid: 2ae1bbd2-dd81-4737-bbec-6a8c1c74e8f1
-  network: tcp
-- name: VLESS-8 | 749ms
+  uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+  alterId: 0
+  cipher: auto
+  network: ws
+  tls: true
+  servername: renderer-stream-2-62.mirra.now
+  ws-opts:
+    path: /api/v1/gpu-stream/socket
+    headers: {}
+- name: VLESS-7 | 211ms
   type: vless
-  server: bz11.wba-pn.ru
+  server: 62.113.37.80
   port: 2053
   uuid: bd7501b8-5c29-4b4d-a060-76446349c835
   network: ws
   tls: true
   servername: bz11.wba-pn.ru
-- name: VLESS-9 | 747ms
-  type: vless
-  server: bz11.wba-pn.ru
-  port: 2053
-  uuid: bd7501b8-5c29-4b4d-a060-76446349c835
+- name: VMESS-8 | 650ms
+  type: vmess
+  server: renderer-stream-2-62.mirra.now
+  port: 443
+  uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+  alterId: 0
+  cipher: auto
   network: ws
   tls: true
-  servername: bz11.wba-pn.ru
+  servername: renderer-stream-2-62.mirra.now
+  ws-opts:
+    path: /api/v1/gpu-stream/socket
+    headers:
+      Host: renderer-stream-2-62.mirra.now
+- name: VMESS-9 | 1106ms
+  type: vmess
+  server: renderer-stream-2-62.mirra.now
+  port: 443
+  uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+  alterId: 0
+  cipher: auto
+  network: ws
+  tls: true
+  servername: renderer-stream-2-62.mirra.now
+  ws-opts:
+    path: /api/v1/gpu-stream/socket
+    headers:
+      Host: renderer-stream-2-62.mirra.now
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 307ms
-  - VLESS-2 | 324ms
-  - VLESS-3 | 303ms
-  - VLESS-4 | 786ms
-  - VLESS-5 | 788ms
-  - VLESS-6 | 786ms
-  - VLESS-7 | 319ms
-  - VLESS-8 | 749ms
-  - VLESS-9 | 747ms
+  - VLESS-1 | 209ms
+  - VLESS-2 | 577ms
+  - VMESS-3 | 564ms
+  - VMESS-4 | 633ms
+  - VMESS-5 | 747ms
+  - VMESS-6 | 875ms
+  - VLESS-7 | 211ms
+  - VMESS-8 | 650ms
+  - VMESS-9 | 1106ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 307ms
-  - VLESS-2 | 324ms
-  - VLESS-3 | 303ms
-  - VLESS-4 | 786ms
-  - VLESS-5 | 788ms
-  - VLESS-6 | 786ms
-  - VLESS-7 | 319ms
-  - VLESS-8 | 749ms
-  - VLESS-9 | 747ms
+  - VLESS-1 | 209ms
+  - VLESS-2 | 577ms
+  - VMESS-3 | 564ms
+  - VMESS-4 | 633ms
+  - VMESS-5 | 747ms
+  - VMESS-6 | 875ms
+  - VLESS-7 | 211ms
+  - VMESS-8 | 650ms
+  - VMESS-9 | 1106ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
