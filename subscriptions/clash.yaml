@@ -5,94 +5,38 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 380ms
+- name: VLESS-1 | 1119ms
   type: vless
-  server: ru.opngtr.nl
+  server: 93.183.80.119
   port: 443
-  uuid: 39c42b0a-b823-4c93-bb99-74b4183e518d
-  network: tcp
-- name: VLESS-2 | 369ms
+  uuid: d7430ae7-320c-4658-808b-3006d0627d82
+  network: grpc
+- name: VLESS-2 | 655ms
   type: vless
-  server: ru.opngtr.nl
+  server: 85.198.83.81
   port: 443
-  uuid: 39c42b0a-b823-4c93-bb99-74b4183e518d
-  network: tcp
-- name: VLESS-3 | 379ms
-  type: vless
-  server: ru.opngtr.nl
-  port: 443
-  uuid: 39c42b0a-b823-4c93-bb99-74b4183e518d
-  network: tcp
-- name: VLESS-4 | 379ms
-  type: vless
-  server: ru.opngtr.nl
-  port: 443
-  uuid: 39c42b0a-b823-4c93-bb99-74b4183e518d
-  network: tcp
-- name: VLESS-5 | 381ms
-  type: vless
-  server: ru.opngtr.nl
-  port: 443
-  uuid: 39c42b0a-b823-4c93-bb99-74b4183e518d
-  network: tcp
-- name: VLESS-6 | 568ms
-  type: vless
-  server: 193.233.255.43
-  port: 443
-  uuid: 2ae1bbd2-dd81-4737-bbec-6a8c1c74e8f1
-  network: tcp
-- name: VLESS-7 | 569ms
-  type: vless
-  server: 193.233.255.43
-  port: 443
-  uuid: 2ae1bbd2-dd81-4737-bbec-6a8c1c74e8f1
-  network: tcp
-- name: VLESS-8 | 583ms
-  type: vless
-  server: 193.233.255.43
-  port: 443
-  uuid: 2ae1bbd2-dd81-4737-bbec-6a8c1c74e8f1
-  network: tcp
-- name: VLESS-9 | 564ms
-  type: vless
-  server: 193.233.255.43
-  port: 443
-  uuid: 2ae1bbd2-dd81-4737-bbec-6a8c1c74e8f1
-  network: tcp
-- name: VLESS-10 | 598ms
-  type: vless
-  server: 193.233.255.43
-  port: 443
-  uuid: 2ae1bbd2-dd81-4737-bbec-6a8c1c74e8f1
-  network: tcp
+  uuid: d7430ae7-320c-4658-808b-3006d0627d82
+  network: grpc
+- name: SHADOWSOCKS-3 | 454ms
+  type: ss
+  server: 200.169.178.86
+  port: 50070
+  cipher: aes-128-gcm
+  password: Z3JCbEwxUDN6R2JyNDUyYUtMRzM1NWZoYlZFMVZOU3pSam82bVhwWlU1UDJRTHV5VW05dlJNVnpib3d4cnBPMw==
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 380ms
-  - VLESS-2 | 369ms
-  - VLESS-3 | 379ms
-  - VLESS-4 | 379ms
-  - VLESS-5 | 381ms
-  - VLESS-6 | 568ms
-  - VLESS-7 | 569ms
-  - VLESS-8 | 583ms
-  - VLESS-9 | 564ms
-  - VLESS-10 | 598ms
+  - VLESS-1 | 1119ms
+  - VLESS-2 | 655ms
+  - SHADOWSOCKS-3 | 454ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 380ms
-  - VLESS-2 | 369ms
-  - VLESS-3 | 379ms
-  - VLESS-4 | 379ms
-  - VLESS-5 | 381ms
-  - VLESS-6 | 568ms
-  - VLESS-7 | 569ms
-  - VLESS-8 | 583ms
-  - VLESS-9 | 564ms
-  - VLESS-10 | 598ms
+  - VLESS-1 | 1119ms
+  - VLESS-2 | 655ms
+  - SHADOWSOCKS-3 | 454ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
