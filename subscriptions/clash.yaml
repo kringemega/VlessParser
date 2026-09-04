@@ -5,22 +5,38 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 1476ms
+- name: VLESS-1 | 346ms
   type: vless
-  server: 111.88.99.27
-  port: 9872
-  uuid: 76186f1e-3062-4a2b-98c2-fab3c61a9511
+  server: 186.246.0.111
+  port: 443
+  uuid: 89bb80a2-dfc9-4f23-8026-40d58dd53026
+  network: grpc
+- name: VLESS-2 | 341ms
+  type: vless
+  server: 186.246.0.111
+  port: 443
+  uuid: 89bb80a2-dfc9-4f23-8026-40d58dd53026
+  network: grpc
+- name: VLESS-3 | 343ms
+  type: vless
+  server: 186.246.0.111
+  port: 443
+  uuid: 89bb80a2-dfc9-4f23-8026-40d58dd53026
   network: grpc
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 1476ms
+  - VLESS-1 | 346ms
+  - VLESS-2 | 341ms
+  - VLESS-3 | 343ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 1476ms
+  - VLESS-1 | 346ms
+  - VLESS-2 | 341ms
+  - VLESS-3 | 343ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
