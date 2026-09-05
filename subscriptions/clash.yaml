@@ -5,123 +5,22 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VMESS-1 | 830ms
-  type: vmess
-  server: renderer-stream-2-62.mirra.now
+- name: VLESS-1 | 97ms
+  type: vless
+  server: 171.22.119.11
   port: 443
-  uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-  alterId: 0
-  cipher: auto
-  network: ws
-  tls: true
-  servername: ''
-  ws-opts:
-    path: /api/v1/gpu-stream/socket
-    headers: {}
-- name: VMESS-2 | 840ms
-  type: vmess
-  server: renderer-stream-2-62.mirra.now
-  port: 443
-  uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-  alterId: 0
-  cipher: auto
-  network: ws
-  tls: true
-  servername: renderer-stream-2-62.mirra.now
-  ws-opts:
-    path: /api/v1/gpu-stream/socket
-    headers: {}
-- name: VMESS-3 | 1201ms
-  type: vmess
-  server: renderer-stream-2-62.mirra.now
-  port: 443
-  uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-  alterId: 0
-  cipher: auto
-  network: ws
-  tls: true
-  servername: renderer-stream-2-62.mirra.now
-  ws-opts:
-    path: /api/v1/gpu-stream/socket
-    headers:
-      Host: renderer-stream-2-62.mirra.now
-- name: VMESS-4 | 741ms
-  type: vmess
-  server: renderer-stream-2-62.mirra.now
-  port: 443
-  uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-  alterId: 0
-  cipher: auto
-  network: ws
-  tls: true
-  servername: renderer-stream-2-62.mirra.now
-  ws-opts:
-    path: /api/v1/gpu-stream/socket
-    headers:
-      Host: renderer-stream-2-62.mirra.now
-- name: VMESS-5 | 861ms
-  type: vmess
-  server: renderer-stream-2-62.mirra.now
-  port: 443
-  uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-  alterId: 0
-  cipher: auto
-  network: ws
-  tls: true
-  servername: renderer-stream-2-62.mirra.now
-  ws-opts:
-    path: /api/v1/gpu-stream/socket
-    headers:
-      Host: renderer-stream-2-62.mirra.now
-- name: VMESS-6 | 811ms
-  type: vmess
-  server: renderer-stream-2-62.mirra.now
-  port: 443
-  uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-  alterId: 0
-  cipher: auto
-  network: ws
-  tls: true
-  servername: renderer-stream-2-62.mirra.now
-  ws-opts:
-    path: /api/v1/gpu-stream/socket
-    headers:
-      Host: renderer-stream-2-62.mirra.now
-- name: VMESS-7 | 219ms
-  type: vmess
-  server: renderer-stream-2-62.mirra.now
-  port: 443
-  uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
-  alterId: 0
-  cipher: auto
-  network: ws
-  tls: true
-  servername: renderer-stream-2-62.mirra.now
-  ws-opts:
-    path: /api/v1/gpu-stream/socket
-    headers: {}
+  uuid: 5a92a9d2-3067-49cd-bfc5-989bbdfc5d52
+  network: tcp
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VMESS-1 | 830ms
-  - VMESS-2 | 840ms
-  - VMESS-3 | 1201ms
-  - VMESS-4 | 741ms
-  - VMESS-5 | 861ms
-  - VMESS-6 | 811ms
-  - VMESS-7 | 219ms
+  - VLESS-1 | 97ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VMESS-1 | 830ms
-  - VMESS-2 | 840ms
-  - VMESS-3 | 1201ms
-  - VMESS-4 | 741ms
-  - VMESS-5 | 861ms
-  - VMESS-6 | 811ms
-  - VMESS-7 | 219ms
+  - VLESS-1 | 97ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
