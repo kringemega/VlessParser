@@ -8068,9 +8068,100 @@
       "found_at": "2026-09-05T07:49:50.288395",
       "hash": "b959b06737e2d7c21e51b7d09691d9ef",
       "sent_to_telegram": false
+    },
+    {
+      "protocol": "vmess",
+      "address": "renderer-stream-2-62.mirra.now",
+      "ping": 832,
+      "jitter": 934,
+      "download_speed": 0.08,
+      "upload_speed": 3.59,
+      "is_bypassing": false,
+      "connectivity": {
+        "telegram": false,
+        "instagram": true,
+        "youtube": true
+      },
+      "ip": "renderer-stream-2-62.mirra.now",
+      "config_json": {
+        "log": {
+          "loglevel": "warning"
+        },
+        "inbounds": [
+          {
+            "listen": "127.0.0.1",
+            "port": 10807,
+            "protocol": "http",
+            "settings": {
+              "timeout": 0,
+              "allowTransparent": false,
+              "userLevel": 0
+            },
+            "tag": "http-in"
+          }
+        ],
+        "outbounds": [
+          {
+            "protocol": "vmess",
+            "settings": {
+              "vnext": [
+                {
+                  "address": "renderer-stream-2-62.mirra.now",
+                  "port": 443,
+                  "users": [
+                    {
+                      "id": "db50a20e-7ff5-4e70-948f-17cc9ca7c154",
+                      "alterId": 0,
+                      "security": "auto"
+                    }
+                  ]
+                }
+              ]
+            },
+            "streamSettings": {
+              "network": "ws",
+              "security": "tls",
+              "tlsSettings": {
+                "serverName": "",
+                "allowInsecure": true,
+                "fingerprint": "chrome"
+              },
+              "wsSettings": {
+                "path": "/api/v1/gpu-stream/socket",
+                "headers": {}
+              }
+            },
+            "tag": "proxy"
+          },
+          {
+            "protocol": "freedom",
+            "tag": "direct"
+          }
+        ],
+        "routing": {
+          "domainStrategy": "IPIfNonMatch",
+          "rules": [
+            {
+              "type": "field",
+              "ip": [
+                "geoip:private"
+              ],
+              "outboundTag": "direct"
+            }
+          ]
+        }
+      },
+      "uri": "vmess://eyJhZGQiOiJyZW5kZXJlci1zdHJlYW0tMi02Mi5taXJyYS5ub3ciLCJhaWQiOiIwIiwiYWxwbiI6IiIsImZwIjoiIiwiaG9zdCI6IiIsImlkIjoiZGI1MGEyMGUtN2ZmNS00ZTcwLTk0OGYtMTdjYzljYTdjMTU0IiwibmV0Ijoid3MiLCJwYXRoIjoiL2FwaS92MS9ncHUtc3RyZWFtL3NvY2tldCIsInBvcnQiOiI0NDMiLCJwcyI6IvCfh6nwn4eqIEdlcm1hbnkgfCBbKkNJRFJdIiwic2N5IjoiYXV0byIsInNuaSI6IiIsInRscyI6InRscyIsInR5cGUiOiJub25lIiwidiI6IjIifQ==",
+      "country": "Russia",
+      "country_code": "Russia",
+      "city": "Moscow",
+      "isp": "OOO CCT",
+      "found_at": "2026-09-05T14:45:00.491420",
+      "hash": "1b71db6b09eb3b40a3f6afcf6f63057f",
+      "sent_to_telegram": false
     }
   ],
-  "last_updated": "2026-09-05T07:49:50.288402",
-  "total_configs": 82,
+  "last_updated": "2026-09-05T14:45:00.491433",
+  "total_configs": 83,
   "created_at": "2026-05-01T11:10:36.324532"
 }

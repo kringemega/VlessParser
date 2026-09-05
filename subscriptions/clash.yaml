@@ -5,22 +5,29 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 97ms
-  type: vless
-  server: 171.22.119.11
+- name: VMESS-1 | 832ms
+  type: vmess
+  server: renderer-stream-2-62.mirra.now
   port: 443
-  uuid: 5a92a9d2-3067-49cd-bfc5-989bbdfc5d52
-  network: tcp
+  uuid: db50a20e-7ff5-4e70-948f-17cc9ca7c154
+  alterId: 0
+  cipher: auto
+  network: ws
+  tls: true
+  servername: ''
+  ws-opts:
+    path: /api/v1/gpu-stream/socket
+    headers: {}
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 97ms
+  - VMESS-1 | 832ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 97ms
+  - VMESS-1 | 832ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:

@@ -6,7 +6,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10804,
+        "port": 10807,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -18,42 +18,33 @@
     ],
     "outbounds": [
       {
-        "protocol": "vless",
+        "protocol": "vmess",
         "settings": {
           "vnext": [
             {
-              "address": "171.22.119.11",
+              "address": "renderer-stream-2-62.mirra.now",
               "port": 443,
               "users": [
                 {
-                  "id": "5a92a9d2-3067-49cd-bfc5-989bbdfc5d52",
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision"
+                  "id": "db50a20e-7ff5-4e70-948f-17cc9ca7c154",
+                  "alterId": 0,
+                  "security": "auto"
                 }
               ]
             }
           ]
         },
         "streamSettings": {
-          "network": "tcp",
-          "security": "reality",
-          "realitySettings": {
-            "serverName": "special.aeternavpn.space",
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "",
             "allowInsecure": true,
-            "fingerprint": "safari",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ],
-            "show": false,
-            "publicKey": "-6SjfnZXAYm69euKQ3XNhq0nC7No7YE4qfdc2qx0Xwo",
-            "shortId": "a1b2c3d4",
-            "spiderX": "/"
+            "fingerprint": "chrome"
           },
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
+          "wsSettings": {
+            "path": "/api/v1/gpu-stream/socket",
+            "headers": {}
           }
         },
         "tag": "proxy"
