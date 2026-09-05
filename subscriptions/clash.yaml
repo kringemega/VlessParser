@@ -5,22 +5,62 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: SHADOWSOCKS-1 | 242ms
-  type: ss
-  server: 46.17.40.234
-  port: 50102
-  cipher: aes-256-gcm
-  password: bdb313adf74c2ede
+- name: VLESS-1 | 366ms
+  type: vless
+  server: 82.148.21.26
+  port: 443
+  uuid: 29834e2e-729c-491f-af21-d1d9a8bde8c6
+  network: tcp
+  tls: true
+  servername: crypt-obhod-15.mystatic-cdn.ru
+- name: VLESS-2 | 365ms
+  type: vless
+  server: 82.148.21.26
+  port: 443
+  uuid: 29834e2e-729c-491f-af21-d1d9a8bde8c6
+  network: tcp
+  tls: true
+  servername: crypt-obhod-15.mystatic-cdn.ru
+- name: VLESS-3 | 359ms
+  type: vless
+  server: 82.148.21.26
+  port: 443
+  uuid: 29834e2e-729c-491f-af21-d1d9a8bde8c6
+  network: tcp
+  tls: true
+  servername: crypt-obhod-15.mystatic-cdn.ru
+- name: VLESS-4 | 358ms
+  type: vless
+  server: 82.148.21.26
+  port: 443
+  uuid: 29834e2e-729c-491f-af21-d1d9a8bde8c6
+  network: tcp
+  tls: true
+  servername: crypt-obhod-15.mystatic-cdn.ru
+- name: VLESS-5 | 655ms
+  type: vless
+  server: 188.68.216.203
+  port: 9894
+  uuid: 5d16ac22-6eea-426f-b778-6f4c2961faef
+  network: grpc
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - SHADOWSOCKS-1 | 242ms
+  - VLESS-1 | 366ms
+  - VLESS-2 | 365ms
+  - VLESS-3 | 359ms
+  - VLESS-4 | 358ms
+  - VLESS-5 | 655ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - SHADOWSOCKS-1 | 242ms
+  - VLESS-1 | 366ms
+  - VLESS-2 | 365ms
+  - VLESS-3 | 359ms
+  - VLESS-4 | 358ms
+  - VLESS-5 | 655ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
