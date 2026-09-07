@@ -5631,9 +5631,104 @@
       "found_at": "2026-09-07T00:45:10.729048",
       "hash": "12da34d9f587747ba6580df4bf61b82b",
       "sent_to_telegram": false
+    },
+    {
+      "protocol": "vless",
+      "address": "217.16.31.162",
+      "ping": 740,
+      "jitter": 133,
+      "download_speed": 2.01,
+      "upload_speed": 5.83,
+      "is_bypassing": true,
+      "connectivity": {
+        "telegram": false,
+        "instagram": false,
+        "youtube": true
+      },
+      "ip": "217.16.31.162",
+      "config_json": {
+        "log": {
+          "loglevel": "warning"
+        },
+        "inbounds": [
+          {
+            "listen": "127.0.0.1",
+            "port": 10815,
+            "protocol": "http",
+            "settings": {
+              "timeout": 0,
+              "allowTransparent": false,
+              "userLevel": 0
+            },
+            "tag": "http-in"
+          }
+        ],
+        "outbounds": [
+          {
+            "protocol": "vless",
+            "settings": {
+              "vnext": [
+                {
+                  "address": "217.16.31.162",
+                  "port": 443,
+                  "users": [
+                    {
+                      "id": "af9c2bcf-fe68-4379-9c78-6e5f1b4af0e2",
+                      "encryption": "none",
+                      "flow": "xtls-rprx-vision"
+                    }
+                  ]
+                }
+              ]
+            },
+            "streamSettings": {
+              "network": "raw",
+              "security": "reality",
+              "realitySettings": {
+                "serverName": "max.ru",
+                "allowInsecure": true,
+                "fingerprint": "qq",
+                "alpn": [
+                  "h2",
+                  "http/1.1"
+                ],
+                "show": false,
+                "publicKey": "SHIYN7zN9aFVxwKK-bIvDbhUgtHvlBhDi1qSl2sWwRw",
+                "shortId": "e7",
+                "spiderX": "/"
+              }
+            },
+            "tag": "proxy"
+          },
+          {
+            "protocol": "freedom",
+            "tag": "direct"
+          }
+        ],
+        "routing": {
+          "domainStrategy": "IPIfNonMatch",
+          "rules": [
+            {
+              "type": "field",
+              "ip": [
+                "geoip:private"
+              ],
+              "outboundTag": "direct"
+            }
+          ]
+        }
+      },
+      "uri": "vless://af9c2bcf-fe68-4379-9c78-6e5f1b4af0e2@217.16.31.162:443?encryption=none&flow=xtls-rprx-vision&pbk=SHIYN7zN9aFVxwKK-bIvDbhUgtHvlBhDi1qSl2sWwRw&security=reality&sid=e7&sni=max.ru&type=raw&fp=qq#%F0%9F%87%B7%F0%9F%87%BA%20Russia%20%7C%20%F0%9F%8C%90%20%7C%20%5B%2ACIDR%5D%20VK",
+      "country": "Russian Federation",
+      "country_code": "RU",
+      "city": "Moscow",
+      "isp": "LLC VK",
+      "found_at": "2026-09-07T05:46:22.055885",
+      "hash": "a4a1ae07ac44e55e1e39ea2e87ef042a",
+      "sent_to_telegram": false
     }
   ],
-  "last_updated": "2026-09-07T00:45:10.729059",
-  "total_configs": 58,
+  "last_updated": "2026-09-07T05:46:22.055895",
+  "total_configs": 59,
   "created_at": "2026-05-01T11:10:36.324532"
 }
