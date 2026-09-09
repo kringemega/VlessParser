@@ -5,24 +5,46 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 401ms
+- name: VLESS-1 | 1320ms
   type: vless
-  server: 82.148.21.26
+  server: 195.19.164.93
   port: 443
-  uuid: 3c95901c-10ce-4588-9c23-7684a09839a3
+  uuid: db9da8fb-c528-42ec-9b9e-e578cf934c04
   network: tcp
-  tls: true
-  servername: crypt-obhod-15.mystatic-cdn.ru
+- name: VLESS-2 | 1327ms
+  type: vless
+  server: 195.19.164.93
+  port: 443
+  uuid: db9da8fb-c528-42ec-9b9e-e578cf934c04
+  network: tcp
+- name: VLESS-3 | 1328ms
+  type: vless
+  server: 195.19.164.93
+  port: 443
+  uuid: db9da8fb-c528-42ec-9b9e-e578cf934c04
+  network: tcp
+- name: VLESS-4 | 1327ms
+  type: vless
+  server: 195.19.164.93
+  port: 443
+  uuid: db9da8fb-c528-42ec-9b9e-e578cf934c04
+  network: tcp
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 401ms
+  - VLESS-1 | 1320ms
+  - VLESS-2 | 1327ms
+  - VLESS-3 | 1328ms
+  - VLESS-4 | 1327ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 401ms
+  - VLESS-1 | 1320ms
+  - VLESS-2 | 1327ms
+  - VLESS-3 | 1328ms
+  - VLESS-4 | 1327ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
