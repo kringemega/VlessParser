@@ -6890,9 +6890,96 @@
       "found_at": "2026-09-11T03:27:28.809472",
       "hash": "786e7c4907bed5a125e2f76cab02b862",
       "sent_to_telegram": false
+    },
+    {
+      "protocol": "vless",
+      "address": "200.169.180.108",
+      "ping": 291,
+      "jitter": 203,
+      "download_speed": 3.02,
+      "upload_speed": 2.1,
+      "is_bypassing": true,
+      "connectivity": {
+        "telegram": true,
+        "instagram": true,
+        "youtube": true
+      },
+      "ip": "200.169.180.108",
+      "config_json": {
+        "log": {
+          "loglevel": "warning"
+        },
+        "inbounds": [
+          {
+            "listen": "127.0.0.1",
+            "port": 10805,
+            "protocol": "http",
+            "settings": {
+              "timeout": 0,
+              "allowTransparent": false,
+              "userLevel": 0
+            },
+            "tag": "http-in"
+          }
+        ],
+        "outbounds": [
+          {
+            "protocol": "vless",
+            "settings": {
+              "vnext": [
+                {
+                  "address": "200.169.180.108",
+                  "port": 26644,
+                  "users": [
+                    {
+                      "id": "c7c1e422-ed22-478c-c0a6-fa527d58209e",
+                      "encryption": "none",
+                      "flow": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            "streamSettings": {
+              "network": "tcp",
+              "security": "none",
+              "tcpSettings": {
+                "header": {
+                  "type": "none"
+                }
+              }
+            },
+            "tag": "proxy"
+          },
+          {
+            "protocol": "freedom",
+            "tag": "direct"
+          }
+        ],
+        "routing": {
+          "domainStrategy": "IPIfNonMatch",
+          "rules": [
+            {
+              "type": "field",
+              "ip": [
+                "geoip:private"
+              ],
+              "outboundTag": "direct"
+            }
+          ]
+        }
+      },
+      "uri": "vless://c7c1e422-ed22-478c-c0a6-fa527d58209e@200.169.180.108:26644?type=tcp&security=none#%F0%9F%87%B7%F0%9F%87%BA%20Russia%20%7C%20%F0%9F%8C%90%20%5B%2ACIDR%5D",
+      "country": "Russian Federation",
+      "country_code": "RU",
+      "city": "Moscow",
+      "isp": "JSC TIMEWEB",
+      "found_at": "2026-09-11T08:16:03.806072",
+      "hash": "d0aa31eedac6c68626aee007716f1082",
+      "sent_to_telegram": false
     }
   ],
-  "last_updated": "2026-09-11T03:27:28.809480",
-  "total_configs": 70,
+  "last_updated": "2026-09-11T08:16:03.806083",
+  "total_configs": 71,
   "created_at": "2026-05-01T11:10:36.324532"
 }
