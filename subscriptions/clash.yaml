@@ -5,22 +5,86 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 532ms
+- name: VLESS-1 | 380ms
   type: vless
-  server: 89.127.209.89
+  server: 92.255.108.73
   port: 443
-  uuid: 3e561346-4319-4c4a-9fc1-1c951c70e02c
-  network: grpc
+  uuid: 22723345-4e67-4ac9-a4e6-4435b9a533b7
+  network: tcp
+- name: VLESS-2 | 397ms
+  type: vless
+  server: 92.255.108.73
+  port: 443
+  uuid: 22723345-4e67-4ac9-a4e6-4435b9a533b7
+  network: tcp
+- name: VLESS-3 | 377ms
+  type: vless
+  server: 92.255.108.73
+  port: 443
+  uuid: 22723345-4e67-4ac9-a4e6-4435b9a533b7
+  network: tcp
+- name: VLESS-4 | 373ms
+  type: vless
+  server: 92.255.108.73
+  port: 443
+  uuid: 22723345-4e67-4ac9-a4e6-4435b9a533b7
+  network: tcp
+- name: VLESS-5 | 375ms
+  type: vless
+  server: 92.255.108.73
+  port: 443
+  uuid: 22723345-4e67-4ac9-a4e6-4435b9a533b7
+  network: tcp
+- name: VLESS-6 | 443ms
+  type: vless
+  server: 31.129.101.29
+  port: 2083
+  uuid: fcfeead1-aa05-468d-a4fa-edf1ccdc4f10
+  network: tcp
+- name: VLESS-7 | 449ms
+  type: vless
+  server: 31.129.101.29
+  port: 2083
+  uuid: fcfeead1-aa05-468d-a4fa-edf1ccdc4f10
+  network: tcp
+- name: VLESS-8 | 447ms
+  type: vless
+  server: 31.129.101.29
+  port: 2083
+  uuid: fcfeead1-aa05-468d-a4fa-edf1ccdc4f10
+  network: tcp
+- name: VLESS-9 | 445ms
+  type: vless
+  server: 31.129.101.29
+  port: 2083
+  uuid: fcfeead1-aa05-468d-a4fa-edf1ccdc4f10
+  network: tcp
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 532ms
+  - VLESS-1 | 380ms
+  - VLESS-2 | 397ms
+  - VLESS-3 | 377ms
+  - VLESS-4 | 373ms
+  - VLESS-5 | 375ms
+  - VLESS-6 | 443ms
+  - VLESS-7 | 449ms
+  - VLESS-8 | 447ms
+  - VLESS-9 | 445ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 532ms
+  - VLESS-1 | 380ms
+  - VLESS-2 | 397ms
+  - VLESS-3 | 377ms
+  - VLESS-4 | 373ms
+  - VLESS-5 | 375ms
+  - VLESS-6 | 443ms
+  - VLESS-7 | 449ms
+  - VLESS-8 | 447ms
+  - VLESS-9 | 445ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
