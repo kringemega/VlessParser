@@ -6,7 +6,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10807,
+        "port": 10811,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -18,42 +18,30 @@
     ],
     "outbounds": [
       {
-        "protocol": "vless",
+        "protocol": "trojan",
         "settings": {
-          "vnext": [
+          "servers": [
             {
-              "address": "5.188.114.71",
-              "port": 443,
-              "users": [
-                {
-                  "id": "765390bc-1daf-41dd-9012-a04b93f07139",
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision"
-                }
-              ]
+              "address": "193.233.221.96",
+              "port": 448,
+              "password": "6fY77UmuJ6BEK7n0qv433JrPNjCMeZQV"
             }
           ]
         },
         "streamSettings": {
-          "network": "tcp",
-          "security": "reality",
-          "realitySettings": {
-            "serverName": "de-s3.ru",
+          "network": "grpc",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "idinah1.ookcdn.ru",
             "allowInsecure": true,
-            "fingerprint": "edge",
+            "fingerprint": "chrome",
             "alpn": [
-              "h2",
-              "http/1.1"
-            ],
-            "show": false,
-            "publicKey": "CmKaRa0TecpFSyn7OK6UTPPuWJ7ji2OwsaOBuUtSKGM",
-            "shortId": "7a3f9e2b1c8d4f6a",
-            "spiderX": "/"
+              "h2"
+            ]
           },
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
+          "grpcSettings": {
+            "serviceName": "TrojanGRPC",
+            "multiMode": true
           }
         },
         "tag": "proxy"
@@ -83,7 +71,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10808,
+        "port": 10812,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -99,38 +87,315 @@
         "settings": {
           "vnext": [
             {
-              "address": "5.188.114.71",
+              "address": "193.233.221.96",
               "port": 443,
               "users": [
                 {
-                  "id": "765390bc-1daf-41dd-9012-a04b93f07139",
+                  "id": "66533c62-42a2-4507-8c55-2f87d49672f9",
                   "encryption": "none",
-                  "flow": "xtls-rprx-vision"
+                  "flow": ""
                 }
               ]
             }
           ]
         },
         "streamSettings": {
-          "network": "tcp",
+          "network": "xhttp",
           "security": "reality",
           "realitySettings": {
-            "serverName": "de-s3.ru",
+            "serverName": "idinah1.ookcdn.ru",
             "allowInsecure": true,
-            "fingerprint": "firefox",
+            "fingerprint": "edge",
             "alpn": [
               "h2",
               "http/1.1"
             ],
             "show": false,
-            "publicKey": "CmKaRa0TecpFSyn7OK6UTPPuWJ7ji2OwsaOBuUtSKGM",
-            "shortId": "7a3f9e2b1c8d4f6a",
+            "publicKey": "4ltYIatUJFFjrW8ZBDGLJaun0BnYIgxn-jmpmTEDGyc",
+            "shortId": "",
+            "spiderX": "/"
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10803,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "193.233.221.96",
+              "port": 448,
+              "password": "6fY77UmuJ6BEK7n0qv433JrPNjCMeZQV"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "idinah1.ookcdn.ru",
+            "allowInsecure": true,
+            "fingerprint": "ios",
+            "alpn": [
+              "h2"
+            ]
+          },
+          "grpcSettings": {
+            "serviceName": "TrojanGRPC",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10810,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "cdns9.ookcdn.ru",
+              "port": 448,
+              "password": "6fY77UmuJ6BEK7n0qv433JrPNjCMeZQV"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "cdns9.ookcdn.ru",
+            "allowInsecure": true,
+            "fingerprint": "safari",
+            "alpn": [
+              "h2"
+            ]
+          },
+          "grpcSettings": {
+            "serviceName": "TrojanGRPC",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10811,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "193.17.92.57",
+              "port": 2053,
+              "users": [
+                {
+                  "id": "1cbb3702-b434-45cf-8520-3e32d860fd83",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "vk.com",
+            "allowInsecure": true,
+            "fingerprint": "chrome",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "G7VlRXdpKKaZ_33pA0Zsii70uiYkeoBiVYgAD_tL_28",
+            "shortId": "76f9d74c385ae618",
             "spiderX": "/"
           },
-          "tcpSettings": {
-            "header": {
-              "type": "none"
+          "grpcSettings": {
+            "serviceName": "grpc-fd03cd54",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10813,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "193.17.92.57",
+              "port": 2053,
+              "users": [
+                {
+                  "id": "1cbb3702-b434-45cf-8520-3e32d860fd83",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
             }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "vk.com",
+            "allowInsecure": true,
+            "fingerprint": "qq",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "G7VlRXdpKKaZ_33pA0Zsii70uiYkeoBiVYgAD_tL_28",
+            "shortId": "76f9d74c385ae618",
+            "spiderX": "/"
+          },
+          "grpcSettings": {
+            "serviceName": "grpc-fd03cd54",
+            "multiMode": true
           }
         },
         "tag": "proxy"
@@ -176,38 +441,37 @@
         "settings": {
           "vnext": [
             {
-              "address": "5.188.114.71",
-              "port": 443,
+              "address": "193.17.92.57",
+              "port": 2053,
               "users": [
                 {
-                  "id": "765390bc-1daf-41dd-9012-a04b93f07139",
+                  "id": "1cbb3702-b434-45cf-8520-3e32d860fd83",
                   "encryption": "none",
-                  "flow": "xtls-rprx-vision"
+                  "flow": ""
                 }
               ]
             }
           ]
         },
         "streamSettings": {
-          "network": "tcp",
+          "network": "grpc",
           "security": "reality",
           "realitySettings": {
-            "serverName": "de-s3.ru",
+            "serverName": "vk.com",
             "allowInsecure": true,
-            "fingerprint": "ios",
+            "fingerprint": "safari",
             "alpn": [
               "h2",
               "http/1.1"
             ],
             "show": false,
-            "publicKey": "CmKaRa0TecpFSyn7OK6UTPPuWJ7ji2OwsaOBuUtSKGM",
-            "shortId": "7a3f9e2b1c8d4f6a",
+            "publicKey": "G7VlRXdpKKaZ_33pA0Zsii70uiYkeoBiVYgAD_tL_28",
+            "shortId": "76f9d74c385ae618",
             "spiderX": "/"
           },
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
+          "grpcSettings": {
+            "serviceName": "grpc-fd03cd54",
+            "multiMode": true
           }
         },
         "tag": "proxy"
@@ -237,7 +501,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10806,
+        "port": 10800,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -253,38 +517,37 @@
         "settings": {
           "vnext": [
             {
-              "address": "5.188.114.71",
+              "address": "82.146.56.149",
               "port": 443,
               "users": [
                 {
-                  "id": "765390bc-1daf-41dd-9012-a04b93f07139",
+                  "id": "b1b3e430-ff52-44b8-b95d-27fa580fbc4f",
                   "encryption": "none",
-                  "flow": "xtls-rprx-vision"
+                  "flow": ""
                 }
               ]
             }
           ]
         },
         "streamSettings": {
-          "network": "tcp",
+          "network": "grpc",
           "security": "reality",
           "realitySettings": {
-            "serverName": "de-s3.ru",
+            "serverName": "id.vk.com",
             "allowInsecure": true,
-            "fingerprint": "chrome",
+            "fingerprint": "edge",
             "alpn": [
               "h2",
               "http/1.1"
             ],
             "show": false,
-            "publicKey": "CmKaRa0TecpFSyn7OK6UTPPuWJ7ji2OwsaOBuUtSKGM",
-            "shortId": "7a3f9e2b1c8d4f6a",
+            "publicKey": "SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc",
+            "shortId": "",
             "spiderX": "/"
           },
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
+          "grpcSettings": {
+            "serviceName": "vless-grpc-reality",
+            "multiMode": true
           }
         },
         "tag": "proxy"
@@ -314,7 +577,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10804,
+        "port": 10803,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -326,35 +589,757 @@
     ],
     "outbounds": [
       {
-        "protocol": "vmess",
+        "protocol": "vless",
         "settings": {
           "vnext": [
             {
-              "address": "194.226.142.120",
+              "address": "82.146.56.149",
               "port": 443,
               "users": [
                 {
-                  "id": "db50a20e-7ff5-4e70-948f-17cc9ca7c154",
-                  "alterId": 0,
-                  "security": "auto"
+                  "id": "b1b3e430-ff52-44b8-b95d-27fa580fbc4f",
+                  "encryption": "none",
+                  "flow": ""
                 }
               ]
             }
           ]
         },
         "streamSettings": {
-          "network": "ws",
+          "network": "grpc",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "id.vk.com",
+            "allowInsecure": true,
+            "fingerprint": "safari",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc",
+            "shortId": "",
+            "spiderX": "/"
+          },
+          "grpcSettings": {
+            "serviceName": "vless-grpc-reality",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10802,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "82.146.56.149",
+              "port": 443,
+              "users": [
+                {
+                  "id": "b1b3e430-ff52-44b8-b95d-27fa580fbc4f",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "id.vk.com",
+            "allowInsecure": true,
+            "fingerprint": "firefox",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc",
+            "shortId": "",
+            "spiderX": "/"
+          },
+          "grpcSettings": {
+            "serviceName": "vless-grpc-reality",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10801,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "82.146.56.149",
+              "port": 443,
+              "users": [
+                {
+                  "id": "b1b3e430-ff52-44b8-b95d-27fa580fbc4f",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "id.vk.com",
+            "allowInsecure": true,
+            "fingerprint": "qq",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc",
+            "shortId": "",
+            "spiderX": "/"
+          },
+          "grpcSettings": {
+            "serviceName": "vless-grpc-reality",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10813,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "78.24.217.216",
+              "port": 443,
+              "users": [
+                {
+                  "id": "b1b3e430-ff52-44b8-b95d-27fa580fbc4f",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "id.vk.com",
+            "allowInsecure": true,
+            "fingerprint": "ios",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc",
+            "shortId": "",
+            "spiderX": "/"
+          },
+          "grpcSettings": {
+            "serviceName": "vless-grpc-reality",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10815,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "ns.o11111o.club",
+              "port": 443,
+              "users": [
+                {
+                  "id": "b1b3e430-ff52-44b8-b95d-27fa580fbc4f",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "id.vk.com",
+            "allowInsecure": true,
+            "fingerprint": "firefox",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc",
+            "shortId": "",
+            "spiderX": "/"
+          },
+          "grpcSettings": {
+            "serviceName": "vless-grpc-reality",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10805,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "ns.o11111o.club",
+              "port": 443,
+              "users": [
+                {
+                  "id": "b1b3e430-ff52-44b8-b95d-27fa580fbc4f",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "id.vk.com",
+            "allowInsecure": true,
+            "fingerprint": "ios",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc",
+            "shortId": "",
+            "spiderX": "/"
+          },
+          "grpcSettings": {
+            "serviceName": "vless-grpc-reality",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10812,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "78.24.217.216",
+              "port": 443,
+              "users": [
+                {
+                  "id": "b1b3e430-ff52-44b8-b95d-27fa580fbc4f",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "id.vk.com",
+            "allowInsecure": true,
+            "fingerprint": "firefox",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "SbVKOEMjK0sIlbwg4akyBg5mL5KZwwB-ed4eEE7YnRc",
+            "shortId": "",
+            "spiderX": "/"
+          },
+          "grpcSettings": {
+            "serviceName": "vless-grpc-reality",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10814,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "cdns9.ookcdn.ru",
+              "port": 448,
+              "password": "6fY77UmuJ6BEK7n0qv433JrPNjCMeZQV"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
           "security": "tls",
           "tlsSettings": {
-            "serverName": "renderer-stream-2-62.mirra.now",
+            "serverName": "cdns9.ookcdn.ru",
             "allowInsecure": true,
-            "fingerprint": "chrome"
+            "fingerprint": "qq",
+            "alpn": [
+              "h2"
+            ]
           },
-          "wsSettings": {
-            "path": "/api/v1/gpu-stream/socket",
-            "headers": {
-              "Host": "renderer-stream-2-62.mirra.now"
+          "grpcSettings": {
+            "serviceName": "TrojanGRPC",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10811,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "cdns9.ookcdn.ru",
+              "port": 448,
+              "password": "6fY77UmuJ6BEK7n0qv433JrPNjCMeZQV"
             }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "cdns9.ookcdn.ru",
+            "allowInsecure": true,
+            "fingerprint": "edge",
+            "alpn": [
+              "h2"
+            ]
+          },
+          "grpcSettings": {
+            "serviceName": "TrojanGRPC",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10809,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "193.233.221.96",
+              "port": 448,
+              "password": "6fY77UmuJ6BEK7n0qv433JrPNjCMeZQV"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "idinah1.ookcdn.ru",
+            "allowInsecure": true,
+            "fingerprint": "edge",
+            "alpn": [
+              "h2"
+            ]
+          },
+          "grpcSettings": {
+            "serviceName": "TrojanGRPC",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10817,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "cdns9.ookcdn.ru",
+              "port": 448,
+              "password": "6fY77UmuJ6BEK7n0qv433JrPNjCMeZQV"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "cdns9.ookcdn.ru",
+            "allowInsecure": true,
+            "fingerprint": "chrome",
+            "alpn": [
+              "h2"
+            ]
+          },
+          "grpcSettings": {
+            "serviceName": "TrojanGRPC",
+            "multiMode": true
           }
         },
         "tag": "proxy"
@@ -396,35 +1381,95 @@
     ],
     "outbounds": [
       {
-        "protocol": "vmess",
+        "protocol": "trojan",
         "settings": {
-          "vnext": [
+          "servers": [
             {
-              "address": "5.188.26.85",
-              "port": 443,
-              "users": [
-                {
-                  "id": "db50a20e-7ff5-4e70-948f-17cc9ca7c154",
-                  "alterId": 0,
-                  "security": "auto"
-                }
-              ]
+              "address": "193.233.221.96",
+              "port": 448,
+              "password": "6fY77UmuJ6BEK7n0qv433JrPNjCMeZQV"
             }
           ]
         },
         "streamSettings": {
-          "network": "ws",
+          "network": "grpc",
           "security": "tls",
           "tlsSettings": {
-            "serverName": "renderer-stream-2-62.mirra.now",
+            "serverName": "idinah1.ookcdn.ru",
             "allowInsecure": true,
-            "fingerprint": "chrome"
+            "fingerprint": "firefox",
+            "alpn": [
+              "h2"
+            ]
           },
-          "wsSettings": {
-            "path": "/api/v1/gpu-stream/socket",
-            "headers": {
-              "Host": "renderer-stream-2-62.mirra.now"
+          "grpcSettings": {
+            "serviceName": "TrojanGRPC",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10813,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "trojan",
+        "settings": {
+          "servers": [
+            {
+              "address": "193.233.216.110",
+              "port": 448,
+              "password": "6fY77UmuJ6BEK7n0qv433JrPNjCMeZQV"
             }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "fuckyourmather.ookcdn.ru",
+            "allowInsecure": true,
+            "fingerprint": "qq",
+            "alpn": [
+              "h2"
+            ]
+          },
+          "grpcSettings": {
+            "serviceName": "TrojanGRPC",
+            "multiMode": true
           }
         },
         "tag": "proxy"
