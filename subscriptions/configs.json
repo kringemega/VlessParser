@@ -6,7 +6,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10819,
+        "port": 10810,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -22,11 +22,83 @@
         "settings": {
           "vnext": [
             {
-              "address": "201.34.128.128",
+              "address": "186.246.2.254",
               "port": 6443,
               "users": [
                 {
-                  "id": "e121b564-fade-44aa-ba15-aa46538efaca",
+                  "id": "ae8e2b94-5d44-437b-9002-80c2015f0e23",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "nld.centermass.net",
+            "allowInsecure": true,
+            "fingerprint": "ios",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ]
+          },
+          "grpcSettings": {
+            "serviceName": "media.playback.v1.SessionGateway",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10809,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "186.246.2.254",
+              "port": 6443,
+              "users": [
+                {
+                  "id": "ae8e2b94-5d44-437b-9002-80c2015f0e23",
                   "encryption": "none",
                   "flow": ""
                 }
@@ -78,7 +150,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10818,
+        "port": 10814,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -94,11 +166,153 @@
         "settings": {
           "vnext": [
             {
-              "address": "201.34.128.128",
+              "address": "186.246.2.254",
               "port": 6443,
               "users": [
                 {
-                  "id": "e121b564-fade-44aa-ba15-aa46538efaca",
+                  "id": "ae8e2b94-5d44-437b-9002-80c2015f0e23",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "nld.centermass.net",
+            "allowInsecure": true,
+            "fingerprint": "ios",
+            "alpn": [
+              "h2"
+            ]
+          },
+          "grpcSettings": {
+            "serviceName": "media.playback.v1.SessionGateway",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10813,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "186.246.2.254",
+              "port": 6443,
+              "users": [
+                {
+                  "id": "ae8e2b94-5d44-437b-9002-80c2015f0e23",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "nld.centermass.net",
+            "allowInsecure": true,
+            "fingerprint": "firefox",
+            "alpn": [
+              "h2"
+            ]
+          },
+          "grpcSettings": {
+            "serviceName": "media.playback.v1.SessionGateway",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10808,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "186.246.2.254",
+              "port": 6443,
+              "users": [
+                {
+                  "id": "ae8e2b94-5d44-437b-9002-80c2015f0e23",
                   "encryption": "none",
                   "flow": ""
                 }
@@ -150,7 +364,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10817,
+        "port": 10807,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -166,11 +380,11 @@
         "settings": {
           "vnext": [
             {
-              "address": "201.34.128.128",
+              "address": "186.246.2.254",
               "port": 6443,
               "users": [
                 {
-                  "id": "e121b564-fade-44aa-ba15-aa46538efaca",
+                  "id": "ae8e2b94-5d44-437b-9002-80c2015f0e23",
                   "encryption": "none",
                   "flow": ""
                 }
@@ -222,7 +436,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10818,
+        "port": 10805,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -238,222 +452,7 @@
         "settings": {
           "vnext": [
             {
-              "address": "201.34.128.128",
-              "port": 6443,
-              "users": [
-                {
-                  "id": "ae8e2b94-5d44-437b-9002-80c2015f0e23",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "grpc",
-          "security": "tls",
-          "tlsSettings": {
-            "serverName": "nld.centermass.net",
-            "allowInsecure": true,
-            "fingerprint": "ios",
-            "alpn": [
-              "h2"
-            ]
-          },
-          "grpcSettings": {
-            "serviceName": "media.playback.v1.SessionGateway",
-            "multiMode": true
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10800,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "201.34.128.128",
-              "port": 6443,
-              "users": [
-                {
-                  "id": "e121b564-fade-44aa-ba15-aa46538efaca",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "grpc",
-          "security": "tls",
-          "tlsSettings": {
-            "serverName": "nld.centermass.net",
-            "allowInsecure": true,
-            "fingerprint": "qq",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ]
-          },
-          "grpcSettings": {
-            "serviceName": "media.playback.v1.SessionGateway",
-            "multiMode": true
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10816,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "201.34.128.128",
-              "port": 6443,
-              "users": [
-                {
-                  "id": "e121b564-fade-44aa-ba15-aa46538efaca",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "grpc",
-          "security": "tls",
-          "tlsSettings": {
-            "serverName": "nld.centermass.net",
-            "allowInsecure": true,
-            "fingerprint": "ios",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ]
-          },
-          "grpcSettings": {
-            "serviceName": "media.playback.v1.SessionGateway",
-            "multiMode": true
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10817,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "201.34.128.128",
+              "address": "186.246.2.254",
               "port": 6443,
               "users": [
                 {
@@ -508,7 +507,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10819,
+        "port": 10806,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -524,7 +523,7 @@
         "settings": {
           "vnext": [
             {
-              "address": "201.34.128.128",
+              "address": "186.246.2.254",
               "port": 6443,
               "users": [
                 {
@@ -542,7 +541,7 @@
           "tlsSettings": {
             "serverName": "nld.centermass.net",
             "allowInsecure": true,
-            "fingerprint": "qq",
+            "fingerprint": "edge",
             "alpn": [
               "h2"
             ]
@@ -579,7 +578,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10803,
+        "port": 10811,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -595,11 +594,11 @@
         "settings": {
           "vnext": [
             {
-              "address": "188.225.33.173",
-              "port": 5001,
+              "address": "186.246.2.254",
+              "port": 6443,
               "users": [
                 {
-                  "id": "e121b564-fade-44aa-ba15-aa46538efaca",
+                  "id": "ae8e2b94-5d44-437b-9002-80c2015f0e23",
                   "encryption": "none",
                   "flow": ""
                 }
@@ -611,83 +610,12 @@
           "network": "grpc",
           "security": "tls",
           "tlsSettings": {
-            "serverName": "rus.centermass.net",
+            "serverName": "nld.centermass.net",
             "allowInsecure": true,
-            "fingerprint": "firefox",
+            "fingerprint": "safari",
             "alpn": [
               "h2",
               "http/1.1"
-            ]
-          },
-          "grpcSettings": {
-            "serviceName": "media.playback.v1.SessionGateway",
-            "multiMode": true
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10815,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "201.34.128.128",
-              "port": 6443,
-              "users": [
-                {
-                  "id": "ae8e2b94-5d44-437b-9002-80c2015f0e23",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "grpc",
-          "security": "tls",
-          "tlsSettings": {
-            "serverName": "nld.centermass.net",
-            "allowInsecure": true,
-            "fingerprint": "firefox",
-            "alpn": [
-              "h2"
             ]
           },
           "grpcSettings": {
