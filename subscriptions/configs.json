@@ -6,7 +6,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10800,
+        "port": 10810,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -22,11 +22,11 @@
         "settings": {
           "vnext": [
             {
-              "address": "82.117.87.129",
-              "port": 9443,
+              "address": "185.207.66.8",
+              "port": 443,
               "users": [
                 {
-                  "id": "d9d0f208-d582-41d5-bb7b-742671402810",
+                  "id": "10394279-283c-4ab8-8529-f1e0a4c61bc8",
                   "encryption": "none",
                   "flow": ""
                 }
@@ -36,18 +36,22 @@
         },
         "streamSettings": {
           "network": "grpc",
-          "security": "tls",
-          "tlsSettings": {
-            "serverName": "hub-fi-02.hanvpn.cc",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "hexagonicfield.com",
             "allowInsecure": true,
-            "fingerprint": "chrome",
+            "fingerprint": "safari",
             "alpn": [
               "h2",
               "http/1.1"
-            ]
+            ],
+            "show": false,
+            "publicKey": "C6nh6hqFTbtizgSH8vGmw2XUxsQAbAW3jPylpgGvfl4",
+            "shortId": "5d1e8b3f6c2a9d4e",
+            "spiderX": "/"
           },
           "grpcSettings": {
-            "serviceName": "fi02-grpc-8e47a",
+            "serviceName": "moktana.net.v1.StreamService",
             "multiMode": true
           }
         },
@@ -78,7 +82,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10814,
+        "port": 10803,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -94,11 +98,163 @@
         "settings": {
           "vnext": [
             {
-              "address": "82.117.87.129",
-              "port": 9443,
+              "address": "185.207.66.8",
+              "port": 443,
               "users": [
                 {
-                  "id": "d9d0f208-d582-41d5-bb7b-742671402810",
+                  "id": "10394279-283c-4ab8-8529-f1e0a4c61bc8",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "hexagonicfield.com",
+            "allowInsecure": true,
+            "fingerprint": "firefox",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "C6nh6hqFTbtizgSH8vGmw2XUxsQAbAW3jPylpgGvfl4",
+            "shortId": "5d1e8b3f6c2a9d4e",
+            "spiderX": "/"
+          },
+          "grpcSettings": {
+            "serviceName": "moktana.net.v1.StreamService",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10819,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "185.207.66.8",
+              "port": 443,
+              "users": [
+                {
+                  "id": "10394279-283c-4ab8-8529-f1e0a4c61bc8",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "hexagonicfield.com",
+            "allowInsecure": true,
+            "fingerprint": "edge",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "C6nh6hqFTbtizgSH8vGmw2XUxsQAbAW3jPylpgGvfl4",
+            "shortId": "5d1e8b3f6c2a9d4e",
+            "spiderX": "/"
+          },
+          "grpcSettings": {
+            "serviceName": "moktana.net.v1.StreamService",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10807,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "5.159.101.86",
+              "port": 443,
+              "users": [
+                {
+                  "id": "58112e44-a0d8-4ec7-87df-52fd34d150f4",
                   "encryption": "none",
                   "flow": ""
                 }
@@ -110,7 +266,155 @@
           "network": "ws",
           "security": "tls",
           "tlsSettings": {
-            "serverName": "hub-vie-02.hanvpn.cc",
+            "serverName": "dsfadfasdfwse87474.lllcc.top",
+            "allowInsecure": true,
+            "fingerprint": "edge",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ]
+          },
+          "wsSettings": {
+            "path": "/",
+            "headers": {
+              "Host": "dsfadfasdfwse87474.lllcc.top"
+            }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10813,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "5.159.101.86",
+              "port": 443,
+              "users": [
+                {
+                  "id": "58112e44-a0d8-4ec7-87df-52fd34d150f4",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "dsfadfasdfwse87474.lllcc.top",
+            "allowInsecure": true,
+            "fingerprint": "firefox",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ]
+          },
+          "wsSettings": {
+            "path": "/",
+            "headers": {
+              "Host": "dsfadfasdfwse87474.lllcc.top"
+            }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10812,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "5.159.101.86",
+              "port": 443,
+              "users": [
+                {
+                  "id": "58112e44-a0d8-4ec7-87df-52fd34d150f4",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "dsfadfasdfwse87474.lllcc.top",
             "allowInsecure": true,
             "fingerprint": "safari",
             "alpn": [
@@ -119,9 +423,9 @@
             ]
           },
           "wsSettings": {
-            "path": "/vie02-ws-8e47a",
+            "path": "/",
             "headers": {
-              "Host": "hub-vie-02.hanvpn.cc"
+              "Host": "dsfadfasdfwse87474.lllcc.top"
             }
           }
         },
