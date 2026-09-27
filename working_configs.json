@@ -10212,9 +10212,104 @@
       "found_at": "2026-09-27T17:13:08.974609",
       "hash": "6f8543f1280b5fd03daac9f1e3b2ced1",
       "sent_to_telegram": false
+    },
+    {
+      "protocol": "vless",
+      "address": "72.4.65.116",
+      "ping": 315,
+      "jitter": 297,
+      "download_speed": 17.49,
+      "upload_speed": 4.85,
+      "is_bypassing": true,
+      "connectivity": {
+        "telegram": true,
+        "instagram": true,
+        "youtube": true
+      },
+      "ip": "72.4.65.116",
+      "config_json": {
+        "log": {
+          "loglevel": "warning"
+        },
+        "inbounds": [
+          {
+            "listen": "127.0.0.1",
+            "port": 10806,
+            "protocol": "http",
+            "settings": {
+              "timeout": 0,
+              "allowTransparent": false,
+              "userLevel": 0
+            },
+            "tag": "http-in"
+          }
+        ],
+        "outbounds": [
+          {
+            "protocol": "vless",
+            "settings": {
+              "vnext": [
+                {
+                  "address": "72.4.65.116",
+                  "port": 443,
+                  "users": [
+                    {
+                      "id": "0dca2cfe-98eb-4f9d-9a47-cf87510c558b",
+                      "encryption": "none",
+                      "flow": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            "streamSettings": {
+              "network": "grpc",
+              "security": "tls",
+              "tlsSettings": {
+                "serverName": "assets-de2.pleiades.codes",
+                "allowInsecure": true,
+                "fingerprint": "chrome",
+                "alpn": [
+                  "h2",
+                  "http/1.1"
+                ]
+              },
+              "grpcSettings": {
+                "serviceName": "cdn.v1.AssetService",
+                "multiMode": true
+              }
+            },
+            "tag": "proxy"
+          },
+          {
+            "protocol": "freedom",
+            "tag": "direct"
+          }
+        ],
+        "routing": {
+          "domainStrategy": "IPIfNonMatch",
+          "rules": [
+            {
+              "type": "field",
+              "ip": [
+                "geoip:private"
+              ],
+              "outboundTag": "direct"
+            }
+          ]
+        }
+      },
+      "uri": "vless://0dca2cfe-98eb-4f9d-9a47-cf87510c558b@72.4.65.116:443?encryption=none&security=tls&serviceName=cdn.v1.AssetService&sni=assets-de2.pleiades.codes&type=grpc&fp=chrome#%F0%9F%87%B7%F0%9F%87%BA%20Russia%20%7C%20%5B%2ACIDR%5D",
+      "country": "Germany",
+      "country_code": "DE",
+      "city": "Frankfurt am Main",
+      "isp": "CHSL ONE LTD",
+      "found_at": "2026-09-27T20:19:28.433827",
+      "hash": "d459a7077728ebd3c9a4e6e9a3a6e2bc",
+      "sent_to_telegram": false
     }
   ],
-  "last_updated": "2026-09-27T17:13:08.974620",
-  "total_configs": 104,
+  "last_updated": "2026-09-27T20:19:28.433834",
+  "total_configs": 105,
   "created_at": "2026-05-01T11:10:36.324532"
 }
