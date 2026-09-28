@@ -6,7 +6,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10815,
+        "port": 10800,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -18,37 +18,183 @@
     ],
     "outbounds": [
       {
-        "protocol": "vmess",
+        "protocol": "vless",
         "settings": {
           "vnext": [
             {
-              "address": "158.160.211.200",
-              "port": 11556,
+              "address": "vyvoz-musora.cc",
+              "port": 443,
               "users": [
                 {
-                  "id": "e2733dbc-1bc6-4835-b90a-447806f9efcd",
-                  "alterId": 0,
-                  "security": "auto"
+                  "id": "365de9e9-ba29-4819-af2d-766f9638e3be",
+                  "encryption": "none",
+                  "flow": ""
                 }
               ]
             }
           ]
         },
         "streamSettings": {
-          "network": "tcp",
+          "network": "ws",
           "security": "tls",
           "tlsSettings": {
-            "serverName": "",
+            "serverName": "vyvoz-musora.cc",
             "allowInsecure": true,
-            "fingerprint": "chrome",
+            "fingerprint": "edge",
             "alpn": [
-              "h2",
               "http/1.1"
             ]
           },
-          "tcpSettings": {
-            "header": {
-              "type": "none"
+          "wsSettings": {
+            "path": "/e8ws",
+            "headers": {
+              "Host": "vyvoz-musora.cc"
+            }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10804,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "vyvoz-musora.cc",
+              "port": 443,
+              "users": [
+                {
+                  "id": "365de9e9-ba29-4819-af2d-766f9638e3be",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "vyvoz-musora.cc",
+            "allowInsecure": true,
+            "fingerprint": "safari",
+            "alpn": [
+              "http/1.1"
+            ]
+          },
+          "wsSettings": {
+            "path": "/e8ws",
+            "headers": {
+              "Host": "vyvoz-musora.cc"
+            }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10803,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "vyvoz-musora.cc",
+              "port": 443,
+              "users": [
+                {
+                  "id": "365de9e9-ba29-4819-af2d-766f9638e3be",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "vyvoz-musora.cc",
+            "allowInsecure": true,
+            "fingerprint": "qq",
+            "alpn": [
+              "http/1.1"
+            ]
+          },
+          "wsSettings": {
+            "path": "/e8ws",
+            "headers": {
+              "Host": "vyvoz-musora.cc"
             }
           }
         },
@@ -95,11 +241,11 @@
         "settings": {
           "vnext": [
             {
-              "address": "37.139.42.138",
+              "address": "vyvoz-musora.cc",
               "port": 443,
               "users": [
                 {
-                  "id": "c16fd1ee-7581-4fe9-aac7-ef7c89a1ddad",
+                  "id": "365de9e9-ba29-4819-af2d-766f9638e3be",
                   "encryption": "none",
                   "flow": ""
                 }
@@ -111,17 +257,90 @@
           "network": "ws",
           "security": "tls",
           "tlsSettings": {
-            "serverName": "dostavitos.stroymatdv.cc",
+            "serverName": "vyvoz-musora.cc",
             "allowInsecure": true,
-            "fingerprint": "random",
+            "fingerprint": "ios",
             "alpn": [
               "http/1.1"
             ]
           },
           "wsSettings": {
-            "path": "/e5ws",
+            "path": "/e8ws",
             "headers": {
-              "Host": "dostavitos.stroymatdv.cc"
+              "Host": "vyvoz-musora.cc"
+            }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10801,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "vyvoz-musora.cc",
+              "port": 443,
+              "users": [
+                {
+                  "id": "365de9e9-ba29-4819-af2d-766f9638e3be",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "vyvoz-musora.cc",
+            "allowInsecure": true,
+            "fingerprint": "firefox",
+            "alpn": [
+              "http/1.1"
+            ]
+          },
+          "wsSettings": {
+            "path": "/e8ws",
+            "headers": {
+              "Host": "vyvoz-musora.cc"
             }
           }
         },

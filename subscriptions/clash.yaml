@@ -5,36 +5,64 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VMESS-1 | 381ms
-  type: vmess
-  server: 158.160.211.200
-  port: 11556
-  uuid: e2733dbc-1bc6-4835-b90a-447806f9efcd
-  alterId: 0
-  cipher: auto
-  network: tcp
-  tls: true
-  servername: ''
-- name: VLESS-2 | 1017ms
+- name: VLESS-1 | 724ms
   type: vless
-  server: 37.139.42.138
+  server: vyvoz-musora.cc
   port: 443
-  uuid: c16fd1ee-7581-4fe9-aac7-ef7c89a1ddad
+  uuid: 365de9e9-ba29-4819-af2d-766f9638e3be
   network: ws
   tls: true
-  servername: dostavitos.stroymatdv.cc
+  servername: vyvoz-musora.cc
+- name: VLESS-2 | 421ms
+  type: vless
+  server: vyvoz-musora.cc
+  port: 443
+  uuid: 365de9e9-ba29-4819-af2d-766f9638e3be
+  network: ws
+  tls: true
+  servername: vyvoz-musora.cc
+- name: VLESS-3 | 766ms
+  type: vless
+  server: vyvoz-musora.cc
+  port: 443
+  uuid: 365de9e9-ba29-4819-af2d-766f9638e3be
+  network: ws
+  tls: true
+  servername: vyvoz-musora.cc
+- name: VLESS-4 | 519ms
+  type: vless
+  server: vyvoz-musora.cc
+  port: 443
+  uuid: 365de9e9-ba29-4819-af2d-766f9638e3be
+  network: ws
+  tls: true
+  servername: vyvoz-musora.cc
+- name: VLESS-5 | 508ms
+  type: vless
+  server: vyvoz-musora.cc
+  port: 443
+  uuid: 365de9e9-ba29-4819-af2d-766f9638e3be
+  network: ws
+  tls: true
+  servername: vyvoz-musora.cc
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VMESS-1 | 381ms
-  - VLESS-2 | 1017ms
+  - VLESS-1 | 724ms
+  - VLESS-2 | 421ms
+  - VLESS-3 | 766ms
+  - VLESS-4 | 519ms
+  - VLESS-5 | 508ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VMESS-1 | 381ms
-  - VLESS-2 | 1017ms
+  - VLESS-1 | 724ms
+  - VLESS-2 | 421ms
+  - VLESS-3 | 766ms
+  - VLESS-4 | 519ms
+  - VLESS-5 | 508ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
