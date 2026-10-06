@@ -5,7 +5,7 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 342ms
+- name: VLESS-1 | 267ms
   type: vless
   server: 196.240.125.253
   port: 8443
@@ -13,7 +13,7 @@ proxies:
   network: tcp
   tls: true
   servername: vusr-6ac431f4.adhil.uk
-- name: VLESS-2 | 325ms
+- name: VLESS-2 | 268ms
   type: vless
   server: 196.240.125.253
   port: 8443
@@ -21,7 +21,7 @@ proxies:
   network: tcp
   tls: true
   servername: vusr-6ac431f4.adhil.uk
-- name: VLESS-3 | 330ms
+- name: VLESS-3 | 258ms
   type: vless
   server: 196.240.125.253
   port: 8443
@@ -29,36 +29,30 @@ proxies:
   network: tcp
   tls: true
   servername: vusr-6ac431f4.adhil.uk
-- name: VLESS-4 | 417ms
+- name: VLESS-4 | 271ms
   type: vless
-  server: 45.139.26.179
-  port: 443
-  uuid: 2b781b4a-5942-48e0-a7f3-5a07b7b488c1
-  network: grpc
-- name: VLESS-5 | 672ms
-  type: vless
-  server: 45.139.26.179
-  port: 443
-  uuid: 2b781b4a-5942-48e0-a7f3-5a07b7b488c1
-  network: grpc
+  server: 196.240.125.253
+  port: 8443
+  uuid: 20ef7310-0b50-4943-98a6-3d0856b383b1
+  network: tcp
+  tls: true
+  servername: vusr-6ac431f4.adhil.uk
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 342ms
-  - VLESS-2 | 325ms
-  - VLESS-3 | 330ms
-  - VLESS-4 | 417ms
-  - VLESS-5 | 672ms
+  - VLESS-1 | 267ms
+  - VLESS-2 | 268ms
+  - VLESS-3 | 258ms
+  - VLESS-4 | 271ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 342ms
-  - VLESS-2 | 325ms
-  - VLESS-3 | 330ms
-  - VLESS-4 | 417ms
-  - VLESS-5 | 672ms
+  - VLESS-1 | 267ms
+  - VLESS-2 | 268ms
+  - VLESS-3 | 258ms
+  - VLESS-4 | 271ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
