@@ -5,64 +5,22 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 2302ms
+- name: VLESS-1 | 504ms
   type: vless
-  server: 185.86.145.183
-  port: 443
-  uuid: bcf7fc76-83ad-419c-91c9-d192797ce7a4
-  network: ws
-  tls: true
-  servername: api.wyre-file.ru
-- name: VLESS-2 | 715ms
-  type: vless
-  server: ultimate.warriorofblacksun.run
-  port: 443
-  uuid: 97c52223-dc53-4d59-ae9b-2bf4344eb5eb
-  network: grpc
-- name: VLESS-3 | 751ms
-  type: vless
-  server: ultimate.warriorofblacksun.run
-  port: 443
-  uuid: 97c52223-dc53-4d59-ae9b-2bf4344eb5eb
-  network: grpc
-- name: VLESS-4 | 723ms
-  type: vless
-  server: ultimate.warriorofblacksun.run
-  port: 443
-  uuid: 97c52223-dc53-4d59-ae9b-2bf4344eb5eb
-  network: grpc
-- name: VLESS-5 | 750ms
-  type: vless
-  server: ultimate.warriorofblacksun.run
-  port: 443
-  uuid: 97c52223-dc53-4d59-ae9b-2bf4344eb5eb
-  network: grpc
-- name: VLESS-6 | 750ms
-  type: vless
-  server: ultimate.warriorofblacksun.run
-  port: 443
-  uuid: 97c52223-dc53-4d59-ae9b-2bf4344eb5eb
-  network: grpc
+  server: fi5.h1cloud.net
+  port: 25007
+  uuid: 83383473-0d62-4089-ac4d-d7ecb413504a
+  network: tcp
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 2302ms
-  - VLESS-2 | 715ms
-  - VLESS-3 | 751ms
-  - VLESS-4 | 723ms
-  - VLESS-5 | 750ms
-  - VLESS-6 | 750ms
+  - VLESS-1 | 504ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 2302ms
-  - VLESS-2 | 715ms
-  - VLESS-3 | 751ms
-  - VLESS-4 | 723ms
-  - VLESS-5 | 750ms
-  - VLESS-6 | 750ms
+  - VLESS-1 | 504ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
