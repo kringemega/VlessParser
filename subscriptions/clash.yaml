@@ -5,19 +5,57 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 449ms
+- name: VLESS-1 | 677ms
   type: vless
-  server: 136.234.9.12
-  port: 27591
-  uuid: 056405e8-de9f-4d0d-8145-956f13cc34da
-  network: tcp
-- name: VLESS-2 | 454ms
+  server: 72.56.235.75
+  port: 443
+  uuid: 27653b37-603c-4c90-b1f5-25c4d23f8932
+  network: grpc
+  tls: true
+  servername: renderer-bridge-2-121.mirra.now
+- name: VLESS-2 | 575ms
   type: vless
-  server: 136.234.9.12
-  port: 27591
-  uuid: 056405e8-de9f-4d0d-8145-956f13cc34da
+  server: 72.56.235.75
+  port: 443
+  uuid: 27653b37-603c-4c90-b1f5-25c4d23f8932
+  network: grpc
+  tls: true
+  servername: renderer-bridge-2-121.mirra.now
+- name: VLESS-3 | 649ms
+  type: vless
+  server: 72.56.235.75
+  port: 443
+  uuid: 27653b37-603c-4c90-b1f5-25c4d23f8932
+  network: grpc
+  tls: true
+  servername: renderer-bridge-2-121.mirra.now
+- name: VLESS-4 | 668ms
+  type: vless
+  server: 72.56.235.75
+  port: 443
+  uuid: 27653b37-603c-4c90-b1f5-25c4d23f8932
+  network: grpc
+  tls: true
+  servername: renderer-bridge-2-121.mirra.now
+- name: VLESS-5 | 568ms
+  type: vless
+  server: 103.24.207.40
+  port: 8443
+  uuid: 258d8fc5-206c-48fd-88df-169dbbe44d3f
   network: tcp
-- name: VLESS-3 | 1001ms
+- name: VLESS-6 | 557ms
+  type: vless
+  server: 103.24.207.40
+  port: 8443
+  uuid: 258d8fc5-206c-48fd-88df-169dbbe44d3f
+  network: tcp
+- name: VLESS-7 | 555ms
+  type: vless
+  server: 103.24.207.40
+  port: 8443
+  uuid: 258d8fc5-206c-48fd-88df-169dbbe44d3f
+  network: tcp
+- name: VLESS-8 | 552ms
   type: vless
   server: 103.24.207.40
   port: 8443
@@ -28,15 +66,25 @@ proxy-groups:
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 449ms
-  - VLESS-2 | 454ms
-  - VLESS-3 | 1001ms
+  - VLESS-1 | 677ms
+  - VLESS-2 | 575ms
+  - VLESS-3 | 649ms
+  - VLESS-4 | 668ms
+  - VLESS-5 | 568ms
+  - VLESS-6 | 557ms
+  - VLESS-7 | 555ms
+  - VLESS-8 | 552ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 449ms
-  - VLESS-2 | 454ms
-  - VLESS-3 | 1001ms
+  - VLESS-1 | 677ms
+  - VLESS-2 | 575ms
+  - VLESS-3 | 649ms
+  - VLESS-4 | 668ms
+  - VLESS-5 | 568ms
+  - VLESS-6 | 557ms
+  - VLESS-7 | 555ms
+  - VLESS-8 | 552ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
