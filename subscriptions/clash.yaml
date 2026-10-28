@@ -5,42 +5,50 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 544ms
+- name: VLESS-1 | 202ms
   type: vless
-  server: 85.198.85.55
-  port: 8443
-  uuid: 7e1dc732-1691-4699-8517-e3ca53887978
-  network: tcp
-- name: VLESS-2 | 358ms
-  type: vless
-  server: ru1.radiolumens.uk
-  port: 8444
-  uuid: 36cf792c-f07d-4500-97ea-a395e5178deb
+  server: 189.74.114.93
+  port: 443
+  uuid: c6628db6-025d-40e8-b79d-033f4372a6b7
   network: grpc
   tls: true
-  servername: ru1.radiolumens.uk
-- name: VLESS-3 | 592ms
+  servername: api.mediaklenov.cc
+- name: VLESS-2 | 210ms
   type: vless
-  server: dropstyle.lol
+  server: 189.74.114.93
   port: 443
-  uuid: d49f7cc7-0c15-4a49-9644-ef72e00d8e56
-  network: ws
+  uuid: c6628db6-025d-40e8-b79d-033f4372a6b7
+  network: grpc
   tls: true
-  servername: dropstyle.lol
+  servername: api.mediaklenov.cc
+- name: VLESS-3 | 835ms
+  type: vless
+  server: 94.183.195.113
+  port: 20064
+  uuid: f439e4fe-139b-4882-ad8b-a16176d09c88
+  network: tcp
+- name: VLESS-4 | 612ms
+  type: vless
+  server: 94.183.195.113
+  port: 20064
+  uuid: f439e4fe-139b-4882-ad8b-a16176d09c88
+  network: tcp
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 544ms
-  - VLESS-2 | 358ms
-  - VLESS-3 | 592ms
+  - VLESS-1 | 202ms
+  - VLESS-2 | 210ms
+  - VLESS-3 | 835ms
+  - VLESS-4 | 612ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 544ms
-  - VLESS-2 | 358ms
-  - VLESS-3 | 592ms
+  - VLESS-1 | 202ms
+  - VLESS-2 | 210ms
+  - VLESS-3 | 835ms
+  - VLESS-4 | 612ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
