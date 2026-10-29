@@ -5,7 +5,7 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 296ms
+- name: VLESS-1 | 288ms
   type: vless
   server: 189.74.114.93
   port: 443
@@ -13,7 +13,7 @@ proxies:
   network: grpc
   tls: true
   servername: api.mediaklenov.cc
-- name: VLESS-2 | 298ms
+- name: VLESS-2 | 302ms
   type: vless
   server: 189.74.114.93
   port: 443
@@ -21,28 +21,68 @@ proxies:
   network: grpc
   tls: true
   servername: api.mediaklenov.cc
-- name: VLESS-3 | 1249ms
+- name: VLESS-3 | 123ms
   type: vless
-  server: 138.124.254.141
+  server: 189.74.114.93
   port: 443
-  uuid: 2dfc872e-5c3d-466e-944b-bdf0840a4a9d
+  uuid: c6628db6-025d-40e8-b79d-033f4372a6b7
+  network: grpc
+  tls: true
+  servername: api.mediaklenov.cc
+- name: VLESS-4 | 465ms
+  type: vless
+  server: 185.86.145.37
+  port: 443
+  uuid: 04b7c62b-762e-4a8c-ba37-8328d25c8d74
   network: ws
   tls: true
-  servername: crt.onecloudstream.com
+  servername: ararat.rtkdvbr.cc
+- name: VLESS-5 | 473ms
+  type: vless
+  server: 185.86.145.37
+  port: 443
+  uuid: 04b7c62b-762e-4a8c-ba37-8328d25c8d74
+  network: ws
+  tls: true
+  servername: ararat.rtkdvbr.cc
+- name: VLESS-6 | 515ms
+  type: vless
+  server: ararat.rtkdvbr.cc
+  port: 443
+  uuid: 04b7c62b-762e-4a8c-ba37-8328d25c8d74
+  network: ws
+  tls: true
+  servername: ararat.rtkdvbr.cc
+- name: VLESS-7 | 488ms
+  type: vless
+  server: ararat.rtkdvbr.cc
+  port: 443
+  uuid: 04b7c62b-762e-4a8c-ba37-8328d25c8d74
+  network: ws
+  tls: true
+  servername: ararat.rtkdvbr.cc
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 296ms
-  - VLESS-2 | 298ms
-  - VLESS-3 | 1249ms
+  - VLESS-1 | 288ms
+  - VLESS-2 | 302ms
+  - VLESS-3 | 123ms
+  - VLESS-4 | 465ms
+  - VLESS-5 | 473ms
+  - VLESS-6 | 515ms
+  - VLESS-7 | 488ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 296ms
-  - VLESS-2 | 298ms
-  - VLESS-3 | 1249ms
+  - VLESS-1 | 288ms
+  - VLESS-2 | 302ms
+  - VLESS-3 | 123ms
+  - VLESS-4 | 465ms
+  - VLESS-5 | 473ms
+  - VLESS-6 | 515ms
+  - VLESS-7 | 488ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
