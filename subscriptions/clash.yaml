@@ -5,7 +5,7 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 338ms
+- name: VLESS-1 | 296ms
   type: vless
   server: 189.74.114.93
   port: 443
@@ -13,56 +13,36 @@ proxies:
   network: grpc
   tls: true
   servername: api.mediaklenov.cc
-- name: VLESS-2 | 515ms
+- name: VLESS-2 | 298ms
   type: vless
-  server: pulse-resume.pro
+  server: 189.74.114.93
   port: 443
-  uuid: 34ec30ca-c499-46c5-a0b9-20638e5197e9
+  uuid: c6628db6-025d-40e8-b79d-033f4372a6b7
+  network: grpc
+  tls: true
+  servername: api.mediaklenov.cc
+- name: VLESS-3 | 1249ms
+  type: vless
+  server: 138.124.254.141
+  port: 443
+  uuid: 2dfc872e-5c3d-466e-944b-bdf0840a4a9d
   network: ws
   tls: true
-  servername: pulse-resume.pro
-- name: VLESS-3 | 538ms
-  type: vless
-  server: 185.86.145.37
-  port: 443
-  uuid: 34ec30ca-c499-46c5-a0b9-20638e5197e9
-  network: ws
-  tls: true
-  servername: pulse-resume.pro
-- name: VLESS-4 | 571ms
-  type: vless
-  server: 185.86.145.37
-  port: 443
-  uuid: 34ec30ca-c499-46c5-a0b9-20638e5197e9
-  network: ws
-  tls: true
-  servername: pulse-resume.pro
-- name: VLESS-5 | 569ms
-  type: vless
-  server: pulse-resume.pro
-  port: 443
-  uuid: 34ec30ca-c499-46c5-a0b9-20638e5197e9
-  network: ws
-  tls: true
-  servername: pulse-resume.pro
+  servername: crt.onecloudstream.com
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 338ms
-  - VLESS-2 | 515ms
-  - VLESS-3 | 538ms
-  - VLESS-4 | 571ms
-  - VLESS-5 | 569ms
+  - VLESS-1 | 296ms
+  - VLESS-2 | 298ms
+  - VLESS-3 | 1249ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 338ms
-  - VLESS-2 | 515ms
-  - VLESS-3 | 538ms
-  - VLESS-4 | 571ms
-  - VLESS-5 | 569ms
+  - VLESS-1 | 296ms
+  - VLESS-2 | 298ms
+  - VLESS-3 | 1249ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:

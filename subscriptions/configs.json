@@ -6,7 +6,79 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10811,
+        "port": 10814,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "189.74.114.93",
+              "port": 443,
+              "users": [
+                {
+                  "id": "c6628db6-025d-40e8-b79d-033f4372a6b7",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "api.mediaklenov.cc",
+            "allowInsecure": true,
+            "fingerprint": "safari",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ]
+          },
+          "grpcSettings": {
+            "serviceName": "3e99d50d5740985d",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10800,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -78,7 +150,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10802,
+        "port": 10800,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -94,11 +166,11 @@
         "settings": {
           "vnext": [
             {
-              "address": "pulse-resume.pro",
+              "address": "138.124.254.141",
               "port": 443,
               "users": [
                 {
-                  "id": "34ec30ca-c499-46c5-a0b9-20638e5197e9",
+                  "id": "2dfc872e-5c3d-466e-944b-bdf0840a4a9d",
                   "encryption": "none",
                   "flow": ""
                 }
@@ -110,7 +182,7 @@
           "network": "ws",
           "security": "tls",
           "tlsSettings": {
-            "serverName": "pulse-resume.pro",
+            "serverName": "crt.onecloudstream.com",
             "allowInsecure": true,
             "fingerprint": "qq",
             "alpn": [
@@ -119,231 +191,9 @@
             ]
           },
           "wsSettings": {
-            "path": "/amws",
+            "path": "/vless-ws",
             "headers": {
-              "Host": "pulse-resume.pro"
-            }
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10805,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "185.86.145.37",
-              "port": 443,
-              "users": [
-                {
-                  "id": "34ec30ca-c499-46c5-a0b9-20638e5197e9",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "ws",
-          "security": "tls",
-          "tlsSettings": {
-            "serverName": "pulse-resume.pro",
-            "allowInsecure": true,
-            "fingerprint": "safari",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ]
-          },
-          "wsSettings": {
-            "path": "/amws",
-            "headers": {
-              "Host": "pulse-resume.pro"
-            }
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10812,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "185.86.145.37",
-              "port": 443,
-              "users": [
-                {
-                  "id": "34ec30ca-c499-46c5-a0b9-20638e5197e9",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "ws",
-          "security": "tls",
-          "tlsSettings": {
-            "serverName": "pulse-resume.pro",
-            "allowInsecure": true,
-            "fingerprint": "android",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ]
-          },
-          "wsSettings": {
-            "path": "/amws",
-            "headers": {
-              "Host": "pulse-resume.pro"
-            }
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10803,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "pulse-resume.pro",
-              "port": 443,
-              "users": [
-                {
-                  "id": "34ec30ca-c499-46c5-a0b9-20638e5197e9",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "ws",
-          "security": "tls",
-          "tlsSettings": {
-            "serverName": "pulse-resume.pro",
-            "allowInsecure": true,
-            "fingerprint": "android",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ]
-          },
-          "wsSettings": {
-            "path": "/amws",
-            "headers": {
-              "Host": "pulse-resume.pro"
+              "Host": "138.124.254.141"
             }
           }
         },
