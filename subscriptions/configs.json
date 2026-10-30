@@ -6,7 +6,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10816,
+        "port": 10815,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -77,7 +77,222 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10814,
+        "port": 10816,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "api.mediaklenov.cc",
+              "port": 443,
+              "users": [
+                {
+                  "id": "abd5755a-8b77-4ed4-afbd-f2ccbc08e6f5",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "api.mediaklenov.cc",
+            "allowInsecure": true,
+            "fingerprint": "firefox",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ]
+          },
+          "grpcSettings": {
+            "serviceName": "3e99d50d5740985d",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10818,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "189.74.114.119",
+              "port": 443,
+              "users": [
+                {
+                  "id": "abd5755a-8b77-4ed4-afbd-f2ccbc08e6f5",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "api.mediaklenov.cc",
+            "allowInsecure": true,
+            "fingerprint": "safari",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ]
+          },
+          "grpcSettings": {
+            "serviceName": "3e99d50d5740985d",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10812,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "api.mediaklenov.cc",
+              "port": 443,
+              "users": [
+                {
+                  "id": "abd5755a-8b77-4ed4-afbd-f2ccbc08e6f5",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "grpc",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "api.mediaklenov.cc",
+            "allowInsecure": true,
+            "fingerprint": "safari",
+            "alpn": [
+              "h2"
+            ]
+          },
+          "grpcSettings": {
+            "serviceName": "3e99d50d5740985d",
+            "multiMode": true
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10817,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -149,79 +364,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10815,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "189.74.114.119",
-              "port": 443,
-              "users": [
-                {
-                  "id": "abd5755a-8b77-4ed4-afbd-f2ccbc08e6f5",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "grpc",
-          "security": "tls",
-          "tlsSettings": {
-            "serverName": "api.mediaklenov.cc",
-            "allowInsecure": true,
-            "fingerprint": "safari",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ]
-          },
-          "grpcSettings": {
-            "serviceName": "3e99d50d5740985d",
-            "multiMode": true
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10811,
+        "port": 10802,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -255,78 +398,7 @@
           "tlsSettings": {
             "serverName": "api.mediaklenov.cc",
             "allowInsecure": true,
-            "fingerprint": "safari",
-            "alpn": [
-              "h2"
-            ]
-          },
-          "grpcSettings": {
-            "serviceName": "3e99d50d5740985d",
-            "multiMode": true
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10819,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "189.74.114.93",
-              "port": 443,
-              "users": [
-                {
-                  "id": "c6628db6-025d-40e8-b79d-033f4372a6b7",
-                  "encryption": "none",
-                  "flow": ""
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "grpc",
-          "security": "tls",
-          "tlsSettings": {
-            "serverName": "api.mediaklenov.cc",
-            "allowInsecure": true,
-            "fingerprint": "safari",
+            "fingerprint": "qq",
             "alpn": [
               "h2",
               "http/1.1"
@@ -364,7 +436,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10800,
+        "port": 10807,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -472,7 +544,7 @@
           "tlsSettings": {
             "serverName": "ararat.rtkdvbr.cc",
             "allowInsecure": true,
-            "fingerprint": "ios",
+            "fingerprint": "qq",
             "alpn": [
               "h2",
               "http/1.1"
@@ -512,7 +584,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10813,
+        "port": 10811,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -546,7 +618,7 @@
           "tlsSettings": {
             "serverName": "ararat.rtkdvbr.cc",
             "allowInsecure": true,
-            "fingerprint": "qq",
+            "fingerprint": "ios",
             "alpn": [
               "h2",
               "http/1.1"
