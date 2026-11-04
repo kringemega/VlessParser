@@ -5,58 +5,30 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: TROJAN-1 | 611ms
-  type: trojan
-  server: 153.76.161.159
-  port: 443
-  password: zViIBNyzxX1SgY8aOTMM72-Oy8O4PS89
-  sni: stoic-ridge.freedomcdnhelloworld.com
-- name: TROJAN-2 | 1194ms
-  type: trojan
-  server: 153.76.161.159
-  port: 443
-  password: zViIBNyzxX1SgY8aOTMM72-Oy8O4PS89
-  sni: stoic-ridge.freedomcdnhelloworld.com
-- name: TROJAN-3 | 987ms
-  type: trojan
-  server: 153.76.161.159
-  port: 443
-  password: zViIBNyzxX1SgY8aOTMM72-Oy8O4PS89
-  sni: stoic-ridge.freedomcdnhelloworld.com
-- name: VLESS-4 | 282ms
+- name: VLESS-1 | 501ms
   type: vless
-  server: 185.86.145.37
+  server: 147.45.161.4
   port: 443
-  uuid: 135aa7e5-87af-4df2-a9f0-0c4eaea0c492
-  network: ws
-  tls: true
-  servername: rar.rtkdvbr.cc
-- name: VLESS-5 | 622ms
+  uuid: 7ad63b26-bf70-4872-8fab-ebaf73a1e19d
+  network: tcp
+- name: VLESS-2 | 520ms
   type: vless
-  server: 185.86.145.37
+  server: 147.45.161.4
   port: 443
-  uuid: 135aa7e5-87af-4df2-a9f0-0c4eaea0c492
-  network: ws
-  tls: true
-  servername: rar.rtkdvbr.cc
+  uuid: 7ad63b26-bf70-4872-8fab-ebaf73a1e19d
+  network: tcp
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - TROJAN-1 | 611ms
-  - TROJAN-2 | 1194ms
-  - TROJAN-3 | 987ms
-  - VLESS-4 | 282ms
-  - VLESS-5 | 622ms
+  - VLESS-1 | 501ms
+  - VLESS-2 | 520ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - TROJAN-1 | 611ms
-  - TROJAN-2 | 1194ms
-  - TROJAN-3 | 987ms
-  - VLESS-4 | 282ms
-  - VLESS-5 | 622ms
+  - VLESS-1 | 501ms
+  - VLESS-2 | 520ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
