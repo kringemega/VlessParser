@@ -5,30 +5,34 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 501ms
+- name: VLESS-1 | 684ms
   type: vless
-  server: 147.45.161.4
+  server: 185.86.145.37
   port: 443
-  uuid: 7ad63b26-bf70-4872-8fab-ebaf73a1e19d
-  network: tcp
-- name: VLESS-2 | 520ms
+  uuid: 40945325-a133-41ef-8fc3-2e726678ad52
+  network: ws
+  tls: true
+  servername: rar.rtkdvbr.cc
+- name: VLESS-2 | 859ms
   type: vless
-  server: 147.45.161.4
+  server: 185.86.145.37
   port: 443
-  uuid: 7ad63b26-bf70-4872-8fab-ebaf73a1e19d
-  network: tcp
+  uuid: 40945325-a133-41ef-8fc3-2e726678ad52
+  network: ws
+  tls: true
+  servername: rar.rtkdvbr.cc
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 501ms
-  - VLESS-2 | 520ms
+  - VLESS-1 | 684ms
+  - VLESS-2 | 859ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 501ms
-  - VLESS-2 | 520ms
+  - VLESS-1 | 684ms
+  - VLESS-2 | 859ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
