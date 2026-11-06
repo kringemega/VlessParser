@@ -6,6 +6,232 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
+        "port": 10809,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "re-rus2.koska.pro",
+              "port": 443,
+              "users": [
+                {
+                  "id": "c5f09ac5-d980-408d-a7fa-00cdb4d8ead4",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "xhttp",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "yandex.tr",
+            "allowInsecure": true,
+            "fingerprint": "firefox",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "6OOa1D_Yrkt0k9VXpuDC6j0qtqwtfV7-P-KsqAJyrks",
+            "shortId": "8580939eb8d1ca17",
+            "spiderX": "/"
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10812,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "176.123.162.102",
+              "port": 8443,
+              "users": [
+                {
+                  "id": "65e7a6ab-84b4-4202-a951-7d2afe2aa352",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "vk.ru",
+            "allowInsecure": true,
+            "fingerprint": "firefox",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "5J8IRlEEy8vuB2NArH15h9EVV--wwDUdq-_9HXoy9FM",
+            "shortId": "dcc04e7520",
+            "spiderX": "/"
+          },
+          "tcpSettings": {
+            "header": {
+              "type": "none"
+            }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10807,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "hudson.glowbreeze.online",
+              "port": 443,
+              "users": [
+                {
+                  "id": "255a8044-3337-473e-af26-46a37208adcc",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "hudson.glowbreeze.online",
+            "allowInsecure": true,
+            "fingerprint": "edge",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "qqvs2x0N1F5WgXvC7PB9wmO5RxcVgCHS1hYHYOxdBk4",
+            "shortId": "5f3fd060c992bb2e",
+            "spiderX": "/"
+          },
+          "tcpSettings": {
+            "header": {
+              "type": "none"
+            }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
         "port": 10805,
         "protocol": "http",
         "settings": {
@@ -22,11 +248,11 @@
         "settings": {
           "vnext": [
             {
-              "address": "connect2.accessgate.link",
-              "port": 2086,
+              "address": "hudson.glowbreeze.online",
+              "port": 443,
               "users": [
                 {
-                  "id": "2f6c70f3-206a-4bc1-ac1f-6b70153f9c73",
+                  "id": "255a8044-3337-473e-af26-46a37208adcc",
                   "encryption": "none",
                   "flow": "xtls-rprx-vision"
                 }
@@ -38,7 +264,238 @@
           "network": "tcp",
           "security": "reality",
           "realitySettings": {
-            "serverName": "unpkg.com",
+            "serverName": "hudson.glowbreeze.online",
+            "allowInsecure": true,
+            "fingerprint": "firefox",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "qqvs2x0N1F5WgXvC7PB9wmO5RxcVgCHS1hYHYOxdBk4",
+            "shortId": "5f3fd060c992bb2e",
+            "spiderX": "/"
+          },
+          "tcpSettings": {
+            "header": {
+              "type": "none"
+            }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10813,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "176.123.162.102",
+              "port": 8443,
+              "users": [
+                {
+                  "id": "65e7a6ab-84b4-4202-a951-7d2afe2aa352",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "vk.ru",
+            "allowInsecure": true,
+            "fingerprint": "safari",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "5J8IRlEEy8vuB2NArH15h9EVV--wwDUdq-_9HXoy9FM",
+            "shortId": "dcc04e7520",
+            "spiderX": "/"
+          },
+          "tcpSettings": {
+            "header": {
+              "type": "none"
+            }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10813,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "95.213.245.84",
+              "port": 443,
+              "users": [
+                {
+                  "id": "255a8044-3337-473e-af26-46a37208adcc",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "hudson.glowbreeze.online",
+            "allowInsecure": true,
+            "fingerprint": "firefox",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "qqvs2x0N1F5WgXvC7PB9wmO5RxcVgCHS1hYHYOxdBk4",
+            "shortId": "5f3fd060c992bb2e",
+            "spiderX": "/"
+          },
+          "tcpSettings": {
+            "header": {
+              "type": "none"
+            }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10818,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "hudson.glowbreeze.online",
+              "port": 443,
+              "users": [
+                {
+                  "id": "255a8044-3337-473e-af26-46a37208adcc",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "hudson.glowbreeze.online",
             "allowInsecure": true,
             "fingerprint": "ios",
             "alpn": [
@@ -46,13 +503,164 @@
               "http/1.1"
             ],
             "show": false,
-            "publicKey": "CQBmePak1QN5SsSmK_KTOSLjsCTaiaM4Jtxt7jLheko",
-            "shortId": "b0d8c9a285c70f6f",
+            "publicKey": "qqvs2x0N1F5WgXvC7PB9wmO5RxcVgCHS1hYHYOxdBk4",
+            "shortId": "5f3fd060c992bb2e",
             "spiderX": "/"
           },
           "tcpSettings": {
             "header": {
               "type": "none"
+            }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10817,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "hudson.glowbreeze.online",
+              "port": 443,
+              "users": [
+                {
+                  "id": "255a8044-3337-473e-af26-46a37208adcc",
+                  "encryption": "none",
+                  "flow": "xtls-rprx-vision"
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "tcp",
+          "security": "reality",
+          "realitySettings": {
+            "serverName": "hudson.glowbreeze.online",
+            "allowInsecure": true,
+            "fingerprint": "safari",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ],
+            "show": false,
+            "publicKey": "qqvs2x0N1F5WgXvC7PB9wmO5RxcVgCHS1hYHYOxdBk4",
+            "shortId": "5f3fd060c992bb2e",
+            "spiderX": "/"
+          },
+          "tcpSettings": {
+            "header": {
+              "type": "none"
+            }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10806,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "72.56.233.10",
+              "port": 8443,
+              "users": [
+                {
+                  "id": "981c7ccc-2b17-473c-8358-7fd1d6eec1b4",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "lte-v2-ws.gacvpn.site",
+            "allowInsecure": true,
+            "fingerprint": "firefox",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ]
+          },
+          "wsSettings": {
+            "path": "/static/js/runtime.9d03c7.js",
+            "headers": {
+              "Host": "72.56.233.10"
             }
           }
         },
@@ -99,114 +707,34 @@
         "settings": {
           "vnext": [
             {
-              "address": "connect2.accessgate.link",
-              "port": 2086,
+              "address": "72.56.233.10",
+              "port": 8443,
               "users": [
                 {
-                  "id": "2f6c70f3-206a-4bc1-ac1f-6b70153f9c73",
+                  "id": "981c7ccc-2b17-473c-8358-7fd1d6eec1b4",
                   "encryption": "none",
-                  "flow": "xtls-rprx-vision"
+                  "flow": ""
                 }
               ]
             }
           ]
         },
         "streamSettings": {
-          "network": "tcp",
-          "security": "reality",
-          "realitySettings": {
-            "serverName": "unpkg.com",
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "lte-v2-ws.gacvpn.site",
             "allowInsecure": true,
-            "fingerprint": "firefox",
+            "fingerprint": "qq",
             "alpn": [
               "h2",
               "http/1.1"
-            ],
-            "show": false,
-            "publicKey": "CQBmePak1QN5SsSmK_KTOSLjsCTaiaM4Jtxt7jLheko",
-            "shortId": "b0d8c9a285c70f6f",
-            "spiderX": "/"
+            ]
           },
-          "tcpSettings": {
-            "header": {
-              "type": "none"
-            }
-          }
-        },
-        "tag": "proxy"
-      },
-      {
-        "protocol": "freedom",
-        "tag": "direct"
-      }
-    ],
-    "routing": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
-        {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
-        }
-      ]
-    }
-  },
-  {
-    "log": {
-      "loglevel": "warning"
-    },
-    "inbounds": [
-      {
-        "listen": "127.0.0.1",
-        "port": 10800,
-        "protocol": "http",
-        "settings": {
-          "timeout": 0,
-          "allowTransparent": false,
-          "userLevel": 0
-        },
-        "tag": "http-in"
-      }
-    ],
-    "outbounds": [
-      {
-        "protocol": "vless",
-        "settings": {
-          "vnext": [
-            {
-              "address": "connect2.accessgate.link",
-              "port": 2086,
-              "users": [
-                {
-                  "id": "2f6c70f3-206a-4bc1-ac1f-6b70153f9c73",
-                  "encryption": "none",
-                  "flow": "xtls-rprx-vision"
-                }
-              ]
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "tcp",
-          "security": "reality",
-          "realitySettings": {
-            "serverName": "unpkg.com",
-            "allowInsecure": true,
-            "fingerprint": "chrome",
-            "alpn": [
-              "h2",
-              "http/1.1"
-            ],
-            "show": false,
-            "publicKey": "CQBmePak1QN5SsSmK_KTOSLjsCTaiaM4Jtxt7jLheko",
-            "shortId": "b0d8c9a285c70f6f",
-            "spiderX": "/"
-          },
-          "tcpSettings": {
-            "header": {
-              "type": "none"
+          "wsSettings": {
+            "path": "/static/js/runtime.9d03c7.js",
+            "headers": {
+              "Host": "72.56.233.10"
             }
           }
         },
@@ -253,11 +781,11 @@
         "settings": {
           "vnext": [
             {
-              "address": "connect2.accessgate.link",
-              "port": 2086,
+              "address": "hudson.glowbreeze.online",
+              "port": 443,
               "users": [
                 {
-                  "id": "2f6c70f3-206a-4bc1-ac1f-6b70153f9c73",
+                  "id": "255a8044-3337-473e-af26-46a37208adcc",
                   "encryption": "none",
                   "flow": "xtls-rprx-vision"
                 }
@@ -269,16 +797,16 @@
           "network": "tcp",
           "security": "reality",
           "realitySettings": {
-            "serverName": "unpkg.com",
+            "serverName": "hudson.glowbreeze.online",
             "allowInsecure": true,
-            "fingerprint": "edge",
+            "fingerprint": "chrome",
             "alpn": [
               "h2",
               "http/1.1"
             ],
             "show": false,
-            "publicKey": "CQBmePak1QN5SsSmK_KTOSLjsCTaiaM4Jtxt7jLheko",
-            "shortId": "b0d8c9a285c70f6f",
+            "publicKey": "qqvs2x0N1F5WgXvC7PB9wmO5RxcVgCHS1hYHYOxdBk4",
+            "shortId": "5f3fd060c992bb2e",
             "spiderX": "/"
           },
           "tcpSettings": {
@@ -314,7 +842,7 @@
     "inbounds": [
       {
         "listen": "127.0.0.1",
-        "port": 10803,
+        "port": 10802,
         "protocol": "http",
         "settings": {
           "timeout": 0,
@@ -330,37 +858,108 @@
         "settings": {
           "vnext": [
             {
-              "address": "connect2.accessgate.link",
-              "port": 2086,
+              "address": "lte-v2-ws.gacvpn.site",
+              "port": 8443,
               "users": [
                 {
-                  "id": "2f6c70f3-206a-4bc1-ac1f-6b70153f9c73",
+                  "id": "981c7ccc-2b17-473c-8358-7fd1d6eec1b4",
                   "encryption": "none",
-                  "flow": "xtls-rprx-vision"
+                  "flow": ""
                 }
               ]
             }
           ]
         },
         "streamSettings": {
-          "network": "tcp",
-          "security": "reality",
-          "realitySettings": {
-            "serverName": "unpkg.com",
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "lte-v2-ws.gacvpn.site",
+            "allowInsecure": true,
+            "fingerprint": "firefox",
+            "alpn": [
+              "h2",
+              "http/1.1"
+            ]
+          },
+          "wsSettings": {
+            "path": "/static/js/runtime.9d03c7.js",
+            "headers": {
+              "Host": "lte-v2-ws.gacvpn.site"
+            }
+          }
+        },
+        "tag": "proxy"
+      },
+      {
+        "protocol": "freedom",
+        "tag": "direct"
+      }
+    ],
+    "routing": {
+      "domainStrategy": "IPIfNonMatch",
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "geoip:private"
+          ],
+          "outboundTag": "direct"
+        }
+      ]
+    }
+  },
+  {
+    "log": {
+      "loglevel": "warning"
+    },
+    "inbounds": [
+      {
+        "listen": "127.0.0.1",
+        "port": 10816,
+        "protocol": "http",
+        "settings": {
+          "timeout": 0,
+          "allowTransparent": false,
+          "userLevel": 0
+        },
+        "tag": "http-in"
+      }
+    ],
+    "outbounds": [
+      {
+        "protocol": "vless",
+        "settings": {
+          "vnext": [
+            {
+              "address": "lte-v2-ws.gacvpn.site",
+              "port": 8443,
+              "users": [
+                {
+                  "id": "981c7ccc-2b17-473c-8358-7fd1d6eec1b4",
+                  "encryption": "none",
+                  "flow": ""
+                }
+              ]
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "security": "tls",
+          "tlsSettings": {
+            "serverName": "lte-v2-ws.gacvpn.site",
             "allowInsecure": true,
             "fingerprint": "safari",
             "alpn": [
               "h2",
               "http/1.1"
-            ],
-            "show": false,
-            "publicKey": "CQBmePak1QN5SsSmK_KTOSLjsCTaiaM4Jtxt7jLheko",
-            "shortId": "b0d8c9a285c70f6f",
-            "spiderX": "/"
+            ]
           },
-          "tcpSettings": {
-            "header": {
-              "type": "none"
+          "wsSettings": {
+            "path": "/static/js/runtime.9d03c7.js",
+            "headers": {
+              "Host": "lte-v2-ws.gacvpn.site"
             }
           }
         },
