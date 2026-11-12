@@ -5,7 +5,7 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 1002ms
+- name: VLESS-1 | 599ms
   type: vless
   server: astravellion.xyz
   port: 443
@@ -13,16 +13,46 @@ proxies:
   network: grpc
   tls: true
   servername: astravellion.xyz
+- name: VLESS-2 | 604ms
+  type: vless
+  server: astravellion.xyz
+  port: 443
+  uuid: 4b50270b-5caf-4c34-b3da-17b4525604a6
+  network: grpc
+  tls: true
+  servername: astravellion.xyz
+- name: VLESS-3 | 597ms
+  type: vless
+  server: astravellion.xyz
+  port: 443
+  uuid: 4b50270b-5caf-4c34-b3da-17b4525604a6
+  network: grpc
+  tls: true
+  servername: astravellion.xyz
+- name: VLESS-4 | 206ms
+  type: vless
+  server: bhjolq0d0l.flowersgood.top
+  port: 443
+  uuid: 7955bf18-35c4-412d-aabd-c0b36c793063
+  network: ws
+  tls: true
+  servername: bhjolq0d0l.flowersgood.top
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 1002ms
+  - VLESS-1 | 599ms
+  - VLESS-2 | 604ms
+  - VLESS-3 | 597ms
+  - VLESS-4 | 206ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 1002ms
+  - VLESS-1 | 599ms
+  - VLESS-2 | 604ms
+  - VLESS-3 | 597ms
+  - VLESS-4 | 206ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
