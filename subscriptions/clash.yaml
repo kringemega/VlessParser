@@ -5,22 +5,64 @@ mode: rule
 log-level: info
 external-controller: 127.0.0.1:9090
 proxies:
-- name: VLESS-1 | 660ms
+- name: VLESS-1 | 1177ms
   type: vless
-  server: 116.206.95.231
-  port: 43000
-  uuid: 4a923161-156f-4914-8cac-762fb2433bfb
-  network: tcp
+  server: 185.86.147.175
+  port: 443
+  uuid: 7955bf18-35c4-412d-aabd-c0b36c793063
+  network: ws
+  tls: true
+  servername: nguyxejonb.flowersgood.top
+- name: VLESS-2 | 1134ms
+  type: vless
+  server: ivory.filnex.baby
+  port: 443
+  uuid: 820fa845-a1eb-4a83-b613-e6714cea8a1a
+  network: ws
+  tls: true
+  servername: ivory.filnex.baby
+- name: VLESS-3 | 2596ms
+  type: vless
+  server: 186.246.9.15
+  port: 443
+  uuid: 820fa845-a1eb-4a83-b613-e6714cea8a1a
+  network: grpc
+  tls: true
+  servername: notebook.filnex.baby
+- name: VLESS-4 | 2606ms
+  type: vless
+  server: 186.246.9.15
+  port: 443
+  uuid: 820fa845-a1eb-4a83-b613-e6714cea8a1a
+  network: grpc
+  tls: true
+  servername: notebook.filnex.baby
+- name: VLESS-5 | 3847ms
+  type: vless
+  server: ivory.filnex.baby
+  port: 443
+  uuid: 820fa845-a1eb-4a83-b613-e6714cea8a1a
+  network: ws
+  tls: true
+  servername: ivory.filnex.baby
 proxy-groups:
 - name: PROXY
   type: select
   proxies:
   - Auto-Select
-  - VLESS-1 | 660ms
+  - VLESS-1 | 1177ms
+  - VLESS-2 | 1134ms
+  - VLESS-3 | 2596ms
+  - VLESS-4 | 2606ms
+  - VLESS-5 | 3847ms
 - name: Auto-Select
   type: url-test
   proxies:
-  - VLESS-1 | 660ms
+  - VLESS-1 | 1177ms
+  - VLESS-2 | 1134ms
+  - VLESS-3 | 2596ms
+  - VLESS-4 | 2606ms
+  - VLESS-5 | 3847ms
   url: https://www.google.com/generate_204
   interval: 300
 rules:
